@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 // Adapted from https://github.com/Unity-Technologies/ScriptableRenderPipeline/blob/master/com.unity.render-pipelines.universal/Runtime/Passes/RenderObjectsPass.cs
-public class ClipSphereRenderPass : ScriptableRenderPass {
+public class ClipSphereWorldRenderPass : ScriptableRenderPass {
     private FilteringSettings filterSettings;
     private List<ShaderTagId> shaderTagIds = new List<ShaderTagId>() {
         new ShaderTagId("SRPDefaultUnlit"),
@@ -16,9 +17,9 @@ public class ClipSphereRenderPass : ScriptableRenderPass {
     };
     private RenderStateBlock renderStateBlock;
 
-    public static EventHandler<Vector3> OnProxyPass;
+    public static EventHandler<Vector3> OnSpherePass;
 
-    public ClipSphereRenderPass(int layerMask, RenderQueueType queue) {
+    public ClipSphereWorldRenderPass(int layerMask, RenderQueueType queue) {
         if(queue == RenderQueueType.Opaque) {
             filterSettings = new FilteringSettings(RenderQueueRange.opaque, layerMask);
         } else {
@@ -38,7 +39,7 @@ public class ClipSphereRenderPass : ScriptableRenderPass {
         }
         var drawSettings = CreateDrawingSettings(shaderTagIds, ref renderingData, sortFlags);
 
-        CommandBuffer cmd = CommandBufferPool.Get("ClipSphere");
+        CommandBuffer cmd = CommandBufferPool.Get("ClipSphereWorld");
         cmd.EnableShaderKeyword("CLIP_SPHERE_ON");
         cmd.SetGlobalFloat("_ClipObjEdgeThickness", 0.01f);
         context.ExecuteCommandBuffer(cmd);
@@ -46,11 +47,25 @@ public class ClipSphereRenderPass : ScriptableRenderPass {
 
         var baseCameraMatrix = camera.worldToCameraMatrix;
 
-        // ADD
         foreach (var mini in MiniatureWorld.Instances)
         {
-            if (mini.ROI != null)
+            if (!mini.isActiveAndEnabled)
             {
+                continue;
+            }
+
+            // if (mini.State == ProxyNode.ProxyState.Minimized)
+            // {
+            //     continue;
+            // }
+
+            if (mini.ROI == null)
+            {
+                continue;
+            }
+            else
+            {
+
                 cmd.SetGlobalColor("_ClipObjEdgeColor", mini.Color);
                 cmd.SetGlobalVector("_ClipObjPosition", mini.ROI.transform.position);
                 cmd.SetGlobalVector("_ClipObjScale", 0.5f * mini.ProxyScaleFactor * mini.ROI.transform.localScale);
@@ -59,59 +74,33 @@ public class ClipSphereRenderPass : ScriptableRenderPass {
                 cmd.SetGlobalMatrix("_ClipTransformInv", clipTransform.inverse);
                 context.ExecuteCommandBuffer(cmd);
 
-                OnProxyPass?.Invoke(this, GetProxyCameraPosition(mini.transform, mini.ROI.transform));
+                OnSpherePass?.Invoke(this, GetProxyCameraPosition(mini.transform, mini.ROI.transform));
 
                 // Stupid hack, because the other versions crashed or didn't work
                 var scp = new ScriptableCullingParameters();
                 camera.TryGetCullingParameters(true, out scp);
                 scp.cullingPlaneCount = 6;
-                scp.SetCullingPlane(0, new Plane(new Vector3(1, 0, 0), mini.ROI.transform.position - new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
-                scp.SetCullingPlane(1, new Plane(new Vector3(-1, 0, 0), mini.ROI.transform.position + new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
-                scp.SetCullingPlane(2, new Plane(new Vector3(0, 1, 0), mini.ROI.transform.position - new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
-                scp.SetCullingPlane(3, new Plane(new Vector3(0, -1, 0), mini.ROI.transform.position + new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
-                scp.SetCullingPlane(4, new Plane(new Vector3(0, 0, 1), mini.ROI.transform.position - new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
-                scp.SetCullingPlane(5, new Plane(new Vector3(0, 0, -1), mini.ROI.transform.position + new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
+                scp.SetCullingPlane(0,
+                    new Plane(new Vector3(1, 0, 0),
+                        mini.ROI.transform.position - new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
+                scp.SetCullingPlane(1,
+                    new Plane(new Vector3(-1, 0, 0),
+                        mini.ROI.transform.position + new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
+                scp.SetCullingPlane(2,
+                    new Plane(new Vector3(0, 1, 0),
+                        mini.ROI.transform.position - new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
+                scp.SetCullingPlane(3,
+                    new Plane(new Vector3(0, -1, 0),
+                        mini.ROI.transform.position + new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
+                scp.SetCullingPlane(4,
+                    new Plane(new Vector3(0, 0, 1),
+                        mini.ROI.transform.position - new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
+                scp.SetCullingPlane(5,
+                    new Plane(new Vector3(0, 0, -1),
+                        mini.ROI.transform.position + new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
                 var cullResults = context.Cull(ref scp);
-                
-                context.DrawRenderers(cullResults, ref drawSettings, ref filterSettings, ref renderStateBlock);
-            }
-        }
 
-
-        foreach(var proxy in ProxyNode.Instances) {
-            if(!proxy.isActiveAndEnabled) {
-                continue;
-            }
-            if(proxy.State == ProxyNode.ProxyState.Minimized) {
-                continue;
-            }
-
-            foreach(var mark in proxy.Marks) {
-                if(mark == null || !mark.isActiveAndEnabled) {
-                    continue;
-                }
-
-                cmd.SetGlobalColor("_ClipObjEdgeColor", proxy.Color);
-                cmd.SetGlobalVector("_ClipObjPosition", mark.transform.position);
-                cmd.SetGlobalVector("_ClipObjScale", 0.5f * proxy.ProxyScaleFactor * mark.transform.localScale);
-                var clipTransform = GetWarpTransform(proxy.transform, mark.transform);
-                cmd.SetGlobalMatrix("_ClipTransform", clipTransform);
-                cmd.SetGlobalMatrix("_ClipTransformInv", clipTransform.inverse);
-                context.ExecuteCommandBuffer(cmd);
-
-                OnProxyPass?.Invoke(this, GetProxyCameraPosition(proxy.transform, mark.transform));
-
-                // Stupid hack, because the other versions crashed or didn't work
-                var scp = new ScriptableCullingParameters();
-                camera.TryGetCullingParameters(true, out scp);
-                scp.cullingPlaneCount = 6;
-                scp.SetCullingPlane(0, new Plane(new Vector3(1, 0, 0), mark.transform.position - new Vector3(1, 0, 0) * mark.transform.localScale.x));
-                scp.SetCullingPlane(1, new Plane(new Vector3(-1, 0, 0), mark.transform.position + new Vector3(1, 0, 0) * mark.transform.localScale.x));
-                scp.SetCullingPlane(2, new Plane(new Vector3(0, 1, 0), mark.transform.position - new Vector3(0, 1, 0) * mark.transform.localScale.y));
-                scp.SetCullingPlane(3, new Plane(new Vector3(0, -1, 0), mark.transform.position + new Vector3(0, 1, 0) * mark.transform.localScale.y));
-                scp.SetCullingPlane(4, new Plane(new Vector3(0, 0, 1), mark.transform.position - new Vector3(0, 0, 1) * mark.transform.localScale.z));
-                scp.SetCullingPlane(5, new Plane(new Vector3(0, 0, -1), mark.transform.position + new Vector3(0, 0, 1) * mark.transform.localScale.z));
-                var cullResults = context.Cull(ref scp);
+                //Debug.Log("DrawRenderers()");
 
                 context.DrawRenderers(cullResults, ref drawSettings, ref filterSettings, ref renderStateBlock);
             }
@@ -153,16 +142,16 @@ public class ClipSphereRenderPass : ScriptableRenderPass {
 }
 
 // Adapted from https://github.com/Unity-Technologies/ScriptableRenderPipeline/blob/master/com.unity.render-pipelines.universal/Runtime/RendererFeatures/RenderObjects.cs
-public class ClipSphereRenderFeature : ScriptableRendererFeature {
-    private ClipSphereRenderPass opaquePass;
-    private ClipSphereRenderPass transparentPass;
+public class ClipSphereWorldRenderFeature : ScriptableRendererFeature {
+    private ClipSphereWorldRenderPass opaquePass;
+    private ClipSphereWorldRenderPass transparentPass;
 
     [System.Serializable]
-    public class ClipSphereSettings {
+    public class ClipSphereWorldSettings {
         public LayerMask LayerMask;
     }
 
-    public ClipSphereSettings settings = new ClipSphereSettings();
+    [FormerlySerializedAs("settings")] public ClipSphereWorldSettings worldSettings = new ClipSphereWorldSettings();
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
         if(opaquePass != null) {
@@ -174,9 +163,9 @@ public class ClipSphereRenderFeature : ScriptableRendererFeature {
     }
 
     public override void Create() {
-        opaquePass = new ClipSphereRenderPass(settings.LayerMask, RenderQueueType.Opaque);
+        opaquePass = new ClipSphereWorldRenderPass(worldSettings.LayerMask, RenderQueueType.Opaque);
         opaquePass.renderPassEvent = RenderPassEvent.AfterRenderingOpaques;
-        transparentPass = new ClipSphereRenderPass(settings.LayerMask, RenderQueueType.Transparent);
+        transparentPass = new ClipSphereWorldRenderPass(worldSettings.LayerMask, RenderQueueType.Transparent);
         transparentPass.renderPassEvent = RenderPassEvent.AfterRenderingTransparents;
     }
 }
