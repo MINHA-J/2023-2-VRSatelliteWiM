@@ -104,15 +104,13 @@ public class MiniatureWorld : MonoBehaviour
     /// </summary>
     /// <param name="pin">Detect Collider</param>
     public void CreateSatellite(uint index, Vector3 pos)
-    {
+    { 
+        GameObject instance = Instantiate(prefabSatellite);
+        instance.transform.SetParent(satellites.transform);
         // Minimap위에서 Ray를 찍은 점
         pos = transform.InverseTransformPoint(pos);
-        
-        GameObject instance = Instantiate(prefabSatellite);
-        instance.transform.position = this.transform.position + new Vector3(0, 0.3f, 0);
+        instance.transform.localPosition = pos + new Vector3(0, 0.3f, 0);
         instance.transform.LookAt(pos);
-        instance.transform.SetParent(satellites.transform);
-        //instance.
 
         instance.GetComponent<Satellite>().initPos = instance.transform.localPosition;
         instance.GetComponent<Satellite>().SetSatelliteIndex(index);
@@ -123,6 +121,7 @@ public class MiniatureWorld : MonoBehaviour
     {
         //GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode_fix", typeof(GameObject)) as GameObject;
         GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode", typeof(GameObject)) as GameObject;
+        //GameObject ExitWarp = Resources.Load("Prefabs/MarkNode-test231106", typeof(GameObject)) as GameObject;
         GameObject ExitWarp = Resources.Load("Prefabs/MarkNode", typeof(GameObject)) as GameObject;
         
         GameObject markedSpace = Instantiate(ExitWarp);
@@ -161,7 +160,7 @@ public class MiniatureWorld : MonoBehaviour
     public bool CanDeployProxies(Vector3 tempPos, float range)
     {
         // 주변에 이미 배치된 proxy가 존재하는 경우, Pass함
-        foreach (var elem in ProxiesTable )
+        foreach (var elem in ProxiesTable)
         {
             ProxyNode proxy = elem.Value;
             if ((tempPos - proxy.Marks[0].transform.position).sqrMagnitude < range)

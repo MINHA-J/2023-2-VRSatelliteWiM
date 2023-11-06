@@ -80,7 +80,8 @@ public class MakeRoi : MonoBehaviour
             bool canDo = miniatureWorld.CanDeployProxies(position, 10.0f);
             if (canDo)
             {
-                miniatureWorld.CreateProxies(index, position, 100.0f, miniatureWorld.transform.position);
+                Debug.Log("[MakeRoi.cs] Can Set ROI!");
+                miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
                 miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
                 index++;
             }

@@ -79,7 +79,7 @@ public class Satellite : MonoBehaviour
         //delta /= mark.Radius;
         //delta.x = Mathf.Sign(delta.x) * CoolMath.SmoothStep(0.1f, 0.2f, Mathf.Abs(delta.x));
         //delta.x *= 1;
-        delta.z = delta.y;
+        //delta.z = delta.y;
         delta.y = 0.0f;
         delta = delta * _vel * (Time.deltaTime * mark.Radius * (1 / _curPos.y));
         //mark.transform.position += delta;
@@ -139,14 +139,15 @@ public class Satellite : MonoBehaviour
                 _curPos = transform.localPosition;
                 //SetViewToMark();
                 
+                //[FIX] z를 y로 수정
                 //Debug.Log(Math.Abs(_curPos.z - _lastPos.z));
-                if (Math.Abs(_curPos.z - _lastPos.z) > 0.005f)
+                if (Math.Abs(_curPos.y - _lastPos.y) > 0.005f)
                 {
-                    ScaleMarkedSpace((_curPos.z - _lastPos.z) * 150);
+                    ScaleMarkedSpace((_curPos.y - _lastPos.y) * 150);
                     _lastPos = _curPos;
                 }
 
-                if ((Math.Abs(_curPos.x - _lastPos.x) > 0.005f) || (Math.Abs(_curPos.y - _lastPos.y) > 0.005f))
+                if ((Math.Abs(_curPos.x - _lastPos.x) > 0.005f) || (Math.Abs(_curPos.z - _lastPos.z) > 0.005f))
                 {
                     //Debug.Log(_curPos.x - _lastPos.x);
                     //Debug.Log(_curPos.y - _lastPos.y);
