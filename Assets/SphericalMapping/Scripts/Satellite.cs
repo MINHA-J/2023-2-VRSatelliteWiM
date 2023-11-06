@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Leap.Unity;
 using Leap.Unity.Interaction;
@@ -12,7 +13,8 @@ public class Satellite : MonoBehaviour
     public SatelliteState state = SatelliteState.Idle;
     public Vector3 initPos;
     public float mapRange = 35.0f;
-    
+
+    [SerializeField] private MiniatureWorld MiniWorld;
     [SerializeField] private uint index;
     [SerializeField] private MarkNode mark;
     [SerializeField] private ProxyNode proxy;
@@ -35,6 +37,7 @@ public class Satellite : MonoBehaviour
 
     private void Awake()
     {
+        MiniWorld = MiniatureWorld.Instance;
         _interaction = GetComponent<InteractionBehaviour>();
         _curPos = transform.localPosition;
         _lastPos = transform.localPosition;
@@ -67,7 +70,7 @@ public class Satellite : MonoBehaviour
         //delta = Mathf.Sign(delta) * CoolMath.SmoothStep(0.05f, 0.3f, delta);
         delta = Time.deltaTime * delta * mark.Radius * _vel; 
         mark.transform.localScale -= new Vector3(delta, delta, delta);
-        mark.transform.localScale.Clamp(SphericaiWorld.MinMarkSize, SphericaiWorld.MaxMarkSize);
+        mark.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
     }
     
     private void TranslateMarkedSpace(Vector3 delta) 
@@ -121,7 +124,7 @@ public class Satellite : MonoBehaviour
     private void Update()
     {
         // 언제나 Spherical WorldMap을 항하며, 공전함
-        this.transform.LookAt(SphericaiWorld.Instance.transform);
+        //this.transform.LookAt(SphericaiWorld.Instance.transform);
         _curPos = this.transform.localPosition;
 
         UpdateState();
@@ -129,12 +132,12 @@ public class Satellite : MonoBehaviour
         switch (state)
         {
             case SatelliteState.Idle:
-                transform.RotateAround(SphericaiWorld.Instance.transform.position, Vector3.down, _rotateSpeed * Time.deltaTime);
+                //transform.RotateAround(SphericaiWorld.Instance.transform.position, Vector3.down, _rotateSpeed * Time.deltaTime);
                 break;
 
             case SatelliteState.Grasped:
                 _curPos = transform.localPosition;
-                SetViewToMark();
+                //SetViewToMark();
                 
                 //Debug.Log(Math.Abs(_curPos.z - _lastPos.z));
                 if (Math.Abs(_curPos.z - _lastPos.z) > 0.005f)
@@ -155,7 +158,7 @@ public class Satellite : MonoBehaviour
                 //Debug.Log(this.transform.localPosition.magnitude * 10000);
                 if (this.transform.localPosition.magnitude * 10000 > 15000)
                 {
-                    SphericaiWorld.Instance.RemoveSatellite(index);
+                    MiniWorld.RemoveSatellite(index);
                 }
                 
                 break;

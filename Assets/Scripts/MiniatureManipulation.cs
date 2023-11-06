@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Leap;
 using UnityEngine;
 using Leap.Unity;
@@ -10,15 +11,20 @@ using Unity.XR.CoreUtils;
 
 public class MiniatureManipulation : MonoBehaviour
 {
+    [Header("Basic Setting")] 
+    public HandModelBase HandModel;
+    public GameObject HeadModel;
+
+    [Header("Bool")] 
     public bool IsHolding = true;
     private bool ShowGizmos = true;
 
-    public HandModelBase HandModel;
-    public GameObject HeadModel;
-    
+    [Header("For Test")] 
+    public GameObject TempEyes;
+
     private Transform inWorldTransform;
     private MiniatureWorld miniatureWorld;
-    
+
     // hand coordinate
     private Leap.Hand hand;
     private Finger thumb, index, middle;
@@ -30,15 +36,19 @@ public class MiniatureManipulation : MonoBehaviour
     private Vector3 worldOriginScale;
     private Vector3 firstGetPos;
     private bool SetfirstPos = false;
-    
-    // grasp
+
+    // grasp and move
     private InteractionBehaviour interactionBehaviour;
+    private Camera mainCamera;
+    private float timer  = 0.0f;
+    private float duration  = 0.15f;
 
     private void Awake()
     {
         miniatureWorld = GetComponent<MiniatureWorld>();
         radius = GetComponent<SphereCollider>().radius;
         interactionBehaviour = GetComponent<InteractionBehaviour>();
+        mainCamera = HeadModel.transform.parent.GetComponent<Camera>();
     }
 
     // Start is called before the first frame update
@@ -50,38 +60,16 @@ public class MiniatureManipulation : MonoBehaviour
         thumb = hand.Fingers[0];
         index = hand.Fingers[1];
         middle = hand.Fingers[2];
-        
+
         //기존 설정된 ROI의 Size를 set
         worldROI = miniatureWorld.ROI.gameObject;
         worldOriginScale = worldROI.transform.localScale;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        IsHolding = checkHandCoordinate();
-        if (IsHolding)
-        {
-            if (!SetfirstPos)
-            {
-                firstGetPos = hand.PalmPosition;
-                SetfirstPos = true;
-                
-                SetOnHand();
-            }
-            
-            SetRoiRatio();
-        }
-        else
-        {
-            SetfirstPos = false;
-            this.transform.position = inWorldTransform.position;
-            this.transform.rotation = inWorldTransform.rotation;
-        }
-    }
+
 
     public bool checkHandCoordinate()
-    {        
+    {
         directionX = (middle.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition).normalized;
         directionY = (thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition).normalized;
         directionZ = (index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition).normalized;
@@ -90,15 +78,15 @@ public class MiniatureManipulation : MonoBehaviour
         float dotProductXY = Vector3.Dot(directionX, directionY);
         float dotProductYZ = Vector3.Dot(directionY, directionZ);
         float dotProductZX = Vector3.Dot(directionZ, directionX);
-        
+
         // 내적이 0에 가까운 작은 오차 범위 내에 있는 경우, 두 직선은 직교합니다.
         float epsilon = 0.5f;
         if (Mathf.Abs(dotProductXY) < epsilon && Mathf.Abs(dotProductYZ) < epsilon && Mathf.Abs(dotProductZX) < epsilon)
-        //if ( Mathf.Abs(dotProductYZ) < epsilon)
+            //if ( Mathf.Abs(dotProductYZ) < epsilon)
             return true;
         else if (interactionBehaviour.isGrasped)
             return true;
-        else 
+        else
             return false;
     }
 
@@ -110,19 +98,20 @@ public class MiniatureManipulation : MonoBehaviour
 
         if (ratio > 0.93f)
             ratio = 1.0f;
-        
+
         Vector3 ROIscale = Vector3.Lerp(new Vector3(2, 2, 2), worldOriginScale, ratio);
         worldROI.transform.localScale = ROIscale;
-        
-        Debug.Log(ratio);
+
+        //[DEBUG] 231106 머리와 Plane map 사이의 거리 비율을 출력함.
+        //Debug.Log(ratio);
     }
-    
+
     public void SetOnHand()
     {
         this.transform.position = hand.PalmPosition;
         this.transform.position += this.transform.up * 0.1f;
-        
-        /* 231101 잠시 test 중 >> 음 이게 낫군...
+
+        /* 231101 잠시 test 중 >> 음 주석 처리한게 낫군...
         Vector3 miniRight = new Vector3(0,0,0);
         Vector3 miniUp = new Vector3(0,0,0);
         Vector3 miniForward = new Vector3(0,0,0);
@@ -150,16 +139,103 @@ public class MiniatureManipulation : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + transform.forward * 0.1f, Color.blue, 0.01f, false);
         Debug.DrawLine(transform.position, transform.position + transform.right * 0.1f, Color.red, 0.01f, false);
         */
-        
+
         //this.transform.right = hand.PalmNormal;
         //this.transform.up = hand.GetThumb().Direction;
         //this.transform.forward = miniForward;
         inWorldTransform = this.transform;
     }
+
+    private Vector3 CameraRay()
+    {
+        RaycastHit raycastHit1, raycastHit2;
+        Ray ray1 = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        Vector3 rayPoint = Vector3.zero;
+
+        // Layer10: miniature
+        // Camera로부터 나오는 Ray와 miniature world 간의 교차점을 구함
+        if (Physics.Raycast(ray1, out raycastHit1, 10.0f))
+        {
+            Debug.DrawLine(ray1.origin, raycastHit1.point, Color.green);
+            if (raycastHit1.transform.CompareTag("Miniature"))
+            { 
+                // // miniature의 바닥으로 내린 점
+                // Vector3 pointInWorldMiniature = this.transform.InverseTransformPoint(raycastHit1.point);
+                // pointInWorldMiniature.y = 0;
+                // pointInWorldMiniature = transform.TransformPoint(pointInWorldMiniature);
+                //
+                // // miniature에서 front
+                // Vector3 direction = transform.TransformVector(new Vector3(0, 0, 1));
+                // Ray ray2 = new Ray(pointInWorldMiniature, direction);
+                //
+                // if (Physics.Raycast(ray2, out raycastHit2))
+                //     Debug.DrawLine(ray2.origin, raycastHit2.point, Color.blue);
+                Vector3 origin = raycastHit1.point + ray1.direction * 0.01f;
+                Ray ray2 = new Ray(origin, ray1.direction);
+                if (Physics.Raycast(ray2, out raycastHit2))
+                {
+                    Debug.DrawLine(ray2.origin, raycastHit2.point, Color.blue);
+                    rayPoint = raycastHit2.point;
+                }
+            }
+        }
+        return rayPoint;
+    }
+
+    private void CoordinateTransformation(Vector3 pointInWorld)
+    {
+        // pointInWorld를 miniature에서의 로컬 좌표로 변환합니다.
+        Vector3 pointInWorldMiniature = this.transform.InverseTransformPoint(pointInWorld);
+        // miniature에서의 로컬 좌표를 World ROI에서의 로컬 좌표로 변환합니다.
+        
+        // World ROI에서의 로컬 좌표를 world 좌표로 변환합니다.
+        Vector3 pointInWorldRoi = worldROI.transform.TransformPoint(pointInWorldMiniature);
+        //TempEyes.transform.position = pointInWorldRoi;
+        TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
+        miniatureWorld.UpdateCandidatePosition(pointInWorld, pointInWorldRoi);
+    }
+
+    public void UpdateEyePosition()
+    {
+        Vector3 cameraPoint = CameraRay();
+        if (cameraPoint != Vector3.zero)
+            CoordinateTransformation(cameraPoint);
+    }
     
-    
+    // Update is called once per frame
+    void Update()
+    {
+        IsHolding = checkHandCoordinate();
+        if (IsHolding)
+        {
+            if (!SetfirstPos)
+            {
+                firstGetPos = hand.PalmPosition;
+                SetfirstPos = true;
+
+                SetOnHand();
+            }
+
+            SetRoiRatio();
+            
+        }
+        else
+        {
+            SetfirstPos = false;
+            this.transform.position = inWorldTransform.position;
+            this.transform.rotation = inWorldTransform.rotation;
+        }
+        timer += Time.deltaTime;
+        if (timer >= duration)
+        {
+            UpdateEyePosition();
+            timer = 0f;
+        }
+    }
+
 #if UNITY_EDITOR
-     private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         if (ShowGizmos && HandModel != null && HandModel.IsTracked)
         {
@@ -176,7 +252,7 @@ public class MiniatureManipulation : MonoBehaviour
 
             Gizmos.color = Color.red;
             Gizmos.DrawRay(hand.PalmPosition, middle.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition);
-            
+
             Color centerColor = Color.clear;
             Vector3 centerPosition = Vector3.zero;
             Quaternion circleRotation = Quaternion.identity;

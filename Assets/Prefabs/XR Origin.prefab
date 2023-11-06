@@ -2526,6 +2526,8 @@ MonoBehaviour:
     type: 3}
   isShown: 0
   canMake: 0
+  miniatureWorld: {fileID: 0}
+  index: 0
 --- !u!1 &1948831821974840941
 GameObject:
   m_ObjectHideFlags: 0

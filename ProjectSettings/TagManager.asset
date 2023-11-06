@@ -8,6 +8,7 @@ TagManager:
   - ExtraCamera
   - Roi
   - SphereMap
+  - Miniature
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - SceneObjects
   - Spheres
-  - 
+  - Miniature
   - 
   - InteractionNoContactLayer
   - ContactBoneLayer

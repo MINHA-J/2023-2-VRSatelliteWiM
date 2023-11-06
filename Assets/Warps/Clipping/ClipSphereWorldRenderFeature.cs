@@ -46,63 +46,52 @@ public class ClipSphereWorldRenderPass : ScriptableRenderPass {
         cmd.Clear();
 
         var baseCameraMatrix = camera.worldToCameraMatrix;
-
-        foreach (var mini in MiniatureWorld.Instances)
+        var mini = MiniatureWorld.Instance;
+        //foreach (var mini in MiniatureWorld.Instances)
         {
-            if (!mini.isActiveAndEnabled)
+            if (mini.isActiveAndEnabled)
             {
-                continue;
-            }
+                if (mini.ROI != null)
+                {
 
-            // if (mini.State == ProxyNode.ProxyState.Minimized)
-            // {
-            //     continue;
-            // }
+                    cmd.SetGlobalColor("_ClipObjEdgeColor", mini.Color);
+                    cmd.SetGlobalVector("_ClipObjPosition", mini.ROI.transform.position);
+                    cmd.SetGlobalVector("_ClipObjScale", 0.5f * mini.ProxyScaleFactor * mini.ROI.transform.localScale);
+                    var clipTransform = GetWarpTransform(mini.transform, mini.ROI.transform);
+                    cmd.SetGlobalMatrix("_ClipTransform", clipTransform);
+                    cmd.SetGlobalMatrix("_ClipTransformInv", clipTransform.inverse);
+                    context.ExecuteCommandBuffer(cmd);
 
-            if (mini.ROI == null)
-            {
-                continue;
-            }
-            else
-            {
+                    OnSpherePass?.Invoke(this, GetProxyCameraPosition(mini.transform, mini.ROI.transform));
 
-                cmd.SetGlobalColor("_ClipObjEdgeColor", mini.Color);
-                cmd.SetGlobalVector("_ClipObjPosition", mini.ROI.transform.position);
-                cmd.SetGlobalVector("_ClipObjScale", 0.5f * mini.ProxyScaleFactor * mini.ROI.transform.localScale);
-                var clipTransform = GetWarpTransform(mini.transform, mini.ROI.transform);
-                cmd.SetGlobalMatrix("_ClipTransform", clipTransform);
-                cmd.SetGlobalMatrix("_ClipTransformInv", clipTransform.inverse);
-                context.ExecuteCommandBuffer(cmd);
+                    // Stupid hack, because the other versions crashed or didn't work
+                    var scp = new ScriptableCullingParameters();
+                    camera.TryGetCullingParameters(true, out scp);
+                    scp.cullingPlaneCount = 6;
+                    scp.SetCullingPlane(0,
+                        new Plane(new Vector3(1, 0, 0),
+                            mini.ROI.transform.position - new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
+                    scp.SetCullingPlane(1,
+                        new Plane(new Vector3(-1, 0, 0),
+                            mini.ROI.transform.position + new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
+                    scp.SetCullingPlane(2,
+                        new Plane(new Vector3(0, 1, 0),
+                            mini.ROI.transform.position - new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
+                    scp.SetCullingPlane(3,
+                        new Plane(new Vector3(0, -1, 0),
+                            mini.ROI.transform.position + new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
+                    scp.SetCullingPlane(4,
+                        new Plane(new Vector3(0, 0, 1),
+                            mini.ROI.transform.position - new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
+                    scp.SetCullingPlane(5,
+                        new Plane(new Vector3(0, 0, -1),
+                            mini.ROI.transform.position + new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
+                    var cullResults = context.Cull(ref scp);
 
-                OnSpherePass?.Invoke(this, GetProxyCameraPosition(mini.transform, mini.ROI.transform));
+                    //Debug.Log("DrawRenderers()");
 
-                // Stupid hack, because the other versions crashed or didn't work
-                var scp = new ScriptableCullingParameters();
-                camera.TryGetCullingParameters(true, out scp);
-                scp.cullingPlaneCount = 6;
-                scp.SetCullingPlane(0,
-                    new Plane(new Vector3(1, 0, 0),
-                        mini.ROI.transform.position - new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
-                scp.SetCullingPlane(1,
-                    new Plane(new Vector3(-1, 0, 0),
-                        mini.ROI.transform.position + new Vector3(1, 0, 0) * mini.ROI.transform.localScale.x));
-                scp.SetCullingPlane(2,
-                    new Plane(new Vector3(0, 1, 0),
-                        mini.ROI.transform.position - new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
-                scp.SetCullingPlane(3,
-                    new Plane(new Vector3(0, -1, 0),
-                        mini.ROI.transform.position + new Vector3(0, 1, 0) * mini.ROI.transform.localScale.y));
-                scp.SetCullingPlane(4,
-                    new Plane(new Vector3(0, 0, 1),
-                        mini.ROI.transform.position - new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
-                scp.SetCullingPlane(5,
-                    new Plane(new Vector3(0, 0, -1),
-                        mini.ROI.transform.position + new Vector3(0, 0, 1) * mini.ROI.transform.localScale.z));
-                var cullResults = context.Cull(ref scp);
-
-                //Debug.Log("DrawRenderers()");
-
-                context.DrawRenderers(cullResults, ref drawSettings, ref filterSettings, ref renderStateBlock);
+                    context.DrawRenderers(cullResults, ref drawSettings, ref filterSettings, ref renderStateBlock);
+                }
             }
         }
 

@@ -246,14 +246,14 @@ public class ProxyNode : WarpNode, IPinchable
         // }
 
         Debug.Log("End Pinch");
-        float pinchDistance = Vector3.Distance(sphere.PinchPosition, SphericaiWorld.Instance.transform.position);
+        float pinchDistance = Vector3.Distance(sphere.PinchPosition, MiniatureWorld.Instance.transform.position);
 
         if (_preState == ProxyState.Minimized)
         {
             Maximize();
             _preState = ProxyState.Normal;
         }
-        else if (_preState == ProxyState.Normal && pinchDistance <= SphericaiWorld.Instance.sphereRadius)
+        else if (_preState == ProxyState.Normal && pinchDistance <= MiniatureWorld.Instance.Radius)
         {
             Debug.Log("[+] pinch inside");
             Minimize();

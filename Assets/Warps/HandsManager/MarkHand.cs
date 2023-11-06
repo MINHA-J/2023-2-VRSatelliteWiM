@@ -95,6 +95,7 @@ public class MarkHand : MonoBehaviour
         }
     }
 
+    //[THINK]
     private void ActivatingStateHandler() {
         // Fade in the hand
         Color opaqe = new Color(0, 0, 0, 1f);

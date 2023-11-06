@@ -4,12 +4,12 @@ using UnityEngine;
 using DG.Tweening;
 
 
-public class SphericalMapProxyStorage : MonoBehaviour
+public class MapProxyStorage : MonoBehaviour
 {
 private List<ProxyNode> proxies;
     private int maxProxies;
     private bool isShown;
-    private GameObject _standardObj;
+    //private GameObject _standardObj;
 
     private const float upAngleThreashold = 60f;
     private const float headAngleThreashold = 60f;
@@ -22,15 +22,15 @@ private List<ProxyNode> proxies;
     {
         proxies = new List<ProxyNode>();
         maxProxies = transform.childCount;
-        _standardObj = GameObject.Find("standard");
+        //_standardObj = GameObject.Find("standard");
     }
 
     private void Update() 
     {
-        transform.position = _standardObj.transform.position;
+        //transform.position = _standardObj.transform.position;
         //transform.rotation = Player.Instance.InteractionHandLeft.rotation;
-        float upAngle = Vector3.Angle(transform.forward, Vector3.up);
-        float headAngle = Vector3.Angle(transform.up, Player.Instance.MainCamera.transform.forward);
+        //float upAngle = Vector3.Angle(transform.forward, Vector3.up);
+        //float headAngle = Vector3.Angle(transform.up, Player.Instance.MainCamera.transform.forward);
         // if(upAngle < upAngleThreashold && headAngle < headAngleThreashold) {
         //     Show();
         // } else {

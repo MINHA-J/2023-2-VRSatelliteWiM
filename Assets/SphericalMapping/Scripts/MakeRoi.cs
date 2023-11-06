@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using Leap.Unity;
@@ -20,14 +22,20 @@ public class MakeRoi : MonoBehaviour
     [Header("Setting")]
     [SerializeField]private const float upAngleThreashold = 60f;
     [SerializeField]private const float headAngleThreashold = 60f;
-
+    [SerializeField]private MiniatureWorld miniatureWorld;
+    [SerializeField] private uint index = 0;
     private float timer  = 0.0f;
     private float duration  = 2.0f;
 
+    private void Start()
+    {
+        //miniatureWorld = MiniatureWorld.Instances.First();
+    }
+
     private void Update()
     {
-        transform.position = Player.Instance.InteractionHandLeft.position;
-        transform.rotation = Player.Instance.InteractionHandLeft.rotation;
+        transform.position = Player.Instance.InteractionHandRight.position;
+        transform.rotation = Player.Instance.InteractionHandRight.rotation;
         
         // 왼손의 손바닥이 하늘을 가르킬 경우 활성화 O
         float upAngle = Vector3.Angle(transform.forward, Vector3.up);
@@ -60,10 +68,23 @@ public class MakeRoi : MonoBehaviour
 
     private void SettingRoi(Vector3 pos, Vector3 rot)
     {
-        GameObject Roi = Instantiate(pinPrefab);
-        Roi.transform.DOScale(4f, 0.2f);
-        Roi.transform.position = pos;
-        Roi.transform.rotation = Quaternion.Euler(rot);
+        // GameObject Roi = Instantiate(pinPrefab);
+        // Roi.transform.DOScale(4f, 0.2f);
+        // Roi.transform.position = pos;
+        // Roi.transform.rotation = Quaternion.Euler(rot);
+
+        Vector3 position = miniatureWorld.CandidatePos;
+        if (position != Vector3.zero)
+        {
+            // 해당 위치와 근접하게 이미 Proxy가 존재한다면, 생성하지 않음
+            bool canDo = miniatureWorld.CanDeployProxies(position, 10.0f);
+            if (canDo)
+            {
+                miniatureWorld.CreateProxies(index, position, 100.0f, miniatureWorld.transform.position);
+                miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
+                index++;
+            }
+        }
     }
     
     public void Hide()

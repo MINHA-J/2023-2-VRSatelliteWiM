@@ -102,6 +102,7 @@ public class LeapWarpedServiceProvider : LeapProvider {
         leapRoot = ActualProvider.transform;
     }
 
+    //[THINK] 포탈 안으로 머리 넣었을 때 시점 변환됨
     private void TransformHand(Frame frame, ProxyNode proxyNode, MarkNode markNode, HandChirality handChirality) {
         if (proxyNode == null || markNode == null) return;
 

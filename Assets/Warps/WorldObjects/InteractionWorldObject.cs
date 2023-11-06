@@ -171,7 +171,8 @@ public class InteractionWorldObject : MonoBehaviour
             );
         ScaleAroundGraspAbs(absoluteScale);
     }
-
+    
+    //[THINK]
     private void TransformDuplicateObject() {
         if (objectDuplicate == null || duplicateDestination == null || duplicateOrigin == null) return;
         // Rotate
