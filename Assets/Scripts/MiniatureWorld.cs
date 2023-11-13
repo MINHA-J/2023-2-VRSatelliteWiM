@@ -14,6 +14,7 @@ public class MiniatureWorld : MonoBehaviour
     public float Radius = 10.0f;
     public bool UseEditorColor = false;
     public Color Color;
+    public float RadiusRatio;
     public float ProxyScaleFactor { get; private set; }
     public Vector3 CandidatePos;
     public Vector3 CandidateBeforePos;
@@ -110,8 +111,9 @@ public class MiniatureWorld : MonoBehaviour
         // Minimap위에서 Ray를 찍은 점
         pos = transform.InverseTransformPoint(pos);
         instance.transform.localPosition = pos + new Vector3(0, 0.3f, 0);
-        instance.transform.LookAt(pos);
-
+        instance.transform.forward = -this.transform.up;
+        
+        
         instance.GetComponent<Satellite>().initPos = instance.transform.localPosition;
         instance.GetComponent<Satellite>().SetSatelliteIndex(index);
         instance.GetComponent<Satellite>().SetProxies(ProxiesTable[index].Marks[0], ProxiesTable[index]);
@@ -143,9 +145,11 @@ public class MiniatureWorld : MonoBehaviour
         markFilteredScale = markScaleFilter.Filter(2.0f);
 
 
-        markedSpace.transform.position = M_pos;
+        Vector3 markedPosition = new Vector3(M_pos.x, 0.0f, M_pos.z);
+        markedSpace.transform.position = markedPosition;
         markedSpace.transform.localScale = new Vector3(markFilteredScale, markFilteredScale, markFilteredScale);
-
+        markNode.Radius = markedSpace.GetComponent<SphereCollider>().radius;
+        
         proxySpace.transform.position = P_pos;
         proxySpace.transform.localScale = new Vector3(proxyFilteredSize, proxyFilteredSize, proxyFilteredSize);
         
@@ -183,6 +187,7 @@ public class MiniatureWorld : MonoBehaviour
         MarkNode markNode = proxyNode.Marks[0];
         ProxiesTable.Remove(index);
         Destroy(proxyNode.gameObject);
+        Destroy(markNode.spotlight);
         Destroy(markNode.gameObject);
     }
     
@@ -205,5 +210,6 @@ public class MiniatureWorld : MonoBehaviour
         // A bit of a stupid hack because the cone effect requires world-space size of the
         // sphere, yet the whole ProxySphere otherwise operates oblivious to its actual size
         sphere.Radius = Radius;
+        RadiusRatio = ROI.transform.localScale.x / this.transform.lossyScale.x;
     }
 }

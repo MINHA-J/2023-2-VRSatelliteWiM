@@ -20,6 +20,10 @@ public class MarkNode : WarpNode {
     private Material sphereMaterial;
 
     private Transform debugSphere;
+    public GameObject spotlight;
+    private Light light;
+    private SphereCollider collider;
+    
     public GameObject HighlightPrefab; 
 
     void Start() {
@@ -27,11 +31,37 @@ public class MarkNode : WarpNode {
         ring = GetComponentInChildren<RingLOD>();
         var sphere = GetComponentInChildren<MarkingSphereShaderSwitcher>().gameObject;
         sphereMaterial = sphere.GetComponent<Renderer>().material;
+
+        collider = GetComponent<SphereCollider>();
+        
+        GameObject spot = Resources.Load("Prefabs/Spot Light", typeof(GameObject)) as GameObject;
+        spotlight = Instantiate(spot);
+        
+        light = spotlight.GetComponent<Light>();
     }
 
-    new void Update() {
+    private void UpdateSpotLight()
+    {
+        // Color
+        light.color = Color;
+        
+        // Spot range
+        float angle = Mathf.Atan(Radius / spotlight.transform.position.y) * Mathf.Rad2Deg;
+        light.spotAngle = angle;
+        light.innerSpotAngle = angle;
+        
+        // position
+        Vector3 newVec = new Vector3(transform.position.x, spotlight.transform.position.y, transform.position.z);
+        spotlight.transform.position = newVec;
+    }
+
+    new void Update() 
+    {
         base.Update();
+        Radius = transform.localScale.x;
         ring.Color = Color;
+
+        UpdateSpotLight();
     }
 
     public IEnumerable<GameObject> ContainedItems() {

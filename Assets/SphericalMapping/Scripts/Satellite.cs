@@ -56,6 +56,7 @@ public class Satellite : MonoBehaviour
         proxy = p;
         color = p.Color;
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", p.Color);
+        transform.GetChild(0).GetComponent<RingLOD>().Color = p.Color;
     }
 
     private void ScaleMarkedSpace(float delta) 
@@ -69,7 +70,7 @@ public class Satellite : MonoBehaviour
         //Debug.Log(delta);
         //delta = Mathf.Sign(delta) * CoolMath.SmoothStep(0.05f, 0.3f, delta);
         delta = Time.deltaTime * delta * mark.Radius * _vel; 
-        mark.transform.localScale -= new Vector3(delta, delta, delta);
+        mark.transform.localScale += new Vector3(delta, delta, delta);
         mark.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
     }
     
@@ -81,11 +82,12 @@ public class Satellite : MonoBehaviour
         //delta.x *= 1;
         //delta.z = delta.y;
         delta.y = 0.0f;
-        delta = delta * _vel * (Time.deltaTime * mark.Radius * (1 / _curPos.y));
+        //delta = delta * 5.0f * Time.deltaTime;
         //mark.transform.position += delta;
-
-        Vector3 moveVector = mark.transform.position + delta;
-        mark.transform.DOMove(moveVector, 0.05f, false);
+        delta = delta * mark.Radius * MiniWorld.RadiusRatio * Time.deltaTime * _vel;
+        mark.transform.position += delta;
+        //Vector3 moveVector = mark.transform.position + (delta * Time.deltaTime);
+        //mark.transform.DOMove(moveVector, 0.01f, false);
     }
 
     void SetViewToMark()
@@ -124,7 +126,7 @@ public class Satellite : MonoBehaviour
     private void Update()
     {
         // 언제나 Spherical WorldMap을 항하며, 공전함
-        //this.transform.LookAt(SphericaiWorld.Instance.transform);
+        this.transform.forward = -MiniWorld.transform.up;
         _curPos = this.transform.localPosition;
 
         UpdateState();
@@ -143,15 +145,17 @@ public class Satellite : MonoBehaviour
                 //Debug.Log(Math.Abs(_curPos.z - _lastPos.z));
                 if (Math.Abs(_curPos.y - _lastPos.y) > 0.005f)
                 {
-                    ScaleMarkedSpace((_curPos.y - _lastPos.y) * 150);
+                    //Debug.Log("Scale It!");
+                    ScaleMarkedSpace((_curPos.y - _lastPos.y) * MiniWorld.RadiusRatio);
                     _lastPos = _curPos;
                 }
 
                 if ((Math.Abs(_curPos.x - _lastPos.x) > 0.005f) || (Math.Abs(_curPos.z - _lastPos.z) > 0.005f))
                 {
+                    //Debug.Log("Translate It!");
                     //Debug.Log(_curPos.x - _lastPos.x);
                     //Debug.Log(_curPos.y - _lastPos.y);
-                    TranslateMarkedSpace((_curPos - _lastPos) * 150);
+                    TranslateMarkedSpace((_curPos - _lastPos));
                     _lastPos = _curPos;
                 }
 

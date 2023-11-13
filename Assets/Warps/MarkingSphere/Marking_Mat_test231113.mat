@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Marking_Mat
+  m_Name: Marking_Mat_test231113
   m_Shader: {fileID: 4800000, guid: f61996965e0eaf54085530b5e1b157c8, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

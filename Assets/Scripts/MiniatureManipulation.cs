@@ -41,7 +41,7 @@ public class MiniatureManipulation : MonoBehaviour
     private InteractionBehaviour interactionBehaviour;
     private Camera mainCamera;
     private float timer  = 0.0f;
-    private float duration  = 0.15f;
+    private float duration  = 0.05f;
 
     private void Awake()
     {
@@ -80,9 +80,10 @@ public class MiniatureManipulation : MonoBehaviour
         float dotProductZX = Vector3.Dot(directionZ, directionX);
 
         // 내적이 0에 가까운 작은 오차 범위 내에 있는 경우, 두 직선은 직교합니다.
-        float epsilon = 0.5f;
+        float epsilon = 0.7f;
+        //231113 잠시 변경하였습니다. 3축으로 모두 하니까 Leap motion의 한계가 ...
         if (Mathf.Abs(dotProductXY) < epsilon && Mathf.Abs(dotProductYZ) < epsilon && Mathf.Abs(dotProductZX) < epsilon)
-            //if ( Mathf.Abs(dotProductYZ) < epsilon)
+        //if ( Mathf.Abs(dotProductYZ) < epsilon)
             return true;
         else if (interactionBehaviour.isGrasped)
             return true;

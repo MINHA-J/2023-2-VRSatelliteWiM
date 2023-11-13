@@ -8,7 +8,7 @@ using UnityEngine;
 public class WarpNode : MonoBehaviour {
 
     public float Radius {
-        get; private set;
+        get; set;
     }
 
     public void Update() {

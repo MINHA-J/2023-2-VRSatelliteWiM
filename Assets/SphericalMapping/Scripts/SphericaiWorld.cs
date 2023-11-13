@@ -97,6 +97,7 @@ public class SphericaiWorld : MonoBehaviour
         //GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode_fix", typeof(GameObject)) as GameObject;
         GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode", typeof(GameObject)) as GameObject;
         GameObject ExitWarp = Resources.Load("Prefabs/MarkNode", typeof(GameObject)) as GameObject;
+        //GameObject ExitWarp = Resources.Load("Prefabs/MarkNode-test231106", typeof(GameObject)) as GameObject;
         
         GameObject markedSpace = Instantiate(ExitWarp);
         GameObject proxySpace = Instantiate(EntryWarp);
