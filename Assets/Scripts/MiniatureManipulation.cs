@@ -76,19 +76,28 @@ public class MiniatureManipulation : MonoBehaviour
 
         // 계산된 방향 벡터의 내적을 계산
         float dotProductXY = Vector3.Dot(directionX, directionY);
-        float dotProductYZ = Vector3.Dot(directionY, directionZ);
-        float dotProductZX = Vector3.Dot(directionZ, directionX);
+        float dotProductXWorld = 1 - Vector3.Dot(directionX, Vector3.forward);
+        float dotProductZWorld = 1 - Vector3.Dot(directionZ, Vector3.forward);
+        //float dotProductYZ = Vector3.Dot(directionY, directionZ);
+        //float dotProductZX = Vector3.Dot(directionZ, directionX);
 
+        float dotProductPalm = 1 - Vector3.Dot(hand.PalmNormal, Vector3.up);
+        
         // 내적이 0에 가까운 작은 오차 범위 내에 있는 경우, 두 직선은 직교합니다.
-        float epsilon = 0.7f;
+        float epsilon = 0.8f;
         //231113 잠시 변경하였습니다. 3축으로 모두 하니까 Leap motion의 한계가 ...
-        if (Mathf.Abs(dotProductXY) < epsilon && Mathf.Abs(dotProductYZ) < epsilon && Mathf.Abs(dotProductZX) < epsilon)
-        //if ( Mathf.Abs(dotProductYZ) < epsilon)
+        if (interactionBehaviour.isGrasped == true)
+        {
             return true;
-        else if (interactionBehaviour.isGrasped)
-            return true;
+        }
         else
-            return false;
+        {
+            if (Mathf.Abs(dotProductPalm) < epsilon &&
+                Mathf.Abs(dotProductXWorld) < epsilon && Mathf.Abs(dotProductZWorld) < epsilon)
+                return true;
+            else
+                return false;
+        }
     }
 
     private void SetRoiRatio()
@@ -144,7 +153,8 @@ public class MiniatureManipulation : MonoBehaviour
         //this.transform.right = hand.PalmNormal;
         //this.transform.up = hand.GetThumb().Direction;
         //this.transform.forward = miniForward;
-        inWorldTransform = this.transform;
+        inWorldTransform.rotation = this.transform.rotation;
+        
     }
 
     private Vector3 CameraRay()
@@ -215,7 +225,7 @@ public class MiniatureManipulation : MonoBehaviour
                 firstGetPos = hand.PalmPosition;
                 SetfirstPos = true;
 
-                SetOnHand();
+                //SetOnHand();
             }
 
             SetRoiRatio();

@@ -142,7 +142,7 @@ public class MiniatureWorld : MonoBehaviour
         proxyPosFilter.Filter(P_pos);
 
         proxyFilteredSize = proxyScaleFilter.Filter(0.5f);
-        markFilteredScale = markScaleFilter.Filter(2.0f);
+        markFilteredScale = markScaleFilter.Filter(3.0f);
 
 
         Vector3 markedPosition = new Vector3(M_pos.x, 0.0f, M_pos.z);
@@ -157,7 +157,7 @@ public class MiniatureWorld : MonoBehaviour
         
         ProxiesTable.Add(index, proxyNode);
 
-        proxyNode.Minimize();
+        //proxyNode.Minimize();
         //proxySpace.transform.localScale = new Vector3(MINIMIZE_THRESHOLD - 0.01f, MINIMIZE_THRESHOLD - 0.01f, MINIMIZE_THRESHOLD - 0.01f);
     }
 
