@@ -112,7 +112,11 @@ public class MiniatureWorld : MonoBehaviour
         pos = transform.InverseTransformPoint(pos);
         instance.transform.localPosition = pos + new Vector3(0, 0.3f, 0);
         instance.transform.forward = -this.transform.up;
-        
+
+        if (ProxiesTable.Count > 1)
+        {
+            RemoveSatellite(index - 1);
+        }
         
         instance.GetComponent<Satellite>().initPos = instance.transform.localPosition;
         instance.GetComponent<Satellite>().SetSatelliteIndex(index);
