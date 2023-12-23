@@ -1,0 +1,10 @@
+{
+    "tryNum": 1,
+    "totalTime": 36.028541564941409,
+    "portalACreationTime": 9.543030738830567,
+    "portalBCreationTime": 9.48169231414795,
+    "portalACreationNum": 1,
+    "portalBCreationNum": 1,
+    "portalADistance": 0.1506262570619583,
+    "portalBDistance": 0.6368439197540283
+}
