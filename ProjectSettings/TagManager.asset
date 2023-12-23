@@ -9,6 +9,7 @@ TagManager:
   - Roi
   - SphereMap
   - Miniature
+  - Target
   layers:
   - Default
   - TransparentFX

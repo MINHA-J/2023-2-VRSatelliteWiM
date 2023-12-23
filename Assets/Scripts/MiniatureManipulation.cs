@@ -21,7 +21,8 @@ public class MiniatureManipulation : MonoBehaviour
 
     [Header("For Test")] 
     public GameObject TempEyes;
-
+    public bool canSetROI = false;
+    
     private Transform inWorldTransform;
     private MiniatureWorld miniatureWorld;
 
@@ -41,7 +42,7 @@ public class MiniatureManipulation : MonoBehaviour
     private InteractionBehaviour interactionBehaviour;
     private Camera mainCamera;
     private float timer  = 0.0f;
-    private float duration  = 0.05f;
+    private float duration  = 0.08f;
 
     private void Awake()
     {
@@ -163,10 +164,9 @@ public class MiniatureManipulation : MonoBehaviour
         Ray ray1 = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
         Vector3 rayPoint = Vector3.zero;
-
-        // Layer10: miniature
+        
         // Camera로부터 나오는 Ray와 miniature world 간의 교차점을 구함
-        if (Physics.Raycast(ray1, out raycastHit1, 10.0f))
+        if (Physics.Raycast(ray1, out raycastHit1, 3.0f))
         {
             Debug.DrawLine(ray1.origin, raycastHit1.point, Color.green);
             if (raycastHit1.transform.CompareTag("Miniature"))
@@ -182,6 +182,8 @@ public class MiniatureManipulation : MonoBehaviour
                 //
                 // if (Physics.Raycast(ray2, out raycastHit2))
                 //     Debug.DrawLine(ray2.origin, raycastHit2.point, Color.blue);
+                canSetROI = true;
+                
                 Vector3 origin = raycastHit1.point + ray1.direction * 0.01f;
                 Ray ray2 = new Ray(origin, ray1.direction);
                 if (Physics.Raycast(ray2, out raycastHit2))
@@ -190,21 +192,34 @@ public class MiniatureManipulation : MonoBehaviour
                     rayPoint = raycastHit2.point;
                 }
             }
+            else
+                canSetROI = false;
         }
+        else
+            canSetROI = false;
+        
+        
         return rayPoint;
     }
 
     private void CoordinateTransformation(Vector3 pointInWorld)
     {
-        // pointInWorld를 miniature에서의 로컬 좌표로 변환합니다.
-        Vector3 pointInWorldMiniature = this.transform.InverseTransformPoint(pointInWorld);
-        // miniature에서의 로컬 좌표를 World ROI에서의 로컬 좌표로 변환합니다.
-        
-        // World ROI에서의 로컬 좌표를 world 좌표로 변환합니다.
-        Vector3 pointInWorldRoi = worldROI.transform.TransformPoint(pointInWorldMiniature);
-        //TempEyes.transform.position = pointInWorldRoi;
-        TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
-        miniatureWorld.UpdateCandidatePosition(pointInWorld, pointInWorldRoi);
+        if (canSetROI)
+        {
+            // pointInWorld를 miniature에서의 로컬 좌표로 변환합니다.
+            Vector3 pointInWorldMiniature = this.transform.InverseTransformPoint(pointInWorld);
+            // miniature에서의 로컬 좌표를 World ROI에서의 로컬 좌표로 변환합니다.
+
+            // World ROI에서의 로컬 좌표를 world 좌표로 변환합니다.
+            Vector3 pointInWorldRoi = worldROI.transform.TransformPoint(pointInWorldMiniature);
+            //TempEyes.transform.position = pointInWorldRoi;
+            TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
+            miniatureWorld.UpdateCandidatePosition(pointInWorld, pointInWorldRoi);
+        }
+        else
+        {
+            TempEyes.transform.position = new Vector3(0, -5.0f, 0);
+        }
     }
 
     public void UpdateEyePosition()

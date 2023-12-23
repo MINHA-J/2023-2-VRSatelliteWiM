@@ -18,8 +18,9 @@ public class MiniatureWorld : MonoBehaviour
     public float ProxyScaleFactor { get; private set; }
     public Vector3 CandidatePos;
     public Vector3 CandidateBeforePos;
-    
-    [Header("Satellites")]    
+
+    [Header("Satellites")] 
+    public MiniatureManipulation Manipulation;
     public GameObject satellites;
     public GameObject prefabSatellite;
     
@@ -112,7 +113,12 @@ public class MiniatureWorld : MonoBehaviour
         pos = transform.InverseTransformPoint(pos);
         instance.transform.localPosition = pos + new Vector3(0, 0.3f, 0);
         instance.transform.forward = -this.transform.up;
-        
+
+        // [TASK01] 
+        if (ProxiesTable.Count > 1)
+        {
+            RemoveSatellite(index - 1);
+        }
         
         instance.GetComponent<Satellite>().initPos = instance.transform.localPosition;
         instance.GetComponent<Satellite>().SetSatelliteIndex(index);
@@ -156,7 +162,7 @@ public class MiniatureWorld : MonoBehaviour
         proxyNode.SetCreationMode(false);
         
         ProxiesTable.Add(index, proxyNode);
-
+        
         //proxyNode.Minimize();
         //proxySpace.transform.localScale = new Vector3(MINIMIZE_THRESHOLD - 0.01f, MINIMIZE_THRESHOLD - 0.01f, MINIMIZE_THRESHOLD - 0.01f);
     }
@@ -190,7 +196,22 @@ public class MiniatureWorld : MonoBehaviour
         Destroy(markNode.spotlight);
         Destroy(markNode.gameObject);
     }
-    
+
+    public void RemoveProxies()
+    {
+        // Proxies를 Table에서 제거함
+        foreach (var pair in ProxiesTable)
+        {
+            ProxyNode proxyNode = pair.Value;
+            MarkNode markNode = proxyNode.Marks[0];
+            Destroy(proxyNode.gameObject);
+            Destroy(markNode.spotlight);
+            Destroy(markNode.gameObject);
+        }
+        ProxiesTable.Clear();
+        ProxiesTable = new Dictionary<uint, ProxyNode>();
+    }
+
     private void OnDestroy()
     {
         //PinchTracker.DeregisterPinchable(this);

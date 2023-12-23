@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
 {
@@ -20,7 +21,7 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
     private bool bothHandsActive = false;
 
     public float minimumProxySize = 0.10f;
-    public float maximumProxySize = 0.9f;
+    public float maximumProxySize = 1.5f;
 
     public float markSizeLimit = 10.0f;
     public float markScaleFactor = 1.0f;
@@ -103,6 +104,11 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         //Destroy(proxyNode);
         //Destroy(markNode);
 
+        Debug.Log("ProcessHands, CreateProxy()");
+        //[TASK01] 
+        if (MiniatureWorld.Instance.ProxiesTable.Count > 0)
+            MiniatureWorld.Instance.RemoveProxies();
+            
         markedSpace = Instantiate(ExitWarp);
         proxySpace = Instantiate(EntryWarp);
 
@@ -117,9 +123,7 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         proxyNode.SetCreationMode(true);
 
         SetActiveNodes(false);
-
         
-
         Vector3 pos = MarkPos();
         float size = MarkSize();
         Vector3 midPoint = (lIndexTipPos + rIndexTipPos) / 2.0f;
@@ -140,6 +144,11 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
 
         proxySpace.transform.position = midPoint;
         proxySpace.transform.localScale = new Vector3(proxyFilteredSize, proxyFilteredSize, proxyFilteredSize);
+        
+        MiniatureWorld.Instance.ProxiesTable.Add(0, proxyNode);
+        // [TASK01]
+        Test01_Manager.Instance.SavePortalNum();
+        Test01_Manager.Instance.SavePortalDistance(pos);
     }
 
     private void UpdateMarkedOnly(){
