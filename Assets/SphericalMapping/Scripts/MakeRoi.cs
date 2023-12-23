@@ -46,7 +46,7 @@ public class MakeRoi : MonoBehaviour
             Hide();
 
         // 활성화된 상태에서, Pinch가 감지될 경우 활성화됨
-        if (isShown && paintCursor.DidStartPinch)
+        if (isShown && paintCursor.DidStartPinch && MiniatureWorld.Instance.Manipulation.canSetROI)
             canMake = true;
 
         // 3초간 지속될 경우, ROI를 지정할 수 있다
@@ -77,15 +77,19 @@ public class MakeRoi : MonoBehaviour
         if (position != Vector3.zero)
         {
             // 해당 위치와 근접하게 이미 Proxy가 존재한다면, 생성하지 않음
-            bool canDo = miniatureWorld.CanDeployProxies(position, 10.0f);
+            bool canDo = miniatureWorld.CanDeployProxies(position, 3.0f);
             if (canDo)
             {
-                Debug.Log("[MakeRoi.cs] Can Set ROI!");
+                //Debug.Log("[MakeRoi.cs] Can Set ROI!");
                 // [TASK01]
                 //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
                 miniatureWorld.CreateProxies(index, position, 200.0f, Test01_Manager.Instance.portalPlace.position);
                 miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
                 index++;
+                
+                // [TASK01]
+                Test01_Manager.Instance.SavePortalNum();
+                Test01_Manager.Instance.SavePortalDistance(position);
             }
         }
     }
