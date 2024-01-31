@@ -1,7 +1,7 @@
 # Satellite WIM Object Selection in VR 
 
 <aside>💡 경희대학교 2023-2학기 졸업논문</aside>
-
+![Untitled](https://github.com/MINHA-J/2023-2-VRSatelliteWiM/assets/64896960/d9c9bf83-2f36-4b91-9a79-ccdc0e3f2302)
 <br/><br/>
 
 ### C O N T E N T S
@@ -10,8 +10,6 @@
 3. [사용자 실험 설계](#3️⃣-사용자-실험-설계)
 4. [결과 및 분석](#4️⃣-결과-및-분석)
 
-
-![Untitled](https://github.com/MINHA-J/2023-2-VRSatelliteWiM/assets/64896960/d9c9bf83-2f36-4b91-9a79-ccdc0e3f2302)
 <br/><br/>
 ## 1️⃣ 개요
 
