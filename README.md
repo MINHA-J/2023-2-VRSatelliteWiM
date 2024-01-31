@@ -1,10 +1,8 @@
 # Satellite WIM Object Selection in VR 
 
-<aside>
-💡 경희대학교 2023-2학기 졸업논문
-</aside>
+<aside>💡 경희대학교 2023-2학기 졸업논문</aside>
 
-**C O N T E N T S**
+### C O N T E N T S
 1. [개요](#1️⃣-개요)
 2. [서베이 및 개발 과정](#2️⃣-서베이-및-개발-과정)
 3. [사용자 실험 설계](#3️⃣-사용자-실험-설계)
