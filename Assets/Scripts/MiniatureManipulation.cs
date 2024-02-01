@@ -42,7 +42,7 @@ public class MiniatureManipulation : MonoBehaviour
     private InteractionBehaviour interactionBehaviour;
     private Camera mainCamera;
     private float timer  = 0.0f;
-    private float duration  = 0.08f;
+    private float duration  = 0.1f;
 
     private void Awake()
     {
@@ -212,7 +212,11 @@ public class MiniatureManipulation : MonoBehaviour
 
             // World ROI에서의 로컬 좌표를 world 좌표로 변환합니다.
             Vector3 pointInWorldRoi = worldROI.transform.TransformPoint(pointInWorldMiniature);
-            //TempEyes.transform.position = pointInWorldRoi;
+            
+            // 너무 먼 곳이라면 ROI 생성하지 않고 넘어갑니다.
+            if (pointInWorldRoi.sqrMagnitude > Mathf.Pow(30.0f, 2))
+                return;
+            
             TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
             miniatureWorld.UpdateCandidatePosition(pointInWorld, pointInWorldRoi);
         }
