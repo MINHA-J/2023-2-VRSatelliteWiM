@@ -32,7 +32,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c465bd23c9c4fb442ae89117552a5f3f, type: 3}
   m_Name: HandTrackingFeature Standalone
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Ultraleap Hand Tracking
   version: 1.0.0
   featureIdInternal: com.ultraleap.tracking.openxr.feature.handtracking
@@ -197,10 +197,8 @@ MonoBehaviour:
   features:
   - {fileID: -3052183978302170908}
   - {fileID: 8477478331737172047}
-  - {fileID: -14136717934027800}
   - {fileID: -2746992981699722696}
   - {fileID: -7648656193776554786}
-  - {fileID: 1767876767675948874}
   - {fileID: 883687244934297553}
   - {fileID: 20047408084639746}
   - {fileID: 8472091092153742}
@@ -282,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c465bd23c9c4fb442ae89117552a5f3f, type: 3}
   m_Name: HandTrackingFeature Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Ultraleap Hand Tracking
   version: 1.0.0
   featureIdInternal: com.ultraleap.tracking.openxr.feature.handtracking
@@ -564,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3aced3429e5911458f4da2dac9d0f29, type: 3}
   m_Name: MetaHandTrackingAim Android
   m_EditorClassIdentifier: 
-  m_enabled: 1
+  m_enabled: 0
   nameUi: Meta Hand Tracking Aim
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.metahandtrackingaim
@@ -652,11 +650,9 @@ MonoBehaviour:
   features:
   - {fileID: -3168259306587223047}
   - {fileID: 846426915629168872}
-  - {fileID: -3862429966507761170}
   - {fileID: -8067972468228541608}
   - {fileID: -2717771289083684438}
   - {fileID: -274150160735790553}
-  - {fileID: -5665712216961235671}
   - {fileID: -6185602695346588007}
   - {fileID: 274651567973254381}
   - {fileID: 4341094823424512019}

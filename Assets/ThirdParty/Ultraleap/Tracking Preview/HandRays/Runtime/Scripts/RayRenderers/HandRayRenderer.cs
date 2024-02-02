@@ -122,6 +122,8 @@ namespace Leap.Unity.Preview.HandRays
 
             lineRenderer.positionCount = handRayInteractor.numPoints;
             lineRenderer.SetPositions(handRayInteractor.linePoints);
+            
+            Debug.Log(results[0].transform.name);
         }
     }
 }
