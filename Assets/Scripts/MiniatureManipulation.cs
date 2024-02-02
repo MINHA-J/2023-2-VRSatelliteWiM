@@ -43,7 +43,21 @@ public class MiniatureManipulation : MonoBehaviour
     private Camera mainCamera;
     private float timer  = 0.0f;
     private float duration  = 0.1f;
-
+    
+    // Filter Eye movement
+    private OneEuroFilter<Vector3> eyeRayFilter;
+    /// <summary>
+    /// Beta param for OneEuroFilter (see https://cristal.univ-lille.fr/~casiez/1euro/)
+    /// If you're experiencing high speed lag, increase beta
+    /// </summary>
+    private float oneEuroBeta = 100;
+    /// <summary>
+    /// MinCutoff for OneEuroFilter (see https://cristal.univ-lille.fr/~casiez/1euro/)
+    /// If you're experiencing slow speed jitter, decrease MinCutoff
+    /// </summary>
+    private float oneEuroMinCutoff = 2;
+    private readonly float oneEurofreq = 50;
+    
     private void Awake()
     {
         miniatureWorld = GetComponent<MiniatureWorld>();
@@ -65,6 +79,8 @@ public class MiniatureManipulation : MonoBehaviour
         //기존 설정된 ROI의 Size를 set
         worldROI = miniatureWorld.ROI.gameObject;
         worldOriginScale = worldROI.transform.localScale;
+        
+        eyeRayFilter = new OneEuroFilter<Vector3>(oneEurofreq, oneEuroMinCutoff, oneEuroBeta);
     }
 
 
@@ -216,8 +232,8 @@ public class MiniatureManipulation : MonoBehaviour
             // 너무 먼 곳이라면 ROI 생성하지 않고 넘어갑니다.
             if (pointInWorldRoi.sqrMagnitude > Mathf.Pow(30.0f, 2))
                 return;
-            
-            TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
+            TempEyes.transform.position = eyeRayFilter.Filter(pointInWorldRoi, Time.time);
+            //TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
             miniatureWorld.UpdateCandidatePosition(pointInWorld, pointInWorldRoi);
         }
         else
