@@ -34,10 +34,13 @@ public class Test01_Manager : MonoBehaviour
     private int taskNum = 1;
     [SerializeField] private TaskType currentType = TaskType.TestGroup;
     
+    [Header("Set Test Interaction")] 
+    public MakeRoi testInteraction;
+    public MakeRayPortal controlInteraction;
+    
     [Header("Set GameObject Before Test")] 
     public Transform portalPlace;
     public GameObject targetObject;
-    public MakeRoi ROIInteraction;
     public GameObject indicator_A;
     public GameObject indicator_B;
     public TextMeshProUGUI TitleTextUI;
@@ -124,11 +127,25 @@ public class Test01_Manager : MonoBehaviour
     private void ChangeTaskType()
     {
         currentType = (TaskType)(Convert.ToInt32(currentType + 1) % System.Enum.GetValues(typeof(TaskType)).Length);
-        ROIInteraction.ShowInteraction(currentType);
-        
+        ShowInteraction(currentType);
         initalizeDictionary();
     }
-
+    
+    private void ShowInteraction(TaskType type)
+    {
+        switch (type)
+        {
+            case TaskType.TestGroup: //실험군
+                testInteraction.gameObject.SetActive(true);
+                controlInteraction.gameObject.SetActive(false);
+                break;
+            
+            case TaskType.ControlGroup: //대조군
+                testInteraction.gameObject.SetActive(false);
+                controlInteraction.gameObject.SetActive(true);
+                break;
+        }
+    }
     private void initalizeDictionary()
     {
         taskTryNum = 0;
@@ -346,18 +363,23 @@ public class Test01_Manager : MonoBehaviour
             foreach (var obj in tempObj) { Destroy(obj); }
         
         SetTargetValue();
+        ShowInteraction(currentType);
 
         switch (currentType)
         {
+
+            case TaskType.TestGroup:
+                Debug.Log("실험군 Try Setting 완료");
+                MiniatureWorld.Instance.RemoveProxies();
+                break;
+            
             case TaskType.ControlGroup:
                 Debug.Log("대조군 Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
-            
-            case TaskType.TestGroup:
-                Debug.Log("실험군 Try Setting 완료");
-                break;
+
+
         }
     }
 
