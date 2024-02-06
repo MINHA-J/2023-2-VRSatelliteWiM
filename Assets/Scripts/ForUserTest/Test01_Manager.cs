@@ -32,11 +32,12 @@ public class Test01_Manager : MonoBehaviour
     [Header("Set Before Test")]
     public int subjectNum; //실험자 번호
     private int taskNum = 1;
-    private TaskType currentType = TaskType.TestGroup;
+    [SerializeField] private TaskType currentType = TaskType.TestGroup;
     
     [Header("Set GameObject Before Test")] 
     public Transform portalPlace;
     public GameObject targetObject;
+    public MakeRoi ROIInteraction;
     public GameObject indicator_A;
     public GameObject indicator_B;
     public TextMeshProUGUI TitleTextUI;
@@ -115,11 +116,17 @@ public class Test01_Manager : MonoBehaviour
         if (!IsTestEnd && taskTryNum >= MaxTaskTryNum)
         {
             CheckResult();
-            currentType = (TaskType)(Convert.ToInt32(currentType + 1) % System.Enum.GetValues(typeof(TaskType)).Length);
+            ChangeTaskType();
             IsTestEnd = true;
-            
-            initalizeDictionary();
         }
+    }
+
+    private void ChangeTaskType()
+    {
+        currentType = (TaskType)(Convert.ToInt32(currentType + 1) % System.Enum.GetValues(typeof(TaskType)).Length);
+        ROIInteraction.ShowInteraction(currentType);
+        
+        initalizeDictionary();
     }
 
     private void initalizeDictionary()

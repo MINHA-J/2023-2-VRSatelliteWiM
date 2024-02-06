@@ -93,15 +93,36 @@ public class MakeRoi : MonoBehaviour
             }
         }
     }
+
+    public void ShowInteraction(TaskType type)
+    {
+        Transform testInteraction = transform.GetChild(0);
+        Transform controlInteraction = transform.GetChild(1);
+        
+        switch (type)
+        {
+            case TaskType.TestGroup: //실험군
+                testInteraction.gameObject.SetActive(true);
+                controlInteraction.gameObject.SetActive(false);
+                break;
+            
+            case TaskType.ControlGroup: //대조군
+                testInteraction.gameObject.SetActive(false);
+                controlInteraction.gameObject.SetActive(true);
+                break;
+        }
+    }
     
     public void Hide()
     {
         if (!isShown) return;
-        foreach (Transform child in transform)
-        {
-            child.transform.DOScale(0, 0.2f);
-            child.gameObject.SetActive(false);
-        }
+        // foreach (Transform child in transform)
+        // {
+        //     child.transform.DOScale(0, 0.2f);
+        //     child.gameObject.SetActive(false);
+        // }
+        transform.GetChild(0).transform.DOScale(0, 0.2f);
+        transform.GetChild(0).gameObject.SetActive(false);
 
         isShown = false;
     }
@@ -109,11 +130,13 @@ public class MakeRoi : MonoBehaviour
     public void Show()
     {
         if (isShown) return;
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(true);
-            child.transform.DOScale(1f, 0.2f);
-        }
+        // foreach (Transform child in transform)
+        // {
+        //     child.gameObject.SetActive(true);
+        //     child.transform.DOScale(1f, 0.2f);
+        // }
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(0).transform.DOScale(1f, 0.2f);
 
         isShown = true;
     }
