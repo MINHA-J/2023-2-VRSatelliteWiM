@@ -146,7 +146,7 @@ namespace Leap.Unity.Preview.HandRays
             if (results.Length > 0)
             {
                 //Debug.Log(results[0].transform.name);
-                if (results[0].transform.CompareTag("OnGround"))
+                if (results[0].transform.CompareTag("OnGround") || results[0].transform.CompareTag("Target"))
                 {
                     currentContact = results[0].transform.gameObject;
                     rayEndVector = results[0].point;

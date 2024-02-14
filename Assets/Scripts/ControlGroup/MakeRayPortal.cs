@@ -75,8 +75,9 @@ public class MakeRayPortal : MonoBehaviour
             //Debug.Log("[MakeRoi.cs] Can Set ROI!");
             // [TASK01] 실험군
             //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
+            miniatureWorld.RemoveProxies();
             miniatureWorld.CreateProxies(index, pos, 200.0f, Test01_Manager.Instance.portalPlace.position);
-            miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
+            //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
             index++;
 
             // [TASK01] 실험군

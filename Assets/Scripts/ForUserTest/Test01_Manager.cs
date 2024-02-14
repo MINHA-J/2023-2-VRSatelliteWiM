@@ -56,7 +56,7 @@ public class Test01_Manager : MonoBehaviour
     private uint MaxTaskTryNum = 1;  //실험 최대 시도 횟수
     private bool IsTickTotalTime = false;
     private bool IsTickThisTime = false;
-    private bool IsTestEnd = false;
+    private bool IsTestRecordEnd = false;
     private float target_xValue = 0.0f;
     private float target_yValue = 0.0f;
     private float target_zValue = 0.0f;
@@ -116,11 +116,11 @@ public class Test01_Manager : MonoBehaviour
             _thisTime += Time.deltaTime;
 
         // 0, 1, 2 try까지만 확인
-        if (!IsTestEnd && taskTryNum >= MaxTaskTryNum)
+        if (!IsTestRecordEnd && taskTryNum >= MaxTaskTryNum)
         {
             CheckResult();
             ChangeTaskType();
-            IsTestEnd = true;
+            IsTestRecordEnd = true;
         }
     }
 
@@ -156,7 +156,7 @@ public class Test01_Manager : MonoBehaviour
         portalADistance.Clear();
         portalBDistance.Clear();
         
-        IsTestEnd = false;
+        IsTestRecordEnd = false;
     }
 
     private void SetTargetValue()
@@ -195,10 +195,10 @@ public class Test01_Manager : MonoBehaviour
     /// <summary>
     /// Test Panel의 Button을 눌러 Test의 Task를 진행합니다.
     /// </summary>
+    [ContextMenu("GoNextState")]
     public void PressButtonUI()
     {
         state = (TestState)(Convert.ToInt32(state + 1) % System.Enum.GetValues(typeof(TestState)).Length);
-        
         SetMeasuresByTestState();
         SetByTestState();
     }
@@ -273,7 +273,7 @@ public class Test01_Manager : MonoBehaviour
         {
             case TestState.NotStarted:
                 TitleTextUI.text = "Start Task";
-                ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + (MaxTaskTryNum - taskTryNum) + "회 남았습니다.";
+                ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + taskTryNum + "/" + MaxTaskTryNum;
                 ButtonTextUI.text = "YES";
                 break;
             
@@ -314,6 +314,7 @@ public class Test01_Manager : MonoBehaviour
         switch (state)
         {
             case TestState.NotStarted:
+                Debug.Log("[TEST01] " + currentType + "의 " + taskTryNum + "/ " + MaxTaskTryNum);
                 InitalizeThisTry();
                 break;
 
@@ -351,6 +352,8 @@ public class Test01_Manager : MonoBehaviour
                 IsTickTotalTime = false;
                 totalTime.Add(taskTryNum, _totalTime);
                 taskTryNum++;
+
+                IsTestRecordEnd = false;
                 break;
         }
     }
@@ -369,13 +372,13 @@ public class Test01_Manager : MonoBehaviour
         {
 
             case TaskType.TestGroup:
-                Debug.Log("실험군 Try Setting 완료");
+                Debug.Log("[TEST01] 실험군 Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.11f, 1.963f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
             
             case TaskType.ControlGroup:
-                Debug.Log("대조군 Try Setting 완료");
+                Debug.Log("[TEST01]대조군 Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
@@ -386,13 +389,12 @@ public class Test01_Manager : MonoBehaviour
 
     private void CheckResult()
     {
-        Debug.Log("[RESULT] Save Data Start");
+        Debug.Log("[TEST01][RESULT] Save Data Start");
 
         for (uint tryNum = 0; tryNum < MaxTaskTryNum; tryNum++)
         {
             TaskTry taskResult = new TaskTry();
 
-            
             if (totalTime.TryGetValue(tryNum, out float time))
             {
                 // 1) 실험에 총 걸린 시간
@@ -408,9 +410,16 @@ public class Test01_Manager : MonoBehaviour
 
                 // 3) 각 포탈 생성 횟수와 시간
                 if (portalASave.TryGetValue(tryNum, out List<float> A_createList))
+                {
                     taskResult.portalACreationNum = A_createList.Count;
+                    taskResult.portalATimeList = A_createList.ToArray();
+                }
+
                 if (portalBSave.TryGetValue(tryNum, out List<float> B_createList))
+                {
                     taskResult.portalBCreationNum = B_createList.Count;
+                    taskResult.portalBTimeList = B_createList.ToArray();
+                }
 
                 // 4) 각 포탈 생성 거리
                 float sumDistance = 0.0f;
@@ -419,6 +428,7 @@ public class Test01_Manager : MonoBehaviour
                     for (int i = 0; i < A_distance.Count; i++)
                         sumDistance += A_distance[i];
                     taskResult.portalADistance = sumDistance / (float)A_distance.Count;
+                    taskResult.portalADistanceList = A_distance.ToArray();
                 }
 
                 if (portalBDistance.TryGetValue(tryNum, out List<float> B_distance))
@@ -427,8 +437,11 @@ public class Test01_Manager : MonoBehaviour
                     for (int i = 0; i < B_distance.Count; i++)
                         sumDistance += B_distance[i];
                     taskResult.portalBDistance = sumDistance / (float)B_distance.Count;
+                    taskResult.portalBDistanceList = B_distance.ToArray();
                 }
             }
+
+            // TaskTry struct 세팅 완료, txt 변환
             Save(tryNum + 1, taskResult);
         }
     }
