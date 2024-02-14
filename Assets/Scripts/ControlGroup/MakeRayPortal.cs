@@ -52,7 +52,7 @@ public class MakeRayPortal : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= duration)
             {
-                Debug.Log("[DEBUG] ROI 설정. Portal Set -MakeRayPortal.cs");
+                //Debug.Log("[DEBUG] ROI 설정. Portal Set -MakeRayPortal.cs");
                 Vector3 targetPos = handRayRenderer.GetContactVector() - transform.up * 0.05f;
                 SettingRoi(targetPos, transform.right);
 
