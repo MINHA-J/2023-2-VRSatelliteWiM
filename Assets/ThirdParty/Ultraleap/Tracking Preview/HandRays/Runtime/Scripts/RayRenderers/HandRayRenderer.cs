@@ -16,6 +16,10 @@ namespace Leap.Unity.Preview.HandRays
     public class HandRayRenderer : MonoBehaviour
     {
         public LineRenderer lineRenderer;
+        
+        // [TASk01] 대조군
+        public GameObject currentContact = null;
+        public Vector3 rayEndVector;
 
         /// <summary>
         /// If true, the ray renderer ignores the points given by the ray interactor.
@@ -66,6 +70,21 @@ namespace Leap.Unity.Preview.HandRays
             }
         }
 
+        // [TASk01] 대조군
+        public Vector3 GetContactVector()
+        {
+            return rayEndVector;
+        }
+
+        public bool IsContact()
+        {
+            if (currentContact == null)
+                return false;
+            return true;
+        }
+        
+        
+        
         protected virtual void OnRaycastStateChange(HandRayDirection direction, bool enabled)
         {
             _isRayEnabled = enabled;
@@ -122,8 +141,22 @@ namespace Leap.Unity.Preview.HandRays
 
             lineRenderer.positionCount = handRayInteractor.numPoints;
             lineRenderer.SetPositions(handRayInteractor.linePoints);
+
+            //[TASK01]: 대조군
+            if (results.Length > 0)
+            {
+                //Debug.Log(results[0].transform.name);
+                if (results[0].transform.CompareTag("OnGround") || results[0].transform.CompareTag("Target"))
+                {
+                    currentContact = results[0].transform.gameObject;
+                    rayEndVector = results[0].point;
+                }
+                else
+                {
+                    currentContact = null;
+                }
+            }
             
-            Debug.Log(results[0].transform.name);
         }
     }
 }

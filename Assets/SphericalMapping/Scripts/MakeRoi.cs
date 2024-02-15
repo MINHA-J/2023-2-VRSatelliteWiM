@@ -14,7 +14,6 @@ public class MakeRoi : MonoBehaviour
     [Header("Basic")]
     public Leap.Unity.PinchDetector pinchDetector;
     public Leap.Unity.Examples.PaintCursor paintCursor;
-    public GameObject pinPrefab;
     
     [SerializeField] private bool isShown;
     [SerializeField] private bool canMake = false;
@@ -29,7 +28,7 @@ public class MakeRoi : MonoBehaviour
 
     private void Start()
     {
-        //miniatureWorld = MiniatureWorld.Instances.First();
+        miniatureWorld = MiniatureWorld.Instance;
     }
 
     private void Update()
@@ -68,26 +67,21 @@ public class MakeRoi : MonoBehaviour
 
     private void SettingRoi(Vector3 pos, Vector3 rot)
     {
-        // GameObject Roi = Instantiate(pinPrefab);
-        // Roi.transform.DOScale(4f, 0.2f);
-        // Roi.transform.position = pos;
-        // Roi.transform.rotation = Quaternion.Euler(rot);
-
         Vector3 position = miniatureWorld.CandidatePos;
         if (position != Vector3.zero)
         {
             // 해당 위치와 근접하게 이미 Proxy가 존재한다면, 생성하지 않음
-            bool canDo = miniatureWorld.CanDeployProxies(position, 3.0f);
+            bool canDo = miniatureWorld.CanDeployProxies(position, 2.0f);
             if (canDo)
             {
                 //Debug.Log("[MakeRoi.cs] Can Set ROI!");
-                // [TASK01]
+                // [TASK01] 실험군
                 //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
                 miniatureWorld.CreateProxies(index, position, 200.0f, Test01_Manager.Instance.portalPlace.position);
                 miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
                 index++;
                 
-                // [TASK01]
+                // [TASK01] 실험군
                 Test01_Manager.Instance.SavePortalNum();
                 Test01_Manager.Instance.SavePortalDistance(position);
             }
@@ -102,6 +96,8 @@ public class MakeRoi : MonoBehaviour
             child.transform.DOScale(0, 0.2f);
             child.gameObject.SetActive(false);
         }
+        // transform.GetChild(0).transform.DOScale(0, 0.2f);
+        // transform.GetChild(0).gameObject.SetActive(false);
 
         isShown = false;
     }
@@ -114,6 +110,8 @@ public class MakeRoi : MonoBehaviour
             child.gameObject.SetActive(true);
             child.transform.DOScale(1f, 0.2f);
         }
+        // transform.GetChild(0).gameObject.SetActive(true);
+        // transform.GetChild(0).transform.DOScale(1f, 0.2f);
 
         isShown = true;
     }

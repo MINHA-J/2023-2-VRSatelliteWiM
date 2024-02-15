@@ -29,9 +29,18 @@ public struct TaskTry
 
     public int portalACreationNum;
     public int portalBCreationNum;
-
+    
     public float portalADistance;
     public float portalBDistance;
+    
+    [SerializeField]
+    public float[] portalATimeList;
+    [SerializeField]
+    public float[] portalADistanceList;
+    [SerializeField]
+    public float[] portalBTimeList;
+    [SerializeField]
+    public float[] portalBDistanceList;
 }
 
 [Serializable]

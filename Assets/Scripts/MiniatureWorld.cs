@@ -125,19 +125,20 @@ public class MiniatureWorld : MonoBehaviour
         instance.GetComponent<Satellite>().SetProxies(ProxiesTable[index].Marks[0], ProxiesTable[index]);
         SatelliteTable.Add(index, instance);
     }
-        public void CreateProxies(uint index, Vector3 M_pos, float size, Vector3 P_pos)
+
+    public void CreateProxies(uint index, Vector3 M_pos, float size, Vector3 P_pos)
     {
         //GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode_fix", typeof(GameObject)) as GameObject;
         GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode", typeof(GameObject)) as GameObject;
         //GameObject ExitWarp = Resources.Load("Prefabs/MarkNode-test231106", typeof(GameObject)) as GameObject;
         GameObject ExitWarp = Resources.Load("Prefabs/MarkNode", typeof(GameObject)) as GameObject;
-        
+
         GameObject markedSpace = Instantiate(ExitWarp);
         GameObject proxySpace = Instantiate(EntryWarp);
-        
+
         ProxyNode proxyNode = proxySpace.GetComponent<ProxyNode>();
         MarkNode markNode = markedSpace.GetComponent<MarkNode>();
-        
+
         proxyNode.Marks.Add(markNode);
         proxyNode.SetCreationMode(true);
 
@@ -155,14 +156,14 @@ public class MiniatureWorld : MonoBehaviour
         markedSpace.transform.position = markedPosition;
         markedSpace.transform.localScale = new Vector3(markFilteredScale, markFilteredScale, markFilteredScale);
         markNode.Radius = markedSpace.GetComponent<SphereCollider>().radius;
-        
+
         proxySpace.transform.position = P_pos;
         proxySpace.transform.localScale = new Vector3(proxyFilteredSize, proxyFilteredSize, proxyFilteredSize);
-        
+
         proxyNode.SetCreationMode(false);
-        
+
         ProxiesTable.Add(index, proxyNode);
-        
+
         //proxyNode.Minimize();
         //proxySpace.transform.localScale = new Vector3(MINIMIZE_THRESHOLD - 0.01f, MINIMIZE_THRESHOLD - 0.01f, MINIMIZE_THRESHOLD - 0.01f);
     }
