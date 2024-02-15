@@ -263,7 +263,7 @@ public class MiniatureManipulation : MonoBehaviour
                 //SetOnHand();
             }
 
-            SetRoiRatio();
+            //SetRoiRatio();
             
         }
         else

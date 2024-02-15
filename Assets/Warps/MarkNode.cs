@@ -14,7 +14,8 @@ public class MarkNode : WarpNode {
     public MarkHand RightHand;
 
     public MarkState State { get; private set; }
-
+    private float spotlightRatio = 1.0f;
+    
     public Color Color;
     private RingLOD ring;
     private Material sphereMaterial;
@@ -49,6 +50,7 @@ public class MarkNode : WarpNode {
         float angle = Mathf.Atan(Radius / spotlight.transform.position.y) * Mathf.Rad2Deg;
         light.spotAngle = angle;
         light.innerSpotAngle = angle;
+        Debug.Log(Radius);
         
         // position
         Vector3 newVec = new Vector3(transform.position.x, spotlight.transform.position.y, transform.position.z);
@@ -58,7 +60,7 @@ public class MarkNode : WarpNode {
     new void Update() 
     {
         base.Update();
-        Radius = transform.localScale.x;
+        Radius = transform.localScale.x * spotlightRatio;
         ring.Color = Color;
 
         UpdateSpotLight();
