@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Leap.Unity.Preview.HandRays;
+using Unity.VisualScripting;
 
 public class MakeRayPortal : MonoBehaviour
 {
@@ -72,17 +73,29 @@ public class MakeRayPortal : MonoBehaviour
         bool canDo = miniatureWorld.CanDeployProxies(pos, 2.0f);
         if (canDo)
         {
-            //Debug.Log("[MakeRoi.cs] Can Set ROI!");
-            // [TASK01] 실험군
-            //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
-            miniatureWorld.RemoveProxies();
-            miniatureWorld.CreateProxies(index, pos, 200.0f, Test01_Manager.Instance.portalPlace.position);
-            //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
-            index++;
+            switch (TestManager.Instance.taskNum)
+            {
+                case 1:
+                    //Debug.Log("[MakeRoi.cs] Can Set ROI!");
+                    // [TASK01] 실험군
+                    //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
+                    Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                        
+                    miniatureWorld.RemoveProxies();
+                    miniatureWorld.CreateProxies(index, pos, 200.0f, manager.portalPlace.position);
+                    //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
+                    index++;
 
-            // [TASK01] 실험군
-            Test01_Manager.Instance.SavePortalNum();
-            Test01_Manager.Instance.SavePortalDistance(pos);
+                    // [TASK01] 실험군
+                    manager.SavePortalNum();
+                    manager.SavePortalDistance(pos);
+                    break;
+
+                case 2:
+                    // TODO
+                    break;
+            }
+
         }
     }
 

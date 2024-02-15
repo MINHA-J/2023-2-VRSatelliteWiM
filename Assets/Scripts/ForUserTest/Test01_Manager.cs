@@ -1,16 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Leap.Unity;
-using System.Runtime.Serialization.Formatters.Binary;
-using TMPro;
-using Unity.Mathematics;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
+
 
 public class Test01_Manager : TestManager
 {
@@ -31,37 +22,13 @@ public class Test01_Manager : TestManager
     private Dictionary<uint, List<float>> portalADistance = new Dictionary<uint, List<float>>();
     private Dictionary<uint, List<float>> portalBDistance = new Dictionary<uint, List<float>>();
 
-    
-    private static Test01_Manager instance;
-    public static Test01_Manager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                return null;
-            }
-
-            return instance;
-        }
-    }
-
-    void Awake()
-    {
-        if (null == instance)
-        { 
-            instance = this;
-        }
-        else
-        {
-        }
-    }
-
     private void Start()
     {
         SetGameObjects();
         SetByTestState();
         InitalizeThisTry();
+
+        taskNum = 1;
     }
 
     private void Update()
@@ -162,6 +129,11 @@ public class Test01_Manager : TestManager
         else return;
     }
 
+    public  override GameObject GetTestManager()
+    {
+        return this.gameObject;
+    }
+    
     public override void SetByTestState()
     {
         base.SetByTestState();

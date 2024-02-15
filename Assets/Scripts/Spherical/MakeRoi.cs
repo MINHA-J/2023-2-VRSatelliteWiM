@@ -74,16 +74,28 @@ public class MakeRoi : MonoBehaviour
             bool canDo = miniatureWorld.CanDeployProxies(position, 2.0f);
             if (canDo)
             {
-                //Debug.Log("[MakeRoi.cs] Can Set ROI!");
-                // [TASK01] 실험군
-                //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
-                miniatureWorld.CreateProxies(index, position, 200.0f, Test01_Manager.Instance.portalPlace.position);
-                miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
-                index++;
-                
-                // [TASK01] 실험군
-                Test01_Manager.Instance.SavePortalNum();
-                Test01_Manager.Instance.SavePortalDistance(position);
+                switch (TestManager.Instance.taskNum)
+                {
+                    case 1:
+                        //Debug.Log("[MakeRoi.cs] Can Set ROI!");
+                        // [TASK01] 실험군
+                        //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
+                        Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+
+                        miniatureWorld.CreateProxies(index, position, 200.0f,
+                            manager.portalPlace.position);
+                        miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
+                        index++;
+
+                        // [TASK01] 실험군
+                        manager.SavePortalNum();
+                        manager.SavePortalDistance(position);
+                        break;
+                    
+                    case 2:
+                        // TODO
+                        break;
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ using Leap.Unity;
 using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -32,7 +33,6 @@ public class TestManager : MonoBehaviour
 {
     [Header("----+ Test Information +----")]
     public int subjectNum; //실험자 번호
-
     public int taskNum = 1;
 
     [Header("----+ Test Setting +----")] public TaskType currentType = TaskType.TestGroup;
@@ -58,6 +58,31 @@ public class TestManager : MonoBehaviour
     [HideInInspector] public bool IsTickThisTime = false;
     [HideInInspector] public bool IsTestRecordEnd = false;
 
+    private static TestManager instance;
+    public static TestManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                return null;
+            }
+
+            return instance;
+        }
+    }
+
+    void Awake()
+    {
+        if (null == instance)
+        { 
+            instance = this;
+        }
+        else
+        {
+        }
+    }
+    
     public void SetGameObjects()
     {
         TitleTextUI = TestPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -65,6 +90,11 @@ public class TestManager : MonoBehaviour
         ButtonTextUI = TestPanel.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
     }
 
+    public  virtual GameObject GetTestManager()
+    {
+        return this.gameObject;
+    }
+    
     /// <summary>
     /// Test Panel의 Button을 눌러 Test의 Task를 진행합니다.
     /// </summary>

@@ -146,9 +146,20 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         proxySpace.transform.localScale = new Vector3(proxyFilteredSize, proxyFilteredSize, proxyFilteredSize);
         
         MiniatureWorld.Instance.ProxiesTable.Add(0, proxyNode);
-        // [TASK01]
-        Test01_Manager.Instance.SavePortalNum();
-        Test01_Manager.Instance.SavePortalDistance(pos);
+
+        switch (TestManager.Instance.taskNum)
+        {
+            case 1:
+                // [TASK01]
+                Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                manager.SavePortalNum();
+                manager.SavePortalDistance(pos);
+                break;
+            
+            case 2:
+                // TODO
+                break;
+        }
     }
 
     private void UpdateMarkedOnly(){

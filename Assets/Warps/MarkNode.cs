@@ -50,7 +50,7 @@ public class MarkNode : WarpNode {
         float angle = Mathf.Atan(Radius / spotlight.transform.position.y) * Mathf.Rad2Deg;
         light.spotAngle = angle;
         light.innerSpotAngle = angle;
-        Debug.Log(Radius);
+        //Debug.Log(Radius);
         
         // position
         Vector3 newVec = new Vector3(transform.position.x, spotlight.transform.position.y, transform.position.z);
