@@ -44260,7 +44260,7 @@ PrefabInstance:
     - target: {fileID: 4156539102368753983, guid: 905c73aeac59e014ab089ac975bb09f1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PressButtonUI
+      value: GoNextTestState
       objectReference: {fileID: 0}
     - target: {fileID: 4156539102368753983, guid: 905c73aeac59e014ab089ac975bb09f1,
         type: 3}

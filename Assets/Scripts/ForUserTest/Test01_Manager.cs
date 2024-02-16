@@ -1,13 +1,19 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class Test01_Manager : TestManager
 {
-    [Header("[Test01] GameObject")] 
+    [Header("[Test01] GameObject")]
     public Transform portalPlace;
 
+    [Header("[Test01] Techique")] 
+    [SerializeField] private MakeRoi testInteraction;
+    [SerializeField] private MakeRayPortal controlInteraction_1;
+    [SerializeField] private GameObject controlInteraction_2;
+    
     // 1) 실험에 총 걸린 시간을 Check하기 위함 ( TryNum, Time )
     private Dictionary<uint, float> totalTime = new Dictionary<uint, float>();
     
@@ -28,23 +34,36 @@ public class Test01_Manager : TestManager
         SetByTestState();
         InitalizeThisTry();
 
-        taskNum = 1;
+        experimentNum = 1;
     }
 
     private void Update()
     {
-        TickTime();
+        GetKeyboardCommand(); // 오류 생길 경우 처리
         
+        if (state != TestState.NotStarted)
+            TickTime();
+
         // 0, 1, 2 try까지만 확인
-        if (!IsTestRecordEnd && taskTryNum >= MaxTaskTryNum)
+        // 다음 technique로 넘어갑니다
+        if (!IsTestRecordEnd && currentTryNum >= repeatTryNum)
         {
             CheckResult();
             ChangeTaskType();
             IsTestRecordEnd = true;
         }
     }
+    
 
-
+    public override void SetGameObjects()
+    {
+        base.SetGameObjects();
+        
+        testInteraction = techniques.transform.GetChild(0).GetComponent<MakeRoi>();
+        controlInteraction_1 = techniques.transform.GetChild(0).GetComponent<MakeRayPortal>();
+        controlInteraction_2 = techniques.transform.GetChild(0).gameObject;
+    }
+    
     public override void ChangeTaskType()
     {
         base.ChangeTaskType();
@@ -54,7 +73,7 @@ public class Test01_Manager : TestManager
 
     private void initalizeDictionary()
     {
-        taskTryNum = 0;
+        currentTryNum = 0;
         totalTime.Clear();
         portalCreationTime.Clear();
         portalASave.Clear();
@@ -69,7 +88,7 @@ public class Test01_Manager : TestManager
     {
         if (state == TestState.SettingPortal_A)
         {
-            if (portalASave.TryGetValue(taskTryNum, out List<float> temp))
+            if (portalASave.TryGetValue(currentTryNum, out List<float> temp))
             {
                 temp.Add(_thisTime);
             }
@@ -77,12 +96,12 @@ public class Test01_Manager : TestManager
             {
                 List<float> timeList = new List<float>();
                 timeList.Add(_thisTime);
-                portalASave.Add(taskTryNum, timeList);
+                portalASave.Add(currentTryNum, timeList);
             }
         }
         else if (state == TestState.SettingPortal_B)
         {
-            if (portalBSave.TryGetValue(taskTryNum, out List<float> temp))
+            if (portalBSave.TryGetValue(currentTryNum, out List<float> temp))
             {
                 temp.Add(_thisTime);
             }
@@ -90,7 +109,7 @@ public class Test01_Manager : TestManager
             {
                 List<float> timeList = new List<float>();
                 timeList.Add(_thisTime);
-                portalBSave.Add(taskTryNum, timeList);
+                portalBSave.Add(currentTryNum, timeList);
             }
         }
         else return;
@@ -101,7 +120,7 @@ public class Test01_Manager : TestManager
         if (state == TestState.SettingPortal_A)
         {
             float distance = Vector3.Distance(portalPos, indicator_A.transform.position);
-            if (portalADistance.TryGetValue(taskTryNum, out List<float> temp))
+            if (portalADistance.TryGetValue(currentTryNum, out List<float> temp))
             {
                 temp.Add(distance);
             }
@@ -109,13 +128,13 @@ public class Test01_Manager : TestManager
             {
                 List<float> value = new List<float>();
                 value.Add(distance);
-                portalADistance.Add(taskTryNum, value);
+                portalADistance.Add(currentTryNum, value);
             }
         }
         else if (state == TestState.SettingPortal_B)
         {
             float distance = Vector3.Distance(portalPos, indicator_B.transform.position);
-            if (portalBDistance.TryGetValue(taskTryNum, out List<float> temp))
+            if (portalBDistance.TryGetValue(currentTryNum, out List<float> temp))
             {
                 temp.Add(distance);
             }
@@ -123,7 +142,7 @@ public class Test01_Manager : TestManager
             {
                 List<float> value = new List<float>();
                 value.Add(distance);
-                portalBDistance.Add(taskTryNum, value);
+                portalBDistance.Add(currentTryNum, value);
             }
         }
         else return;
@@ -144,7 +163,7 @@ public class Test01_Manager : TestManager
         switch (state)
         {
             case TestState.NotStarted:
-                Debug.Log("[TEST01] " + currentType + "의 " + taskTryNum + "/ " + MaxTaskTryNum);
+                Debug.Log("[TEST01] " + currentType + "의 " + currentTryNum + "/ " + repeatTryNum);
                 InitalizeThisTry();
                 break;
 
@@ -162,7 +181,7 @@ public class Test01_Manager : TestManager
                 IsTickThisTime = false;
                 List<float> portalTime = new List<float>();
                 portalTime.Add(_thisTime); //portalTime[0] = A portal time
-                portalCreationTime.Add(taskTryNum, portalTime);
+                portalCreationTime.Add(currentTryNum, portalTime);
                 break;
             
             case TestState.SettingPortal_B:
@@ -173,17 +192,16 @@ public class Test01_Manager : TestManager
             
             case TestState.FinishPortalSet_B:
                 // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
-                if (portalCreationTime.TryGetValue(taskTryNum, out List<float> list))
+                if (portalCreationTime.TryGetValue(currentTryNum, out List<float> list))
                     list.Add(_thisTime); //portalTime[1] = B portal time
                 break;  
 
             case TestState.MoveObject:
                 // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
                 IsTickTotalTime = false;
-                totalTime.Add(taskTryNum, _totalTime);
-                taskTryNum++;
-
-                IsTestRecordEnd = false;
+                totalTime.Add(currentTryNum, _totalTime);
+                IsTestRecordEnd = false; 
+                currentTryNum++;
                 break;
         }
     }
@@ -192,7 +210,7 @@ public class Test01_Manager : TestManager
     {
         Debug.Log("[TEST01][RESULT] Save Data Start");
 
-        for (uint tryNum = 0; tryNum < MaxTaskTryNum; tryNum++)
+        for (uint tryNum = 0; tryNum < repeatTryNum; tryNum++)
         {
             TaskTry taskResult = new TaskTry();
 

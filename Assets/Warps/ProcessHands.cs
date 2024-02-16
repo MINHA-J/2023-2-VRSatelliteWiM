@@ -147,7 +147,7 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         
         MiniatureWorld.Instance.ProxiesTable.Add(0, proxyNode);
 
-        switch (TestManager.Instance.taskNum)
+        switch (TestManager.Instance.experimentNum)
         {
             case 1:
                 // [TASK01]

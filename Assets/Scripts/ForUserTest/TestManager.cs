@@ -16,7 +16,8 @@ using Random = UnityEngine.Random;
 public enum TaskType
 {
     TestGroup,      //실험군
-    ControlGroup    //대조군
+    ControlGroup1,  //대조군1
+    ControlGroup2   //대조군2
 }
 
 public enum TestState
@@ -33,18 +34,23 @@ public class TestManager : MonoBehaviour
 {
     [Header("----+ Test Information +----")]
     public int subjectNum; //실험자 번호
-    public int taskNum = 1;
+    public int experimentNum = 1;   // 1(Near)번 or 2(Far)번 실험
 
-    [Header("----+ Test Setting +----")] public TaskType currentType = TaskType.TestGroup;
-    public uint MaxTaskTryNum = 1; //실험 최대 시도 횟수
+    [Header("----+ Test Setting +----")] 
+    public TaskType currentType = TaskType.TestGroup;
+    public uint repeatTryNum = 3; //실험 최대 시도 횟수
     public GameObject TestPanel;
     public GameObject targetObject;
-    [Header("Technique")] public MakeRoi testInteraction;
-    public MakeRayPortal controlInteraction;
+
+    [Header("Technique")] 
+    public GameObject techniques;
+    //public MakeRoi testInteraction;
+    //public MakeRayPortal controlInteraction;
     public GameObject indicator_A;
     public GameObject indicator_B;
     
-    [Header("----+ Test ING +----")] public uint taskTryNum = 0; //실험 시도 횟수
+    [Header("----+ Test ING +----")] 
+    public uint currentTryNum = 0; //실험 시도 횟수
     public TestState state = TestState.NotStarted;
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
@@ -83,7 +89,7 @@ public class TestManager : MonoBehaviour
         }
     }
     
-    public void SetGameObjects()
+    public virtual void SetGameObjects()
     {
         TitleTextUI = TestPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         ContentsTextUI = TestPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -94,12 +100,24 @@ public class TestManager : MonoBehaviour
     {
         return this.gameObject;
     }
-    
+
+    public void GetKeyboardCommand()
+    {
+        // 오류 생길 경우 처리하자
+
+        // 1) F1 로 Test state 넘기기
+        if (Input.GetKeyDown(KeyCode.F1))
+            GoNextTestState();
+
+        // 2)
+
+    }
+
     /// <summary>
     /// Test Panel의 Button을 눌러 Test의 Task를 진행합니다.
     /// </summary>
     [ContextMenu("GoNextState")]
-    public void PressButtonUI()
+    public void GoNextTestState()
     {
         state = (TestState)(Convert.ToInt32(state + 1) % System.Enum.GetValues(typeof(TestState)).Length);
         SetMeasuresByTestState();
@@ -112,7 +130,7 @@ public class TestManager : MonoBehaviour
         {
             case TestState.NotStarted:
                 TitleTextUI.text = "Start Task";
-                ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + taskTryNum + "/" + MaxTaskTryNum;
+                ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
                 ButtonTextUI.text = "YES";
                 break;
 
@@ -141,7 +159,7 @@ public class TestManager : MonoBehaviour
                 break;
 
             case TestState.MoveObject:
-                TitleTextUI.text = "Finish " + (taskTryNum) + " try";
+                TitleTextUI.text = "Finish " + (currentTryNum) + " try";
                 ContentsTextUI.text = "다음으로 진행합니다. \n클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
@@ -173,7 +191,17 @@ public class TestManager : MonoBehaviour
     }
     public virtual void ChangeTaskType()
     {
-        currentType = (TaskType)(Convert.ToInt32(currentType + 1) % System.Enum.GetValues(typeof(TaskType)).Length);
+        switch (experimentNum)
+        {
+            case 1:        
+                currentType = (TaskType)(Convert.ToInt32(currentType + 1) % System.Enum.GetValues(typeof(TaskType)).Length);
+                break;
+            
+            case 2:
+                currentType = (TaskType)(Convert.ToInt32(currentType + 1) % 2);
+                break;
+        }
+        
         ShowInteraction(currentType);
     }
     
@@ -199,7 +227,7 @@ public class TestManager : MonoBehaviour
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
 
-            case TaskType.ControlGroup:
+            case TaskType.ControlGroup1:
                 Debug.Log("[TEST01]대조군 Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 MiniatureWorld.Instance.RemoveProxies();
@@ -208,20 +236,14 @@ public class TestManager : MonoBehaviour
         }
     }
 
-    private void ShowInteraction(TaskType type)
+    public void ShowInteraction(TaskType type)
     {
-        switch (type)
+        for (int index = 0; index < techniques.transform.childCount; index++)
         {
-            case TaskType.TestGroup: //실험군
-                testInteraction.gameObject.SetActive(true);
-                controlInteraction.gameObject.SetActive(false);
-                break;
-
-            case TaskType.ControlGroup: //대조군
-                testInteraction.gameObject.SetActive(false);
-                controlInteraction.gameObject.SetActive(true);
-                break;
+            techniques.transform.GetChild(index).gameObject.SetActive(false);
         }
+        
+        techniques.transform.GetChild((int)type).gameObject.SetActive(true);
     }
 
     private void SetTargetValue()

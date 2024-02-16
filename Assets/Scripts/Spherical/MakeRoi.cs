@@ -74,7 +74,7 @@ public class MakeRoi : MonoBehaviour
             bool canDo = miniatureWorld.CanDeployProxies(position, 2.0f);
             if (canDo)
             {
-                switch (TestManager.Instance.taskNum)
+                switch (TestManager.Instance.experimentNum)
                 {
                     case 1:
                         //Debug.Log("[MakeRoi.cs] Can Set ROI!");

@@ -73,7 +73,7 @@ public class MakeRayPortal : MonoBehaviour
         bool canDo = miniatureWorld.CanDeployProxies(pos, 2.0f);
         if (canDo)
         {
-            switch (TestManager.Instance.taskNum)
+            switch (TestManager.Instance.experimentNum)
             {
                 case 1:
                     //Debug.Log("[MakeRoi.cs] Can Set ROI!");
