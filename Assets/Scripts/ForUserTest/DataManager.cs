@@ -48,3 +48,9 @@ public class TaskTryList
 {
     public List<TaskTry> TaskTries;
 }
+
+[Serializable]
+public struct TryQuestion
+{
+    
+}

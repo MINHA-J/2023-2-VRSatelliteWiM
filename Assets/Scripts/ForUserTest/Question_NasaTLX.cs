@@ -2,7 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.IO;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Serialization;
 
@@ -14,7 +17,10 @@ public class Question_NasaTLX : MonoBehaviour
     public Slider answer;
 
     [Space(10f)] 
-    public TestInformation information; 
+    public TestInformation information;
+
+    [Space(10f)]  
+    public List<int> answerValue = new List<int>();
     
     private string[] questions = new string [6]
     {
@@ -79,15 +85,34 @@ public class Question_NasaTLX : MonoBehaviour
         if (questionNum > 6)
         {
             Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
+            Save();
+            TestManager.Instance.BackToTask();
             return;
         }
+
+        answerValue.Add((int)answer.value);
+        answer.value = 0.0f;
+        
         textUI.qestionNumber.text = "Q" + questionNum;
         textUI.question.text = questions[questionNum - 1];
         textUI.low.text = values[questionNum - 1, 0];
         textUI.high.text = values[questionNum - 1, 1];
     }
 
+    public void Save()
+    {
+        string name = "Test01_Subject" + information.subjectNum + "_" + information.currentType + "_Try_" + information.currentTryNum+"_NASATLX";
+        
+        //ToJson 부분
+        string jsonData = JsonUtility.ToJson(answerValue, true);
 
+        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum;
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+        File.WriteAllText(path + "/" + name + ".txt", jsonData);
+    }
 
 
 }

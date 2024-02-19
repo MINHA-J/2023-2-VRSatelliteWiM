@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 
@@ -30,6 +31,8 @@ public class Test01_Manager : TestManager
 
     private void Start()
     {
+        DontDestroyOnLoad(this);
+        
         SetGameObjects();
         SetByTestState();
         InitalizeThisTry();
@@ -163,12 +166,12 @@ public class Test01_Manager : TestManager
         switch (state)
         {
             case TestState.NotStarted:
-                currentTryNum++;
-                Debug.Log("[TEST01] " + currentType + "의 " + currentTryNum + "/ " + repeatTryNum);
                 InitalizeThisTry();
                 break;
 
             case TestState.SettingPortal_A:
+                techniques.SetActive(true);
+                
                 // 현재 Try의 Total Time 측정 시작
                 _totalTime = 0.0f;
                 IsTickTotalTime = true;
@@ -178,6 +181,8 @@ public class Test01_Manager : TestManager
                 break;
 
             case TestState.FinishPortalSet_A:
+                techniques.SetActive(false);
+                
                 // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 IsTickThisTime = false;
                 List<float> portalTime = new List<float>();
@@ -186,12 +191,16 @@ public class Test01_Manager : TestManager
                 break;
             
             case TestState.SettingPortal_B:
+                techniques.SetActive(true);
+                
                 // Portal을 세팅하는데 결리는 Time 측정 시작
                 _thisTime = 0.0f;
                 IsTickThisTime = true;
                 break;
             
             case TestState.FinishPortalSet_B:
+                techniques.SetActive(false);
+                
                 // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 if (portalCreationTime.TryGetValue(currentTryNum, out List<float> list))
                     list.Add(_thisTime); //portalTime[1] = B portal time
@@ -201,9 +210,11 @@ public class Test01_Manager : TestManager
                 // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
                 IsTickTotalTime = false;
                 totalTime.Add(currentTryNum, _totalTime);
-                IsTestRecordEnd = false; 
+                IsTestRecordEnd = false;
                 
-                Debug.Log("NASA TLX로");
+                Question_NasaTLX();
+                
+                currentTryNum++;
                 break;
         }
     }
@@ -284,10 +295,10 @@ public class Test01_Manager : TestManager
         File.WriteAllText(path + "/" + name + ".txt", jsonData);
 
         //FromJson 부분
-        string fromJsonData = File.ReadAllText(path + "/" + name + ".txt");
+        //string fromJsonData = File.ReadAllText(path + "/" + name + ".txt");
 
-        TaskTryList TaskTryFromJson = new TaskTryList();
-        TaskTryFromJson = JsonUtility.FromJson<TaskTryList>(fromJsonData);
+        //TaskTryList TaskTryFromJson = new TaskTryList();
+        //TaskTryFromJson = JsonUtility.FromJson<TaskTryList>(fromJsonData);
         
 
         //Binary 형태로 저장함

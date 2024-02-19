@@ -9,6 +9,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -41,7 +42,8 @@ public class TestManager : MonoBehaviour
     public uint repeatTryNum = 3; //실험 최대 시도 횟수
     public GameObject TestPanel;
     public GameObject targetObject;
-
+    [HideInInspector] public GameObject player;
+    
     [Header("Technique")] 
     public GameObject techniques;
     //public MakeRoi testInteraction;
@@ -65,6 +67,8 @@ public class TestManager : MonoBehaviour
     [HideInInspector] public bool IsTickThisTime = false;
     [HideInInspector] public bool IsTestRecordEnd = false;
 
+    private GameObject _nasaTlxUI;
+    
     private static TestManager instance;
     public static TestManager Instance
     {
@@ -81,7 +85,7 @@ public class TestManager : MonoBehaviour
 
     void Awake()
     {
-        if (null == instance)
+        if (instance == null)
         { 
             instance = this;
         }
@@ -90,8 +94,11 @@ public class TestManager : MonoBehaviour
         }
     }
     
+
     public virtual void SetGameObjects()
     {
+        player = GameObject.FindWithTag("Player");
+        
         TitleTextUI = TestPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         ContentsTextUI = TestPanel.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
         ButtonTextUI = TestPanel.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>();
@@ -130,6 +137,8 @@ public class TestManager : MonoBehaviour
         switch (state)
         {
             case TestState.NotStarted:
+                Debug.Log("실험자" + subjectNum + ", " + 
+                          experimentNum + " test/" + currentType + "/" + currentTryNum + "번째 Try.");
                 TitleTextUI.text = "Start Task";
                 ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
                 ButtonTextUI.text = "YES";
@@ -166,7 +175,27 @@ public class TestManager : MonoBehaviour
                 break;
         }
     }
-
+    
+    public void Question_NasaTLX()
+    {
+        Debug.Log("NASA TLX 조사를 시작합니다");
+        TestPanel.SetActive(false);
+        
+        _nasaTlxUI = Resources.Load("Prefabs/NASA XTL Question UI", typeof(GameObject)) as GameObject;
+        Instantiate(_nasaTlxUI, 
+            player.transform.position + Vector3.forward * 0.3f + Vector3.up * 1.5f,
+            Quaternion.identity);
+        // player.SetActive(false);
+        // SceneManager.LoadScene("After_NASA_TLX", LoadSceneMode.Additive);
+    }
+    
+    public void BackToTask()
+    {
+        Debug.Log("다시 설문으로");
+        TestPanel.SetActive(true);
+        Destroy(_nasaTlxUI);
+    }
+    
     public virtual void SetMeasuresByTestState()
     {
         switch (state)
@@ -219,6 +248,8 @@ public class TestManager : MonoBehaviour
         SetTargetValue();
         ShowInteraction(currentType);
 
+        techniques.SetActive(false);
+        
         switch (currentType)
         {
 
