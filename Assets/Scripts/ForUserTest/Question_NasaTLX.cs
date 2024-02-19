@@ -21,6 +21,7 @@ public class Question_NasaTLX : MonoBehaviour
 
     [Space(10f)]  
     public List<int> answerValue = new List<int>();
+    private TryQuestion _tryQuestion = new TryQuestion();
     
     private string[] questions = new string [6]
     {
@@ -86,7 +87,6 @@ public class Question_NasaTLX : MonoBehaviour
         {
             Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
             Save();
-            TestManager.Instance.BackToTask();
             return;
         }
 
@@ -102,16 +102,19 @@ public class Question_NasaTLX : MonoBehaviour
     public void Save()
     {
         string name = "Test01_Subject" + information.subjectNum + "_" + information.currentType + "_Try_" + information.currentTryNum+"_NASATLX";
-        
-        //ToJson 부분
-        string jsonData = JsonUtility.ToJson(answerValue, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum;
+        _tryQuestion.answerValue = answerValue.ToArray();
+        //ToJson 부분
+        string jsonData = JsonUtility.ToJson(_tryQuestion, true);
+
+        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum+ "/" + information.currentType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
         }
         File.WriteAllText(path + "/" + name + ".txt", jsonData);
+        
+        TestManager.Instance.BackToTask();
     }
 
 

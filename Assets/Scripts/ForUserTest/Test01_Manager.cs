@@ -287,7 +287,7 @@ public class Test01_Manager : TestManager
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + subjectNum;
+        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/" + currentType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

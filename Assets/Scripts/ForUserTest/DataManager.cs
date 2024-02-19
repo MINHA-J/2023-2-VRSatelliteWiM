@@ -52,5 +52,6 @@ public class TaskTryList
 [Serializable]
 public struct TryQuestion
 {
-    
+    [SerializeField]
+    public int[] answerValue;
 }

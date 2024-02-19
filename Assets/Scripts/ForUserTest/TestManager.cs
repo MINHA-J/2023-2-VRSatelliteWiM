@@ -180,9 +180,9 @@ public class TestManager : MonoBehaviour
     {
         Debug.Log("NASA TLX 조사를 시작합니다");
         TestPanel.SetActive(false);
-        
-        _nasaTlxUI = Resources.Load("Prefabs/NASA XTL Question UI", typeof(GameObject)) as GameObject;
-        Instantiate(_nasaTlxUI, 
+
+        GameObject _UIprefab = Resources.Load<GameObject>("Prefabs/NASA XTL Question UI");
+        _nasaTlxUI = Instantiate(_UIprefab, 
             player.transform.position + Vector3.forward * 0.3f + Vector3.up * 1.5f,
             Quaternion.identity);
         // player.SetActive(false);
@@ -198,27 +198,9 @@ public class TestManager : MonoBehaviour
     
     public virtual void SetMeasuresByTestState()
     {
-        switch (state)
-        {
-            case TestState.NotStarted:
-                break;
 
-            case TestState.SettingPortal_A:
-                break;
-
-            case TestState.FinishPortalSet_A:
-                break;
-
-            case TestState.SettingPortal_B:
-                break;
-
-            case TestState.FinishPortalSet_B:
-                break;
-
-            case TestState.MoveObject:
-                break;
-        }
     }
+    
     public virtual void ChangeTaskType()
     {
         switch (experimentNum)
