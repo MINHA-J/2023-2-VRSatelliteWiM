@@ -178,7 +178,7 @@ public class TestManager : MonoBehaviour
     
     public void Question_NasaTLX()
     {
-        Debug.Log("NASA TLX 조사를 시작합니다");
+        Debug.Log("[RESULT] NASA TLX 조사를 시작합니다");
         TestPanel.SetActive(false);
 
         GameObject _UIprefab = Resources.Load<GameObject>("Prefabs/NASA XTL Question UI");
@@ -191,7 +191,7 @@ public class TestManager : MonoBehaviour
     
     public void BackToTask()
     {
-        Debug.Log("다시 설문으로");
+        Debug.Log("[RESULT] 다시 설문으로");
         TestPanel.SetActive(true);
         Destroy(_nasaTlxUI);
     }

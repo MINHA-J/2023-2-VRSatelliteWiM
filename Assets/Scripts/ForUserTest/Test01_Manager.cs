@@ -51,7 +51,9 @@ public class Test01_Manager : TestManager
         // 다음 technique로 넘어갑니다
         if (!IsTestRecordEnd && currentTryNum > repeatTryNum)
         {
+            Question_NasaTLX();
             CheckResult();
+            
             ChangeTaskType();
             IsTestRecordEnd = true;
         }
@@ -212,8 +214,6 @@ public class Test01_Manager : TestManager
                 totalTime.Add(currentTryNum, _totalTime);
                 IsTestRecordEnd = false;
                 
-                Question_NasaTLX();
-                
                 currentTryNum++;
                 break;
         }
@@ -221,7 +221,7 @@ public class Test01_Manager : TestManager
 
     private void CheckResult()
     {
-        Debug.Log("[TEST01][RESULT] Save Data Start");
+        Debug.Log("[RESULT] Save Data Start");
 
         for (uint tryNum = 0; tryNum < repeatTryNum; tryNum++)
         {
