@@ -46,7 +46,7 @@ public class Test01_Manager : TestManager
 
         // 0, 1, 2 try까지만 확인
         // 다음 technique로 넘어갑니다
-        if (!IsTestRecordEnd && currentTryNum >= repeatTryNum)
+        if (!IsTestRecordEnd && currentTryNum > repeatTryNum)
         {
             CheckResult();
             ChangeTaskType();
@@ -163,6 +163,7 @@ public class Test01_Manager : TestManager
         switch (state)
         {
             case TestState.NotStarted:
+                currentTryNum++;
                 Debug.Log("[TEST01] " + currentType + "의 " + currentTryNum + "/ " + repeatTryNum);
                 InitalizeThisTry();
                 break;
@@ -201,7 +202,8 @@ public class Test01_Manager : TestManager
                 IsTickTotalTime = false;
                 totalTime.Add(currentTryNum, _totalTime);
                 IsTestRecordEnd = false; 
-                currentTryNum++;
+                
+                Debug.Log("NASA TLX로");
                 break;
         }
     }
@@ -213,7 +215,8 @@ public class Test01_Manager : TestManager
         for (uint tryNum = 0; tryNum < repeatTryNum; tryNum++)
         {
             TaskTry taskResult = new TaskTry();
-
+            currentTry = taskResult;
+            
             if (totalTime.TryGetValue(tryNum, out float time))
             {
                 // 1) 실험에 총 걸린 시간
@@ -273,7 +276,7 @@ public class Test01_Manager : TestManager
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
 
-        string path = Application.dataPath + "/DataSave";
+        string path = Application.dataPath + "/DataSave/Subject" + subjectNum;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

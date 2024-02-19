@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Develop_Scenes/XR_Toolkit_Test_240201.unity
     guid: 9d7ea9088161e2644bd9716005f17fc5
+  - enabled: 1
+    path: Assets/Scenes/Test_Scenes/Test01_1_240201.unity
+    guid: 2d170c5dffdb58e4ba07acf3a2d0801a
+  - enabled: 1
+    path: Assets/Scenes/Develop_Scenes/After_NASA_TLX.unity
+    guid: 5fe93784a8fa119409faa814c870df65
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8f6d622cc2681c147be18039d03023d1,
       type: 2}

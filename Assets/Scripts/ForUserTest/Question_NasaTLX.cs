@@ -1,0 +1,93 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Serialization;
+
+public class Question_NasaTLX : MonoBehaviour
+{
+    private int questionNum = 0;
+    [Space(10f)]
+    public QuestionText textUI;
+    public Slider answer;
+
+    [Space(10f)] 
+    public TestInformation information; 
+    
+    private string[] questions = new string [6]
+    {
+        "얼마나 많은 정신적, 지각적 활동이 필요했나요?",
+        "얼마나 많은 신체적 활동이 필요했나요?",
+        "작업을 수행하는 동안 느낀 시간적 압력은 어떠했나요?",
+        "작업을 얼마나 성공적으로 수행했나요?",
+        "작업을 수행하기 위해 얼마나 열심히 활동해야 했나요?",
+        "작업을 수행하기 위해 얼마나 스트레스 받거나 짜증났나요?",
+    };
+
+    private string[,] values = new string [6, 2]
+    {
+        { "쉬움", "어려움" },
+        { "여유로움", "힘들었음" },
+        { "여유로움", "촉박함" },
+        { "만족함", "불만족함" },
+        { "조금", "많이" },
+        { "조금", "많이" },
+    };
+
+    
+    [System.Serializable]
+    public struct QuestionText
+    {
+        public TextMeshProUGUI qestionNumber;
+        public TextMeshProUGUI question;
+        public TextMeshProUGUI low;
+        public TextMeshProUGUI high;
+    }
+    
+    [System.Serializable]
+    public struct TestInformation
+    {
+        public int subjectNum;
+        public int experimentNum;
+        public TaskType currentType;
+        public uint currentTryNum;
+    }
+
+    private void Start()
+    {
+        GetTestManager();
+        
+        questionNum = 0;
+        NextQuestion();
+    }
+
+    private void GetTestManager()
+    {
+        information.subjectNum = TestManager.Instance.subjectNum;
+        information.experimentNum = TestManager.Instance.experimentNum;
+        information.currentType = TestManager.Instance.currentType;
+        information.currentTryNum = TestManager.Instance.currentTryNum;
+    }
+    
+    [ContextMenu("Set Next Question")]
+    public void NextQuestion()
+    {
+        questionNum++;
+
+        if (questionNum > 6)
+        {
+            Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
+            return;
+        }
+        textUI.qestionNumber.text = "Q" + questionNum;
+        textUI.question.text = questions[questionNum - 1];
+        textUI.low.text = values[questionNum - 1, 0];
+        textUI.high.text = values[questionNum - 1, 1];
+    }
+
+
+
+
+}

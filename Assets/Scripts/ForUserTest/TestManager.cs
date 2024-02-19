@@ -54,7 +54,8 @@ public class TestManager : MonoBehaviour
     public TestState state = TestState.NotStarted;
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
-
+    public TaskTry currentTry;
+    
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;
     [HideInInspector] public Text ButtonTextUI;

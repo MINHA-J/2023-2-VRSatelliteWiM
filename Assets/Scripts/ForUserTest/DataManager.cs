@@ -18,7 +18,7 @@ public class TestData
     private float movement; //물리적인 움직임 정도
 }
 
-[Serializable]
+[System.Serializable]
 public struct TaskTry
 {
     public uint tryNum;
