@@ -15,8 +15,9 @@ public class MakeRayPortal : MonoBehaviour
     public Leap.Unity.Examples.PaintCursor paintCursor;
     
     
-    [SerializeField] private bool isShown;
+    [SerializeField] private bool isShown;  //Pinch 활성화/비활성화
     [SerializeField] private bool canMake = false;
+    [SerializeField] private bool isSetEnd = false;
     
     
     [Header("Setting")]
@@ -27,6 +28,10 @@ public class MakeRayPortal : MonoBehaviour
     [SerializeField]private uint index = 0;
     private float timer  = 0.0f;
     private float duration  = 1.5f;
+
+    private Vector3 _targetPos;
+    private Vector3 _beforePinchPos;
+    private MarkNode _markNode;
     
     void Start()
     {
@@ -48,20 +53,61 @@ public class MakeRayPortal : MonoBehaviour
             canMake = true;
         
         // 2초간 지속될 경우, ROI를 지정할 수 있다
+        UpdateSettingROI();
+    }
+
+    private void UpdateSettingROI()
+    {
         if (canMake)
         {
             timer += Time.deltaTime;
             if (timer >= duration)
             {
-                //Debug.Log("[DEBUG] ROI 설정. Portal Set -MakeRayPortal.cs");
-                Vector3 targetPos = handRayRenderer.GetContactVector() - transform.up * 0.05f;
-                SettingRoi(targetPos, transform.right);
+                if (!isSetEnd) // 한번만 실행되도록...
+                {
+                    //Debug.Log("[DEBUG] ROI 설정. Portal Set -MakeRayPortal.cs");
+                    _targetPos = handRayRenderer.GetContactVector() - transform.up * 0.05f;
+                    SettingRoi(_targetPos, transform.right);
 
-                // 작업이 끝났으므로 다시 초기화합니다.
-                canMake = false;
-                timer = 0f;
+                    _markNode = miniatureWorld.GetFirstMarkNode();
+                    _beforePinchPos = paintCursor.transform.position;
+                    isSetEnd = true;
+                }
+
+                Vector3 dirVector = (paintCursor.transform.position - _beforePinchPos).normalized;
+                float dirMagnitude = dirVector.sqrMagnitude;
+                if (paintCursor.IsPinching &&  dirMagnitude > 0.9f)
+                {
+                    // handRayRenderer.SetContactVector(_targetPos); 의도한 대로 동작이 되지 않는군 ㅎㅅㅎ
+                    
+                    if (dirVector.y < -0.1f)
+                    {
+                        //Debug.Log("[DEBUG] Is Pinching & Moving * DOWN * ..." + dirVector);
+                        ScaleMarkedSpace(-dirMagnitude);
+                    }
+                    else if (dirVector.y > 0.1f)
+                    {
+                        //Debug.Log("[DEBUG] Is Pinching & Moving * UP * ..." + dirVector);
+                        ScaleMarkedSpace(dirMagnitude);
+                    }
+                }
+
+                if (paintCursor.DidEndPinch)
+                {
+                    // 작업이 끝났으므로 다시 초기화합니다.
+                    canMake = false;
+                    timer = 0f;
+                    isSetEnd = false;
+                }
             }
         }
+    }
+    
+    private void ScaleMarkedSpace(float delta)
+    {
+        delta = Time.deltaTime * delta;
+        _markNode.transform.localScale += new Vector3(delta, delta, delta);
+        _markNode.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
     }
 
     private void SettingRoi(Vector3 pos, Vector3 rot)

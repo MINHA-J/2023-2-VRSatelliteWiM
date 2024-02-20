@@ -55,6 +55,22 @@ namespace Leap.Unity.Examples
             }
         }
 
+        public bool DidEndPinch
+        {
+            get
+            {
+                return this.pinchDetector.DidEndPinch;
+            }
+        }
+
+        public bool IsPinching
+        {
+            get
+            {
+                return this.pinchDetector.IsPinching;
+            }
+        }
+
         protected virtual void OnEnable()
         {
             _minRadius = pinchDetector.ActivateDistance / 2F;

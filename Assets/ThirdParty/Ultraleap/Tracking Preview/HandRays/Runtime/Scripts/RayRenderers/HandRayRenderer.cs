@@ -76,6 +76,14 @@ namespace Leap.Unity.Preview.HandRays
             return rayEndVector;
         }
 
+        public void SetContactVector(Vector3 vector)
+        {
+            int index = handRayInteractor.linePoints.Length - 1;
+            handRayInteractor.linePoints[index] = vector;
+
+            lineRenderer.SetPositions(handRayInteractor.linePoints);
+        }
+
         public bool IsContact()
         {
             if (currentContact == null)

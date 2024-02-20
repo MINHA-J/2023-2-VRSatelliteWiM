@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class MiniatureWorld : MonoBehaviour
@@ -213,6 +215,14 @@ public class MiniatureWorld : MonoBehaviour
         ProxiesTable = new Dictionary<uint, ProxyNode>();
     }
 
+    public MarkNode GetFirstMarkNode()
+    {
+        if (ProxiesTable.Count < 1)
+            return null;
+
+        return ProxiesTable.First().Value.Marks[0];
+    }
+    
     private void OnDestroy()
     {
         //PinchTracker.DeregisterPinchable(this);

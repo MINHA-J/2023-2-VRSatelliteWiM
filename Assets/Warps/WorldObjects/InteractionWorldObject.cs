@@ -134,7 +134,8 @@ public class InteractionWorldObject : MonoBehaviour
         transform.DORotate(Vector3.zero, 0.3f);
         Vector3 endPosition = iController.position + Player.Instance.MainCamera.transform.forward;
         endPosition = new Vector3(endPosition.x, 0f, endPosition.z);
-        transform.DOMove(iController.position + Player.Instance.MainCamera.transform.forward, 0.3f).OnComplete(() => GetComponent<Rigidbody>().isKinematic = false);
+        //transform.DOMove(iController.position + Player.Instance.MainCamera.transform.forward, 0.3f).OnComplete(() => GetComponent<Rigidbody>().isKinematic = false);
+        transform.DOMove(iController.position, 0.3f).OnComplete(() => GetComponent<Rigidbody>().isKinematic = false);
     }
 
     //public void ScaleToActualSize() {

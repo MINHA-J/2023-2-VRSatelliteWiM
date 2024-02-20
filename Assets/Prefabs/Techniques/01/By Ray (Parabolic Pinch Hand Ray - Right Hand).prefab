@@ -317,6 +317,7 @@ MonoBehaviour:
   paintCursor: {fileID: 295993281289055296}
   isShown: 1
   canMake: 0
+  isSetEnd: 0
   miniatureWorld: {fileID: 0}
   handRayRenderer: {fileID: 0}
   index: 0
