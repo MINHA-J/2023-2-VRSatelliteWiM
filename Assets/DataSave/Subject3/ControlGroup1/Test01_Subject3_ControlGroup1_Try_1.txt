@@ -1,0 +1,22 @@
+{
+    "tryNum": 1,
+    "totalTime": 39.08470153808594,
+    "portalACreationTime": 12.89744758605957,
+    "portalBCreationTime": 7.691509246826172,
+    "portalACreationNum": 1,
+    "portalBCreationNum": 1,
+    "portalADistance": 0.6338351964950562,
+    "portalBDistance": 0.2154507339000702,
+    "portalATimeList": [
+        10.0106201171875
+    ],
+    "portalADistanceList": [
+        0.6338351964950562
+    ],
+    "portalBTimeList": [
+        5.2610015869140629
+    ],
+    "portalBDistanceList": [
+        0.2154507339000702
+    ]
+}

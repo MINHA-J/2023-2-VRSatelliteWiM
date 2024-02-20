@@ -80,20 +80,29 @@ public class MakeRoi : MonoBehaviour
                         //Debug.Log("[MakeRoi.cs] Can Set ROI!");
                         // [TASK01] 실험군
                         //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
-                        Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                        Test01_Manager manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
 
                         miniatureWorld.CreateProxies(index, position, 200.0f,
-                            manager.portalPlace.position);
+                            manager_1.portalPlace.position);
                         miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
                         index++;
 
                         // [TASK01] 실험군
-                        manager.SavePortalNum();
-                        manager.SavePortalDistance(position);
+                        manager_1.SavePortalNum();
+                        manager_1.SavePortalDistance(position);
                         break;
                     
                     case 2:
-                        // TODO
+                        Test02_Manager manager_2 = TestManager.Instance.GetTestManager().GetComponent<Test02_Manager>();
+
+                        miniatureWorld.CreateProxies(index, position, 200.0f,
+                            manager_2.portalPlaces.transform.position);
+                        miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
+                        index++;
+
+                        // TODO: [TASK02] 실험 결과 데이터 저장하기
+                        //manager_2.SavePortalNum();
+                        //manager_2.SavePortalDistance(position);
                         break;
                 }
             }

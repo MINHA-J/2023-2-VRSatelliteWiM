@@ -1120,7 +1120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TrackingType: 0
   m_UpdateType: 1
-  m_IgnoreTrackingState: 0
   m_PositionInput:
     m_UseReference: 0
     m_Action:
@@ -1175,18 +1174,6 @@ MonoBehaviour:
         m_Groups: 
         m_Action: Rotation
         m_Flags: 0
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_TrackingStateInput:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
@@ -1408,8 +1395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinchDetector: {fileID: 0}
   paintCursor: {fileID: 914073016066993942}
-  pinPrefab: {fileID: 7699593684259308023, guid: 865361f4251df2b48aff494a514b8927,
-    type: 3}
   isShown: 0
   canMake: 0
   miniatureWorld: {fileID: 0}

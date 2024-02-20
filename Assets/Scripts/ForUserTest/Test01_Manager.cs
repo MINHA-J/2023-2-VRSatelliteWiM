@@ -9,12 +9,15 @@ public class Test01_Manager : TestManager
 {
     [Header("[Test01] GameObject")]
     public Transform portalPlace;
-
+    
+    [Space(10.0f)]
+    
     [Header("[Test01] Techique")] 
     [SerializeField] private MakeRoi testInteraction;
     [SerializeField] private MakeRayPortal controlInteraction_1;
     [SerializeField] private GameObject controlInteraction_2;
     
+    // 실험 결과를 저장할 데이터
     // 1) 실험에 총 걸린 시간을 Check하기 위함 ( TryNum, Time )
     private Dictionary<uint, float> totalTime = new Dictionary<uint, float>();
     
@@ -160,7 +163,46 @@ public class Test01_Manager : TestManager
     
     public override void SetByTestState()
     {
-        base.SetByTestState();
+        switch (state)
+        {
+            case TestState.NotStarted:
+                Debug.Log("실험자" + subjectNum + ", " + 
+                          experimentNum + " test/" + currentType + "/" + currentTryNum + "번째 Try.");
+                TitleTextUI.text = "Start Task";
+                ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
+                ButtonTextUI.text = "YES";
+                break;
+
+            case TestState.SettingPortal_A:
+                TitleTextUI.text = "Set Portal to Blue";
+                ContentsTextUI.text = "파란구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
+                ButtonTextUI.text = "CLICK";
+                break;
+
+            case TestState.FinishPortalSet_A:
+                TitleTextUI.text = "Finish Portal to Blue";
+                ContentsTextUI.text = "파란구역의 Portal에서 물건을 꺼내놓으세요. \n완료 후 클릭";
+                ButtonTextUI.text = "CLICK";
+                break;
+
+            case TestState.SettingPortal_B:
+                TitleTextUI.text = "Set Portal to Red";
+                ContentsTextUI.text = "빨간구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
+                ButtonTextUI.text = "CLICK";
+                break;
+
+            case TestState.FinishPortalSet_B:
+                TitleTextUI.text = "Finish Portal to Red";
+                ContentsTextUI.text = "빨간구역의 Portal을 통해 물건을 옮겨놓으세요. \n완료 후 클릭";
+                ButtonTextUI.text = "CLICK";
+                break;
+
+            case TestState.MoveObject:
+                TitleTextUI.text = "Finish " + (currentTryNum) + " try";
+                ContentsTextUI.text = "다음으로 진행합니다. \n클릭";
+                ButtonTextUI.text = "CLICK";
+                break;
+        }
     }
 
     public override void SetMeasuresByTestState()

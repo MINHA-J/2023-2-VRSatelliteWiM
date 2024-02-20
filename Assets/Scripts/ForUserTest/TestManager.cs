@@ -145,7 +145,7 @@ public class TestManager : MonoBehaviour
                 break;
 
             case TestState.SettingPortal_A:
-                TitleTextUI.text = "Set Portal to Blue";
+                TitleTextUI.text = "Set Portal/Teleport to Blue";
                 ContentsTextUI.text = "파란구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
@@ -175,7 +175,12 @@ public class TestManager : MonoBehaviour
                 break;
         }
     }
-    
+
+    public virtual void SetMeasuresByTestState()
+    {
+
+    }
+
     public void Question_NasaTLX()
     {
         Debug.Log("[RESULT] NASA TLX 조사를 시작합니다");
@@ -196,10 +201,7 @@ public class TestManager : MonoBehaviour
         Destroy(_nasaTlxUI);
     }
     
-    public virtual void SetMeasuresByTestState()
-    {
 
-    }
     
     public virtual void ChangeTaskType()
     {
