@@ -49,9 +49,9 @@ public class Test01_Manager : TestManager
 
         // 0, 1, 2 try까지만 확인
         // 다음 technique로 넘어갑니다
-        if (!IsTestRecordEnd && currentTryNum > repeatTryNum)
+        if (!IsTestRecordEnd && currentTryNum >= repeatTryNum)
         {
-            Question_NasaTLX();
+            // TODO: 한 technique 끝나고 물어볼 설문 진행
             CheckResult();
             
             ChangeTaskType();
@@ -168,6 +168,7 @@ public class Test01_Manager : TestManager
         switch (state)
         {
             case TestState.NotStarted:
+                currentTryNum++;
                 InitalizeThisTry();
                 break;
 
@@ -214,7 +215,8 @@ public class Test01_Manager : TestManager
                 totalTime.Add(currentTryNum, _totalTime);
                 IsTestRecordEnd = false;
                 
-                currentTryNum++;
+                Question_NasaTLX();
+                
                 break;
         }
     }

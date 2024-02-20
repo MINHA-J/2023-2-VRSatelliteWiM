@@ -237,7 +237,7 @@ public class TestManager : MonoBehaviour
 
             case TaskType.TestGroup:
                 Debug.Log("[TEST01] 실험군 Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.11f, 1.963f);
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.5f, 1.747f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
 

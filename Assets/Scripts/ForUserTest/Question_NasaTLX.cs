@@ -86,6 +86,7 @@ public class Question_NasaTLX : MonoBehaviour
         if (questionNum > 6)
         {
             Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
+            GetTestManager();
             Save();
             return;
         }
@@ -117,5 +118,14 @@ public class Question_NasaTLX : MonoBehaviour
         TestManager.Instance.BackToTask();
     }
 
-
+    private void GetKeyboardCommand()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+                    NextQuestion();
+    }
+    
+    private void Update()
+    {
+        GetKeyboardCommand();
+    }
 }
