@@ -74,7 +74,7 @@ public class Question_NasaTLX : MonoBehaviour
         information.subjectNum = TestManager.Instance.subjectNum;
         information.experimentNum = TestManager.Instance.experimentNum;
         information.currentType = TestManager.Instance.currentType;
-        information.currentTryNum = TestManager.Instance.currentTryNum;
+        information.currentTryNum = TestManager.Instance.totalTryNum[(int)information.currentType];
     }
     
     [ContextMenu("Set Next Question")]

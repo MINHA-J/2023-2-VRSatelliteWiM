@@ -59,6 +59,8 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
     OneEuroFilter markScaleFilter = new OneEuroFilter(30.0f);
     OneEuroFilter proxyScaleFilter = new OneEuroFilter(30.0f);
 
+    private uint _index = 0;
+    
     public enum CreationMode{
         Ready,
         HoveringProxy,
@@ -145,7 +147,8 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         proxySpace.transform.position = midPoint;
         proxySpace.transform.localScale = new Vector3(proxyFilteredSize, proxyFilteredSize, proxyFilteredSize);
         
-        MiniatureWorld.Instance.ProxiesTable.Add(0, proxyNode);
+        _index = (uint)TestManager.Instance.portalIndex;
+        MiniatureWorld.Instance.ProxiesTable.Add(_index, proxyNode);
 
         switch (TestManager.Instance.experimentNum)
         {

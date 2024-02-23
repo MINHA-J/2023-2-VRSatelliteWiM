@@ -28,7 +28,8 @@ public enum TestState
     FinishPortalSet_A = 2,
     SettingPortal_B = 3,
     FinishPortalSet_B = 4,
-    MoveObject = 5
+    MoveObject = 5,
+    EndThisTry = 6
 }
 
 public class TestManager : MonoBehaviour
@@ -43,6 +44,7 @@ public class TestManager : MonoBehaviour
     public GameObject TestPanel;
     public GameObject targetObject;
     [HideInInspector] public GameObject player;
+    [HideInInspector] public uint maxPortalNum = 2;
     
     [Header("Technique")] 
     public GameObject techniques;
@@ -57,6 +59,10 @@ public class TestManager : MonoBehaviour
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
     public TaskTry currentTry;
+    [HideInInspector] public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
+    
+    // 각 기술 시도 횟수 저장을 위한 데이터
+    [HideInInspector] public uint[] totalTryNum = { 0, 0, 0 };
     
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;
@@ -128,11 +134,11 @@ public class TestManager : MonoBehaviour
     public void GoNextTestState()
     {
         state = (TestState)(Convert.ToInt32(state + 1) % System.Enum.GetValues(typeof(TestState)).Length);
-        SetMeasuresByTestState();
-        SetByTestState();
+        SetMeasures();
+        SetTestPanel();
     }
 
-    public virtual void SetByTestState()
+    public virtual void SetTestPanel()
     {
         switch (state)
         {
@@ -176,7 +182,7 @@ public class TestManager : MonoBehaviour
         }
     }
 
-    public virtual void SetMeasuresByTestState()
+    public virtual void SetMeasures()
     {
 
     }

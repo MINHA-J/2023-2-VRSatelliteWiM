@@ -41,6 +41,8 @@ public struct TaskTry
     public float[] portalBTimeList;
     [SerializeField]
     public float[] portalBDistanceList;
+
+    public float moveTime;
 }
 
 [Serializable]

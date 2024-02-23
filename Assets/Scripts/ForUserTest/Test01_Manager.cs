@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -32,12 +33,15 @@ public class Test01_Manager : TestManager
     private Dictionary<uint, List<float>> portalADistance = new Dictionary<uint, List<float>>();
     private Dictionary<uint, List<float>> portalBDistance = new Dictionary<uint, List<float>>();
 
+    // 5) Task 수행 중 Target 상호작용 시간
+    private Dictionary<uint, float> movementTime = new Dictionary<uint, float>();
+    
     private void Start()
     {
         DontDestroyOnLoad(this);
         
         SetGameObjects();
-        SetByTestState();
+        SetTestPanel();
         InitalizeThisTry();
 
         experimentNum = 1;
@@ -50,12 +54,12 @@ public class Test01_Manager : TestManager
         if (state != TestState.NotStarted)
             TickTime();
 
-        // 0, 1, 2 try까지만 확인
+        // 0, 1, 2 try까지만 확인 (반복 횟수)
         // 다음 technique로 넘어갑니다
         if (!IsTestRecordEnd && currentTryNum >= repeatTryNum)
         {
             // TODO: 한 technique 끝나고 물어볼 설문 진행
-            CheckResult();
+            //CheckResult();
             
             ChangeTaskType();
             IsTestRecordEnd = true;
@@ -161,7 +165,7 @@ public class Test01_Manager : TestManager
         return this.gameObject;
     }
     
-    public override void SetByTestState()
+    public override void SetTestPanel()
     {
         switch (state)
         {
@@ -170,7 +174,7 @@ public class Test01_Manager : TestManager
                           experimentNum + " test/" + currentType + "/" + currentTryNum + "번째 Try.");
                 TitleTextUI.text = "Start Task";
                 ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
-                ButtonTextUI.text = "YES";
+                ButtonTextUI.text = "OK";
                 break;
 
             case TestState.SettingPortal_A:
@@ -181,7 +185,7 @@ public class Test01_Manager : TestManager
 
             case TestState.FinishPortalSet_A:
                 TitleTextUI.text = "Finish Portal to Blue";
-                ContentsTextUI.text = "파란구역의 Portal에서 물건을 꺼내놓으세요. \n완료 후 클릭";
+                ContentsTextUI.text = "파란구역에 Portal Setting 완료. \n 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
@@ -193,19 +197,25 @@ public class Test01_Manager : TestManager
 
             case TestState.FinishPortalSet_B:
                 TitleTextUI.text = "Finish Portal to Red";
-                ContentsTextUI.text = "빨간구역의 Portal을 통해 물건을 옮겨놓으세요. \n완료 후 클릭";
+                ContentsTextUI.text = "빨간구역에 Portal Setting 완료. \n 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
             case TestState.MoveObject:
-                TitleTextUI.text = "Finish " + (currentTryNum) + " try";
-                ContentsTextUI.text = "다음으로 진행합니다. \n클릭";
+                TitleTextUI.text = "Move Object " + (currentTryNum) + " try";
+                ContentsTextUI.text = "Target 물체를 옮기세요. \n 완료하였다면 클릭";
                 ButtonTextUI.text = "CLICK";
+                break;
+            
+            case TestState.EndThisTry:
+                TitleTextUI.text = "Finish " + (currentTryNum) + " try";
+                ContentsTextUI.text = "작업을 완료하였습니다. \n 다음으로 가기 위해 클릭";
+                ButtonTextUI.text = "DONE";
                 break;
         }
     }
 
-    public override void SetMeasuresByTestState()
+    public override void SetMeasures()
     {
         switch (state)
         {
@@ -216,62 +226,101 @@ public class Test01_Manager : TestManager
 
             case TestState.SettingPortal_A:
                 techniques.SetActive(true);
-                
-                // 현재 Try의 Total Time 측정 시작
-                _totalTime = 0.0f;
-                IsTickTotalTime = true;
-                // Portal을 세팅하는데 결리는 Time 측정 시작
-                _thisTime = 0.0f;
-                IsTickThisTime = true;
+                SetTimeThisTry(true);
+                StartTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 시작
+                portalIndex = 0;
                 break;
 
             case TestState.FinishPortalSet_A:
                 techniques.SetActive(false);
+                FinishTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
+                GoNextTestState(); // 자동으로 다음으로
                 
-                // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
-                IsTickThisTime = false;
+                break;
+
+            case TestState.SettingPortal_B:
+                techniques.SetActive(true);
+                StartTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 시작
+                portalIndex = 1;
+                break;
+
+            case TestState.FinishPortalSet_B:
+                techniques.SetActive(false);
+                FinishTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
+                GoNextTestState(); // 자동으로 다음으로
+                
+                break;
+
+            case TestState.MoveObject:
+                StartTimeSetting();
+                break;
+
+            case TestState.EndThisTry:
+                // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
+                FinishTimeSetting(); //이게 Object가 Trigger 되면 자동으로 넘어가줘야 할 듯
+                SetTimeThisTry(false);
+                Question_NasaTLX();
+                CheckResult();
+                break;
+        }
+    }
+
+    private void SetTimeThisTry(bool set)
+    {
+        if (set)
+        {
+            _totalTime = 0.0f;
+            IsTickTotalTime = true;
+        }
+        else
+        {
+            IsTickTotalTime = false;
+            totalTime.Add(currentTryNum, _totalTime);
+            IsTestRecordEnd = false;
+        }
+    }
+    
+    private void StartTimeSetting()
+    {
+        _thisTime = 0.0f;
+        IsTickThisTime = true;
+    }
+
+    private void FinishTimeSetting()
+    {
+        IsTickThisTime = false;
+        
+        switch (state)
+        {
+            case TestState.FinishPortalSet_A:
                 List<float> portalTime = new List<float>();
                 portalTime.Add(_thisTime); //portalTime[0] = A portal time
                 portalCreationTime.Add(currentTryNum, portalTime);
                 break;
-            
-            case TestState.SettingPortal_B:
-                techniques.SetActive(true);
-                
-                // Portal을 세팅하는데 결리는 Time 측정 시작
-                _thisTime = 0.0f;
-                IsTickThisTime = true;
-                break;
-            
+
             case TestState.FinishPortalSet_B:
-                techniques.SetActive(false);
-                
                 // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 if (portalCreationTime.TryGetValue(currentTryNum, out List<float> list))
                     list.Add(_thisTime); //portalTime[1] = B portal time
-                break;  
-
-            case TestState.MoveObject:
-                // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
-                IsTickTotalTime = false;
-                totalTime.Add(currentTryNum, _totalTime);
-                IsTestRecordEnd = false;
-                
-                Question_NasaTLX();
-                
+                break;
+            
+            case TestState.EndThisTry:
+                movementTime.Add(currentTryNum, _thisTime);
                 break;
         }
+
     }
 
     private void CheckResult()
     {
         Debug.Log("[RESULT] Save Data Start");
 
-        for (uint tryNum = 0; tryNum < repeatTryNum; tryNum++)
+        uint tryNum = currentTryNum;
+        //for (uint tryNum = 0; tryNum < repeatTryNum; tryNum++)
         {
             TaskTry taskResult = new TaskTry();
             currentTry = taskResult;
-            
+
             if (totalTime.TryGetValue(tryNum, out float time))
             {
                 // 1) 실험에 총 걸린 시간
@@ -316,16 +365,21 @@ public class Test01_Manager : TestManager
                     taskResult.portalBDistance = sumDistance / (float)B_distance.Count;
                     taskResult.portalBDistanceList = B_distance.ToArray();
                 }
+                
+                // 5) Target 이동 시간
+                if (movementTime.TryGetValue(tryNum, out float move))
+                {
+                    taskResult.moveTime = move;
+                }
             }
-
             // TaskTry struct 세팅 완료, txt 변환
-            Save(tryNum + 1, taskResult);
+            Save(totalTryNum[(int)currentType], taskResult);
+            totalTryNum[(int)currentType]++; // 현재 수행한 기술의 Try수 +1
         }
     }
 
     public void Save(uint tryNum, TaskTry saveData)
     {
-        
         string name = "Test01_Subject" + subjectNum + "_" + currentType + "_Try_" + tryNum;
         
         //ToJson 부분
