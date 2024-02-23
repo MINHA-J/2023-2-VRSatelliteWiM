@@ -1,22 +1,18 @@
 {
     "tryNum": 1,
-    "totalTime": 44.697418212890628,
-    "portalACreationTime": 10.13778305053711,
-    "portalBCreationTime": 8.52609634399414,
+    "totalTime": 15.93459415435791,
+    "portalACreationTime": 13.539711952209473,
+    "portalBCreationTime": 0.7396256923675537,
     "portalACreationNum": 1,
-    "portalBCreationNum": 1,
-    "portalADistance": 0.33323997259140017,
-    "portalBDistance": 0.2598971426486969,
+    "portalBCreationNum": 0,
+    "portalADistance": 0.27556005120277407,
+    "portalBDistance": 0.0,
     "portalATimeList": [
-        7.6770219802856449
+        4.90164041519165
     ],
     "portalADistanceList": [
-        0.33323997259140017
+        0.27556005120277407
     ],
-    "portalBTimeList": [
-        6.346418857574463
-    ],
-    "portalBDistanceList": [
-        0.2598971426486969
-    ]
+    "portalBTimeList": [],
+    "portalBDistanceList": []
 }
