@@ -20,7 +20,7 @@ public class Test02_Manager : TestManager
         DontDestroyOnLoad(this);
         
         SetGameObjects();
-        SetByTestState();
+        SetTestPanel();
         InitalizeThisTry();
 
         experimentNum = 2;

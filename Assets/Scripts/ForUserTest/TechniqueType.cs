@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TechniqueType : MonoBehaviour
 {
     public int experimentNum = 1;
-    public TaskType type;
+    [FormerlySerializedAs("type")] public TaskGroupType groupType;
     
 }

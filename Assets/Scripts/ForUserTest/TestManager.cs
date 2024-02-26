@@ -14,7 +14,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public enum TaskType
+public enum TaskGroupType
 {
     TestGroup,      //실험군
     ControlGroup1,  //대조군1
@@ -28,7 +28,8 @@ public enum TestState
     FinishPortalSet_A = 2,
     SettingPortal_B = 3,
     FinishPortalSet_B = 4,
-    MoveObject = 5
+    MoveObject = 5,
+    EndThisTry = 6
 }
 
 public class TestManager : MonoBehaviour
@@ -37,12 +38,13 @@ public class TestManager : MonoBehaviour
     public int subjectNum; //실험자 번호
     public int experimentNum = 1;   // 1(Near)번 or 2(Far)번 실험
 
-    [Header("----+ Test Setting +----")] 
-    public TaskType currentType = TaskType.TestGroup;
+    [FormerlySerializedAs("currentType")] [Header("----+ Test Setting +----")] 
+    public TaskGroupType currentGroupType = TaskGroupType.TestGroup;
     public uint repeatTryNum = 3; //실험 최대 시도 횟수
     public GameObject TestPanel;
     public GameObject targetObject;
     [HideInInspector] public GameObject player;
+    [HideInInspector] public uint maxPortalNum = 2;
     
     [Header("Technique")] 
     public GameObject techniques;
@@ -57,6 +59,10 @@ public class TestManager : MonoBehaviour
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
     public TaskTry currentTry;
+    [HideInInspector] public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
+    
+    // 각 기술 시도 횟수 저장을 위한 데이터
+    [HideInInspector] public uint[] totalTryNum = { 0, 0, 0 };
     
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;
@@ -128,17 +134,17 @@ public class TestManager : MonoBehaviour
     public void GoNextTestState()
     {
         state = (TestState)(Convert.ToInt32(state + 1) % System.Enum.GetValues(typeof(TestState)).Length);
-        SetMeasuresByTestState();
-        SetByTestState();
+        SetMeasures();
+        SetTestPanel();
     }
 
-    public virtual void SetByTestState()
+    public virtual void SetTestPanel()
     {
         switch (state)
         {
             case TestState.NotStarted:
                 Debug.Log("실험자" + subjectNum + ", " + 
-                          experimentNum + " test/" + currentType + "/" + currentTryNum + "번째 Try.");
+                          experimentNum + " test/" + currentGroupType + "/" + currentTryNum + "번째 Try.");
                 TitleTextUI.text = "Start Task";
                 ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
                 ButtonTextUI.text = "YES";
@@ -176,7 +182,7 @@ public class TestManager : MonoBehaviour
         }
     }
 
-    public virtual void SetMeasuresByTestState()
+    public virtual void SetMeasures()
     {
 
     }
@@ -208,15 +214,15 @@ public class TestManager : MonoBehaviour
         switch (experimentNum)
         {
             case 1:        
-                currentType = (TaskType)(Convert.ToInt32(currentType + 1) % System.Enum.GetValues(typeof(TaskType)).Length);
+                currentGroupType = (TaskGroupType)(Convert.ToInt32(currentGroupType + 1) % System.Enum.GetValues(typeof(TaskGroupType)).Length);
                 break;
             
             case 2:
-                currentType = (TaskType)(Convert.ToInt32(currentType + 1) % 2);
+                currentGroupType = (TaskGroupType)(Convert.ToInt32(currentGroupType + 1) % 2);
                 break;
         }
         
-        ShowInteraction(currentType);
+        ShowInteraction(currentGroupType);
     }
     
     [ContextMenu("SetTarget")]
@@ -230,39 +236,44 @@ public class TestManager : MonoBehaviour
             }
 
         SetTargetValue();
-        ShowInteraction(currentType);
+        ShowInteraction(currentGroupType);
 
         techniques.SetActive(false);
         
-        switch (currentType)
+        switch (currentGroupType)
         {
 
-            case TaskType.TestGroup:
-                Debug.Log("[TEST01] 실험군 Try Setting 완료");
+            case TaskGroupType.TestGroup:    // 01,02: Satellite
+                Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.5f, 1.747f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
-
-            case TaskType.ControlGroup1:
-                Debug.Log("[TEST01]대조군 Try Setting 완료");
+    
+            case TaskGroupType.ControlGroup1: //01: Parabolic Ray, 02: Teleport
+                Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 MiniatureWorld.Instance.RemoveProxies();
+                break;
+            
+            case TaskGroupType.ControlGroup2: //01: Poros, 02: Teleport & WiM
+                Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
+
                 break;
 
         }
     }
 
-    public void ShowInteraction(TaskType type)
+    public void ShowInteraction(TaskGroupType groupType)
     {
         for (int index = 0; index < techniques.transform.childCount; index++)
         {
             techniques.transform.GetChild(index).gameObject.SetActive(false);
         }
         
-        techniques.transform.GetChild((int)type).gameObject.SetActive(true);
+        techniques.transform.GetChild((int)groupType).gameObject.SetActive(true);
     }
 
-    private void SetTargetValue()
+    public virtual void SetTargetValue()
     {
         float target_xValue = 0.0f;
         float target_yValue = 0.0f;

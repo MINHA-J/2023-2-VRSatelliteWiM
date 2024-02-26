@@ -117,10 +117,10 @@ public class MiniatureWorld : MonoBehaviour
         instance.transform.forward = -this.transform.up;
 
         // [TASK01] 
-        if (ProxiesTable.Count > 1)
-        {
-            RemoveSatellite(index - 1);
-        }
+        // if (ProxiesTable.Count > TestManager.Instance.maxPortalNum)
+        // {
+        //     RemoveSatellite(index - 2);
+        // }
         
         instance.GetComponent<Satellite>().initPos = instance.transform.localPosition;
         instance.GetComponent<Satellite>().SetSatelliteIndex(index);
@@ -130,6 +130,12 @@ public class MiniatureWorld : MonoBehaviour
 
     public void CreateProxies(uint index, Vector3 M_pos, float size, Vector3 P_pos)
     {
+        if (ProxiesTable.TryGetValue(index, out ProxyNode node))
+        {
+            // 해당 인덱스에 이미 존재하는 경우
+            RemoveSatellite(index);
+        }
+        
         //GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode_fix", typeof(GameObject)) as GameObject;
         GameObject EntryWarp = Resources.Load("Prefabs/ProxyNode", typeof(GameObject)) as GameObject;
         //GameObject ExitWarp = Resources.Load("Prefabs/MarkNode-test231106", typeof(GameObject)) as GameObject;
