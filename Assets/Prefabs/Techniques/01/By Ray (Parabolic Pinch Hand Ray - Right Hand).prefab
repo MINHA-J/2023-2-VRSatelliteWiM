@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experimentNum: 1
-  type: 1
+  groupType: 1
 --- !u!114 &6419546380007607431
 MonoBehaviour:
   m_ObjectHideFlags: 0

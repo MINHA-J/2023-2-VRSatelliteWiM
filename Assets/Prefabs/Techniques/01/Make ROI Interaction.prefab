@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experimentNum: 1
-  type: 0
+  groupType: 0
 --- !u!1001 &5251380395777435186
 PrefabInstance:
   m_ObjectHideFlags: 0

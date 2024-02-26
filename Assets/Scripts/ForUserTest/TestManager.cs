@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.IO;
 using UnityEngine;
 using Leap.Unity;
@@ -36,34 +37,36 @@ public class TestManager : MonoBehaviour
 {
     [Header("----+ Test Information +----")]
     public int subjectNum; //실험자 번호
-    public int experimentNum = 1;   // 1(Near)번 or 2(Far)번 실험
-
-    [FormerlySerializedAs("currentType")] [Header("----+ Test Setting +----")] 
+    public int experimentNum = 1; // 1(Near)번 or 2(Far)번 실험
+    public TestData currentTestData = new TestData();
+    
+    [FormerlySerializedAs("currentType")] [Header("----+ Test Setting +----")]
     public TaskGroupType currentGroupType = TaskGroupType.TestGroup;
+
     public uint repeatTryNum = 3; //실험 최대 시도 횟수
     public GameObject TestPanel;
+    public GameObject TestImagePanel;
     public GameObject targetObject;
     [HideInInspector] public GameObject player;
     [HideInInspector] public uint maxPortalNum = 2;
-    
-    [Header("Technique")] 
-    public GameObject techniques;
+
+    [Header("Technique")] public GameObject techniques;
+
     //public MakeRoi testInteraction;
     //public MakeRayPortal controlInteraction;
     public GameObject indicator_A;
     public GameObject indicator_B;
-    
-    [Header("----+ Test ING +----")] 
-    public uint currentTryNum = 0; //실험 시도 횟수
+
+    [Header("----+ Test ING +----")] public uint currentTryNum = 0; //실험 시도 횟수
     public TestState state = TestState.NotStarted;
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
     public TaskTry currentTry;
     [HideInInspector] public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
-    
+
     // 각 기술 시도 횟수 저장을 위한 데이터
     [HideInInspector] public uint[] totalTryNum = { 0, 0, 0 };
-    
+
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;
     [HideInInspector] public Text ButtonTextUI;
@@ -74,8 +77,17 @@ public class TestManager : MonoBehaviour
     [HideInInspector] public bool IsTestRecordEnd = false;
 
     private GameObject _nasaTlxUI;
-    
+
+    [Serializable]
+    public struct TestData
+    {
+        public int subjectNum;
+        public List<TaskGroupType> taskType;
+        public List<uint> targetPosition;
+    }
+
     private static TestManager instance;
+
     public static TestManager Instance
     {
         get
@@ -92,16 +104,50 @@ public class TestManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
-        { 
+        {
             instance = this;
         }
         else
         {
         }
     }
-    
 
-    public virtual void SetGameObjects()
+    public void LoadSubjectTestData()
+    {
+        CSVImporter csvWave = new CSVImporter();
+        if (!csvWave.OpenFile("Data/subject"))
+        {
+            Debug.Log("Read File Error");
+            return;
+        }
+
+        csvWave.ReadHeader();
+        string line = csvWave.Readline();
+        
+        while (line != null)
+        {
+            string[] elems = line.Split(',');
+
+            if (elems[0] == "" || int.Parse(elems[0]) > subjectNum)
+            {
+                break;
+            }
+
+            if (int.Parse(elems[0]) == subjectNum)
+            {
+                currentTestData.subjectNum = int.Parse(elems[0]);
+                currentTestData.taskType.Add((TaskGroupType)Enum.Parse(typeof(TaskGroupType), elems[1]));
+                currentTestData.targetPosition.Add(uint.Parse(elems[2]));
+            }
+            
+            line = csvWave.Readline();
+        }
+
+        Debug.Log("[DATA] Load Subject Data");
+    }
+
+
+public virtual void SetGameObjects()
     {
         player = GameObject.FindWithTag("Player");
         
@@ -224,6 +270,18 @@ public class TestManager : MonoBehaviour
         
         ShowInteraction(currentGroupType);
     }
+
+    public void ShowImage(TaskGroupType groupType)
+    {
+        TestImagePanel.SetActive(true);
+        
+        for (int index = 0; index < TestImagePanel.transform.GetChild(1).childCount; index++)
+        {
+            TestImagePanel.transform.GetChild(1).GetChild(index).gameObject.SetActive(false);
+        }
+        
+        TestImagePanel.transform.GetChild(1).GetChild((int)groupType).gameObject.SetActive(true);
+    }
     
     [ContextMenu("SetTarget")]
     public void InitalizeThisTry()
@@ -235,8 +293,10 @@ public class TestManager : MonoBehaviour
                 Destroy(obj);
             }
 
+        currentGroupType = currentTestData.taskType[(int)currentTryNum]; //Data에 일치하는 순서로
         SetTargetValue();
         ShowInteraction(currentGroupType);
+        ShowImage(currentGroupType);
 
         techniques.SetActive(false);
         

@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.IO;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 
 public class Test01_Manager : TestManager
@@ -48,6 +50,7 @@ public class Test01_Manager : TestManager
     {
         DontDestroyOnLoad(this);
         
+        LoadSubjectTestData();
         SetGameObjects();
         SetTestPanel();
         InitalizeThisTry();
@@ -170,7 +173,57 @@ public class Test01_Manager : TestManager
 
     public override void SetTargetValue()
     {
+
+        float target_xValue = 0.0f;
+        float target_yValue = 0.0f;
+        float target_zValue = 0.0f;        
         
+        float timeSeed = Time.time * 100f;
+        Random.InitState((int)timeSeed);
+        
+        List<float> xCandidate = new List<float>() { -4.8f, 0.0f, 4.8f };
+
+        float minValue = 0.0f, maxValue = 0.0f;
+        switch (currentTestData.targetPosition[(int)currentTryNum])
+        {
+            case 0: //Middle
+                minValue = 11.5f;
+                maxValue = 12.0f;
+                break;
+
+            case 1: //Back
+                minValue = 14.20f;
+                maxValue = 15.25f;
+                break;
+
+            case 2: //Both
+                minValue = 11.5f;
+                maxValue = 15.25f;
+                break;
+        }
+
+        // A와 Target Set
+        int tempA = Random.Range(0, 3);
+        target_xValue = xCandidate[tempA];
+        target_yValue = 0.022f;
+        target_zValue = Random.Range(minValue, maxValue);
+        indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
+        Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+
+
+        // B Set
+        timeSeed = Time.time * 100f;
+        Random.InitState((int)timeSeed);
+        int tempB = -1;
+        do
+        {
+            tempB = Random.Range(0, 3);
+        } while (tempB == tempA);
+
+        target_xValue = xCandidate[tempB];
+        target_yValue = 0.022f;
+        target_zValue = Random.Range(minValue, maxValue);
+        indicator_B.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
     }
 
     public  override GameObject GetTestManager()
@@ -238,6 +291,7 @@ public class Test01_Manager : TestManager
                 break;
 
             case TestState.SettingPortal_A:
+                TestImagePanel.SetActive(false);
                 techniques.SetActive(true);
                 SetTimeThisTry(true);
                 StartTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 시작
