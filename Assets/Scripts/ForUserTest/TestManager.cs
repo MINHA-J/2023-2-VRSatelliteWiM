@@ -317,7 +317,8 @@ public virtual void SetGameObjects()
             
             case TaskGroupType.ControlGroup2: //01: Poros, 02: Teleport & WiM
                 Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
-
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
+                MiniatureWorld.Instance.RemoveProxies();
                 break;
 
         }

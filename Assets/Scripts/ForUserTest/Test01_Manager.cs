@@ -324,7 +324,7 @@ public class Test01_Manager : TestManager
 
             case TestState.EndThisTry:
                 // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
-                FinishTimeSetting(); //이게 Object가 Trigger 되면 자동으로 넘어가줘야 할 듯
+                FinishTimeSetting(); //TODO: 이게 Object가 Trigger 되면 자동으로 넘어가줘야 할 듯
                 SetTimeThisTry(false);
                 Question_NasaTLX();
                 CheckResult();
