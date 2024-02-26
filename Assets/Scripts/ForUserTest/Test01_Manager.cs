@@ -36,6 +36,14 @@ public class Test01_Manager : TestManager
     // 5) Task 수행 중 Target 상호작용 시간
     private Dictionary<uint, float> movementTime = new Dictionary<uint, float>();
     
+    private enum TargetPoints
+    {
+        Middle,
+        Back,
+        Both
+    }
+    
+    
     private void Start()
     {
         DontDestroyOnLoad(this);
@@ -126,7 +134,7 @@ public class Test01_Manager : TestManager
         }
         else return;
     }
-
+    
     public void SavePortalDistance(Vector3 portalPos)
     {
         if (state == TestState.SettingPortal_A)
@@ -160,6 +168,11 @@ public class Test01_Manager : TestManager
         else return;
     }
 
+    public override void SetTargetValue()
+    {
+        
+    }
+
     public  override GameObject GetTestManager()
     {
         return this.gameObject;
@@ -171,7 +184,7 @@ public class Test01_Manager : TestManager
         {
             case TestState.NotStarted:
                 Debug.Log("실험자" + subjectNum + ", " + 
-                          experimentNum + " test/" + currentType + "/" + currentTryNum + "번째 Try.");
+                          experimentNum + " test/" + currentGroupType + "/" + currentTryNum + "번째 Try.");
                 TitleTextUI.text = "Start Task";
                 ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
                 ButtonTextUI.text = "OK";
@@ -373,19 +386,19 @@ public class Test01_Manager : TestManager
                 }
             }
             // TaskTry struct 세팅 완료, txt 변환
-            Save(totalTryNum[(int)currentType], taskResult);
-            totalTryNum[(int)currentType]++; // 현재 수행한 기술의 Try수 +1
+            Save(totalTryNum[(int)currentGroupType], taskResult);
+            totalTryNum[(int)currentGroupType]++; // 현재 수행한 기술의 Try수 +1
         }
     }
 
     public void Save(uint tryNum, TaskTry saveData)
     {
-        string name = "Test01_Subject" + subjectNum + "_" + currentType + "_Try_" + tryNum;
+        string name = "Test01_Subject" + subjectNum + "_" + currentGroupType + "_Try_" + tryNum;
         
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/" + currentType;
+        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/" + currentGroupType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

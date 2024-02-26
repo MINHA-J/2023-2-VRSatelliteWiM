@@ -57,7 +57,7 @@ public class Question_NasaTLX : MonoBehaviour
     {
         public int subjectNum;
         public int experimentNum;
-        public TaskType currentType;
+        [FormerlySerializedAs("currentType")] public TaskGroupType currentGroupType;
         public uint currentTryNum;
     }
 
@@ -73,8 +73,8 @@ public class Question_NasaTLX : MonoBehaviour
     {
         information.subjectNum = TestManager.Instance.subjectNum;
         information.experimentNum = TestManager.Instance.experimentNum;
-        information.currentType = TestManager.Instance.currentType;
-        information.currentTryNum = TestManager.Instance.totalTryNum[(int)information.currentType];
+        information.currentGroupType = TestManager.Instance.currentGroupType;
+        information.currentTryNum = TestManager.Instance.totalTryNum[(int)information.currentGroupType];
     }
     
     [ContextMenu("Set Next Question")]
@@ -101,13 +101,13 @@ public class Question_NasaTLX : MonoBehaviour
 
     public void Save()
     {
-        string name = "Test01_Subject" + information.subjectNum + "_" + information.currentType + "_Try_" + information.currentTryNum+"_NASATLX";
+        string name = "Test01_Subject" + information.subjectNum + "_" + information.currentGroupType + "_Try_" + information.currentTryNum+"_NASATLX";
 
         _tryQuestion.answerValue = answerValue.ToArray();
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(_tryQuestion, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum+ "/" + information.currentType;
+        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum+ "/" + information.currentGroupType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
