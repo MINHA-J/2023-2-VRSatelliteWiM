@@ -126,7 +126,7 @@ public class MiniatureManipulation : MonoBehaviour
         if (ratio > 0.93f)
             ratio = 1.0f;
 
-        Vector3 ROIscale = Vector3.Lerp(new Vector3(2, 2, 2), worldOriginScale, ratio);
+        Vector3 ROIscale = Vector3.Lerp(worldOriginScale * 0.1f, worldOriginScale, ratio);
         worldROI.transform.localScale = ROIscale;
 
         //[DEBUG] 231106 머리와 Plane map 사이의 거리 비율을 출력함.
@@ -230,7 +230,8 @@ public class MiniatureManipulation : MonoBehaviour
             Vector3 pointInWorldRoi = worldROI.transform.TransformPoint(pointInWorldMiniature);
             
             // 너무 먼 곳이라면 ROI 생성하지 않고 넘어갑니다.
-            if (pointInWorldRoi.sqrMagnitude > Mathf.Pow(30.0f, 2))
+            float distance = miniatureWorld.ROI.gameObject.transform.localScale.x;
+            if (pointInWorldRoi.sqrMagnitude > Mathf.Pow(distance, 2))
                 return;
             TempEyes.transform.position = eyeRayFilter.Filter(pointInWorldRoi, Time.time);
             //TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
@@ -263,7 +264,7 @@ public class MiniatureManipulation : MonoBehaviour
                 //SetOnHand();
             }
 
-            //SetRoiRatio();
+            SetRoiRatio();
             
         }
         else

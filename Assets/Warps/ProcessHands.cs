@@ -155,8 +155,8 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
             case 1:
                 // [TASK01]
                 Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
-                manager.SavePortalNum();
-                manager.SavePortalDistance(pos);
+                manager.SaveTargetSetNum();
+                manager.SaveTargetSetDistance(pos);
                 break;
             
             case 2:

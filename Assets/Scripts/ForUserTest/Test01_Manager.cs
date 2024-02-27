@@ -38,13 +38,6 @@ public class Test01_Manager : TestManager
     // 5) Task 수행 중 Target 상호작용 시간
     private Dictionary<uint, float> movementTime = new Dictionary<uint, float>();
     
-    private enum TargetPoints
-    {
-        Middle,
-        Back,
-        Both
-    }
-    
     
     private void Start()
     {
@@ -107,9 +100,35 @@ public class Test01_Manager : TestManager
         IsTestRecordEnd = false;
     }
 
-    public void SavePortalNum()
+    public override void InitalizeThisTry()
     {
-        if (state == TestState.SettingPortal_A)
+        base.InitalizeThisTry();
+
+        switch (currentGroupType)
+        {
+            case TaskGroupType.TestGroup: // 01,02: Satellite
+                Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.5f, 1.747f);
+                MiniatureWorld.Instance.RemoveProxies();
+                break;
+
+            case TaskGroupType.ControlGroup1: //01: Parabolic Ray, 02: Teleport
+                Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
+                MiniatureWorld.Instance.RemoveProxies();
+                break;
+
+            case TaskGroupType.ControlGroup2: //01: Poros, 02: Teleport & WiM
+                Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
+                MiniatureWorld.Instance.RemoveProxies();
+                break;
+        }
+    }
+
+    public void SaveTargetSetNum()
+    {
+        if (state == TestState.SettingTarget_A)
         {
             if (portalASave.TryGetValue(currentTryNum, out List<float> temp))
             {
@@ -122,7 +141,7 @@ public class Test01_Manager : TestManager
                 portalASave.Add(currentTryNum, timeList);
             }
         }
-        else if (state == TestState.SettingPortal_B)
+        else if (state == TestState.SettingTarget_B)
         {
             if (portalBSave.TryGetValue(currentTryNum, out List<float> temp))
             {
@@ -138,9 +157,9 @@ public class Test01_Manager : TestManager
         else return;
     }
     
-    public void SavePortalDistance(Vector3 portalPos)
+    public void SaveTargetSetDistance(Vector3 portalPos)
     {
-        if (state == TestState.SettingPortal_A)
+        if (state == TestState.SettingTarget_A)
         {
             float distance = Vector3.Distance(portalPos, indicator_A.transform.position);
             if (portalADistance.TryGetValue(currentTryNum, out List<float> temp))
@@ -154,7 +173,7 @@ public class Test01_Manager : TestManager
                 portalADistance.Add(currentTryNum, value);
             }
         }
-        else if (state == TestState.SettingPortal_B)
+        else if (state == TestState.SettingTarget_B)
         {
             float distance = Vector3.Distance(portalPos, indicator_B.transform.position);
             if (portalBDistance.TryGetValue(currentTryNum, out List<float> temp))
@@ -243,25 +262,25 @@ public class Test01_Manager : TestManager
                 ButtonTextUI.text = "OK";
                 break;
 
-            case TestState.SettingPortal_A:
+            case TestState.SettingTarget_A:
                 TitleTextUI.text = "Set Portal to Blue";
                 ContentsTextUI.text = "파란구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
-            case TestState.FinishPortalSet_A:
+            case TestState.FinishSet_A:
                 TitleTextUI.text = "Finish Portal to Blue";
                 ContentsTextUI.text = "파란구역에 Portal Setting 완료. \n 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
-            case TestState.SettingPortal_B:
+            case TestState.SettingTarget_B:
                 TitleTextUI.text = "Set Portal to Red";
                 ContentsTextUI.text = "빨간구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
-            case TestState.FinishPortalSet_B:
+            case TestState.FinishSet_B:
                 TitleTextUI.text = "Finish Portal to Red";
                 ContentsTextUI.text = "빨간구역에 Portal Setting 완료. \n 클릭";
                 ButtonTextUI.text = "CLICK";
@@ -290,7 +309,7 @@ public class Test01_Manager : TestManager
                 InitalizeThisTry();
                 break;
 
-            case TestState.SettingPortal_A:
+            case TestState.SettingTarget_A:
                 TestImagePanel.SetActive(false);
                 techniques.SetActive(true);
                 SetTimeThisTry(true);
@@ -298,20 +317,20 @@ public class Test01_Manager : TestManager
                 portalIndex = 0;
                 break;
 
-            case TestState.FinishPortalSet_A:
+            case TestState.FinishSet_A:
                 techniques.SetActive(false);
                 FinishTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 GoNextTestState(); // 자동으로 다음으로
                 
                 break;
 
-            case TestState.SettingPortal_B:
+            case TestState.SettingTarget_B:
                 techniques.SetActive(true);
                 StartTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 시작
                 portalIndex = 1;
                 break;
 
-            case TestState.FinishPortalSet_B:
+            case TestState.FinishSet_B:
                 techniques.SetActive(false);
                 FinishTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 GoNextTestState(); // 자동으로 다음으로
@@ -359,13 +378,13 @@ public class Test01_Manager : TestManager
         
         switch (state)
         {
-            case TestState.FinishPortalSet_A:
+            case TestState.FinishSet_A:
                 List<float> portalTime = new List<float>();
                 portalTime.Add(_thisTime); //portalTime[0] = A portal time
                 portalCreationTime.Add(currentTryNum, portalTime);
                 break;
 
-            case TestState.FinishPortalSet_B:
+            case TestState.FinishSet_B:
                 // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 if (portalCreationTime.TryGetValue(currentTryNum, out List<float> list))
                     list.Add(_thisTime); //portalTime[1] = B portal time
@@ -452,7 +471,7 @@ public class Test01_Manager : TestManager
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/" + currentGroupType;
+        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/01/" + currentGroupType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

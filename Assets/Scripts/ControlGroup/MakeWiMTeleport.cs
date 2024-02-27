@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class MakeTeleport : MonoBehaviour
+public class MakeWiMTeleport : MonoBehaviour
 {
     [Header("Basic")]
     public Leap.Unity.PinchDetector pinchDetector;
@@ -21,10 +21,12 @@ public class MakeTeleport : MonoBehaviour
     private const float headAngleThreashold = 60f;
     private float timer  = 0.0f;
 
+    private GameObject _player;
     
     void Start()
     {
         miniatureWorld = MiniatureWorld.Instance;
+        _player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -40,6 +42,47 @@ public class MakeTeleport : MonoBehaviour
         else
             Hide();
         
+        // 활성화된 상태에서, Pinch가 감지될 경우 활성화됨
+        if (isShown && paintCursor.DidStartPinch && MiniatureWorld.Instance.Manipulation.canSetROI)
+            canMake = true;
+
+        // 3초간 지속될 경우, ROI를 지정할 수 있다
+        if (canMake)
+        {
+            timer += Time.deltaTime;
+            if (timer >= duration)
+            {
+                // 3초가 지났으므로 원하는 작업을 수행합니다.
+                SettingTeleport(transform.position - transform.up * 0.05f, transform.right);
+
+                MiniatureWorld.Instance.gameObject.transform.position =
+                    _player.transform.position +
+                    new Vector3(0.00200000009f, 0.888000011f, 0.237000003f);
+                
+                // 작업이 끝났으므로 다시 초기화합니다.
+                canMake = false;
+                timer = 0f;
+            }
+        }
+    }
+
+    private void SettingTeleport(Vector3 pos, Vector3 rot)
+    {
+        Vector3 position = miniatureWorld.CandidatePos;
+        if (position != Vector3.zero)
+        {
+            Test02_Manager manager_2 = TestManager.Instance.GetTestManager().GetComponent<Test02_Manager>();
+            // int index2 = manager_2.portalIndex;
+            // miniatureWorld.CreateProxies((uint)index2, position, 200.0f,
+            //     manager_2.portalPlaces.transform.position);
+            // miniatureWorld.CreateSatellite((uint)index2, miniatureWorld.CandidateBeforePos);
+            // index2++;
+            _player.transform.position = new Vector3(position.x, 0.0f, position.z);
+
+            // TODO: [TASK02] 실험 결과 데이터 저장하기
+            manager_2.SaveTargetSetNum();
+            manager_2.SaveTargetSetDistance(position);
+        }
     }
     
     public void Hide()

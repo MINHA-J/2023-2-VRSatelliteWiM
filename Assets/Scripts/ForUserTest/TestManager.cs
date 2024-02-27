@@ -25,10 +25,10 @@ public enum TaskGroupType
 public enum TestState
 {
     NotStarted = 0,
-    SettingPortal_A = 1,
-    FinishPortalSet_A = 2,
-    SettingPortal_B = 3,
-    FinishPortalSet_B = 4,
+    SettingTarget_A = 1,
+    FinishSet_A = 2,
+    SettingTarget_B = 3,
+    FinishSet_B = 4,
     MoveObject = 5,
     EndThisTry = 6
 }
@@ -146,8 +146,27 @@ public class TestManager : MonoBehaviour
         Debug.Log("[DATA] Load Subject Data");
     }
 
+    public void UpdateTestPanel()
+    {
+        Vector3 newPos = player.transform.position + player.transform.forward * 0.3f;
+        TestPanel.transform.position =
+            new Vector3(newPos.x, newPos.y + 1.26f, newPos.z) + player.transform.right * 0.3f;
+        
+        newPos = player.transform.position + player.transform.forward * 7.0f;
+        TestImagePanel.transform.position = new Vector3(newPos.x, 1.43f, newPos.z);
+        
+        TestPanel.transform.LookAt(new Vector3(
+            player.transform.position.x,
+            TestPanel.transform.position.y,
+            player.transform.position.z));
+        TestImagePanel.transform.LookAt(new Vector3(
+            player.transform.position.x,
+            TestImagePanel.transform.position.y,
+            player.transform.position.z));
+    }
+    
 
-public virtual void SetGameObjects()
+    public virtual void SetGameObjects()
     {
         player = GameObject.FindWithTag("Player");
         
@@ -196,25 +215,25 @@ public virtual void SetGameObjects()
                 ButtonTextUI.text = "YES";
                 break;
 
-            case TestState.SettingPortal_A:
+            case TestState.SettingTarget_A:
                 TitleTextUI.text = "Set Portal/Teleport to Blue";
                 ContentsTextUI.text = "파란구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
-            case TestState.FinishPortalSet_A:
+            case TestState.FinishSet_A:
                 TitleTextUI.text = "Finish Portal to Blue";
                 ContentsTextUI.text = "파란구역의 Portal에서 물건을 꺼내놓으세요. \n완료 후 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
-            case TestState.SettingPortal_B:
+            case TestState.SettingTarget_B:
                 TitleTextUI.text = "Set Portal to Red";
                 ContentsTextUI.text = "빨간구역으로 Portal을 생성하세요. \n 원하는 대로 Portal이 세팅되었다면 클릭";
                 ButtonTextUI.text = "CLICK";
                 break;
 
-            case TestState.FinishPortalSet_B:
+            case TestState.FinishSet_B:
                 TitleTextUI.text = "Finish Portal to Red";
                 ContentsTextUI.text = "빨간구역의 Portal을 통해 물건을 옮겨놓으세요. \n완료 후 클릭";
                 ButtonTextUI.text = "CLICK";
@@ -284,7 +303,7 @@ public virtual void SetGameObjects()
     }
     
     [ContextMenu("SetTarget")]
-    public void InitalizeThisTry()
+    public virtual void InitalizeThisTry()
     {
         GameObject[] tempObj = GameObject.FindGameObjectsWithTag("Target");
         if (tempObj.Length > 0)
@@ -296,32 +315,10 @@ public virtual void SetGameObjects()
         currentGroupType = currentTestData.taskType[(int)currentTryNum]; //Data에 일치하는 순서로
         SetTargetValue();
         ShowInteraction(currentGroupType);
+        
         ShowImage(currentGroupType);
 
         techniques.SetActive(false);
-        
-        switch (currentGroupType)
-        {
-
-            case TaskGroupType.TestGroup:    // 01,02: Satellite
-                Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.5f, 1.747f);
-                MiniatureWorld.Instance.RemoveProxies();
-                break;
-    
-            case TaskGroupType.ControlGroup1: //01: Parabolic Ray, 02: Teleport
-                Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
-                MiniatureWorld.Instance.RemoveProxies();
-                break;
-            
-            case TaskGroupType.ControlGroup2: //01: Poros, 02: Teleport & WiM
-                Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
-                MiniatureWorld.Instance.RemoveProxies();
-                break;
-
-        }
     }
 
     public void ShowInteraction(TaskGroupType groupType)

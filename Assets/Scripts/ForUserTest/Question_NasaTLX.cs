@@ -107,7 +107,7 @@ public class Question_NasaTLX : MonoBehaviour
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(_tryQuestion, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum+ "/" + information.currentGroupType;
+        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum+ "/0"+information.experimentNum + information.currentGroupType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

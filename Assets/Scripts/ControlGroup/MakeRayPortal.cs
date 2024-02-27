@@ -78,8 +78,8 @@ public class MakeRayPortal : MonoBehaviour
                 float dirMagnitude = dirVector.sqrMagnitude;
                 if (paintCursor.IsPinching &&  dirMagnitude > 0.9f)
                 {
-                    // handRayRenderer.SetContactVector(_targetPos); 의도한 대로 동작이 되지 않는군 ㅎㅅㅎ
-                    
+                    // handRayRenderer.SetContactVector(_targetPos); 
+                    // TODO: Set하고 있는 portal의 위치로 Ray의 끝이 고정되도록 하고 싶었는데, 의도한 대로 동작이 되지 않는군
                     if (dirVector.y < -0.1f)
                     {
                         //Debug.Log("[DEBUG] Is Pinching & Moving * DOWN * ..." + dirVector);
@@ -134,12 +134,12 @@ public class MakeRayPortal : MonoBehaviour
                     index++;
 
                     // [TASK01] 실험군
-                    manager.SavePortalNum();
-                    manager.SavePortalDistance(pos);
+                    manager.SaveTargetSetNum();
+                    manager.SaveTargetSetDistance(pos);
                     break;
 
                 case 2:
-                    // TODO
+                    // 2번 실험에서는 이거 안 씁니다
                     break;
             }
 

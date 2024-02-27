@@ -89,8 +89,8 @@ public class MakeRoi : MonoBehaviour
                         //index++;
 
                         // [TASK01] 실험군
-                        manager_1.SavePortalNum();
-                        manager_1.SavePortalDistance(position);
+                        manager_1.SaveTargetSetNum();
+                        manager_1.SaveTargetSetDistance(position);
                         break;
                     
                     case 2:
