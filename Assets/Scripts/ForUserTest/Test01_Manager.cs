@@ -416,21 +416,21 @@ public class Test01_Manager : TestManager
                 // 2) 포탈 생성에 걸린 시간
                 if (portalCreationTime.TryGetValue(tryNum, out List<float> creationTime))
                 {
-                    taskResult.portalACreationTime = creationTime[0];
-                    taskResult.portalBCreationTime = creationTime[1];
+                    taskResult.ACreationTime = creationTime[0];
+                    taskResult.BCreationTime = creationTime[1];
                 }
 
                 // 3) 각 포탈 생성 횟수와 시간
                 if (portalASave.TryGetValue(tryNum, out List<float> A_createList))
                 {
-                    taskResult.portalACreationNum = A_createList.Count;
-                    taskResult.portalATimeList = A_createList.ToArray();
+                    taskResult.ACreationNum = A_createList.Count;
+                    taskResult.ATimeList = A_createList.ToArray();
                 }
 
                 if (portalBSave.TryGetValue(tryNum, out List<float> B_createList))
                 {
-                    taskResult.portalBCreationNum = B_createList.Count;
-                    taskResult.portalBTimeList = B_createList.ToArray();
+                    taskResult.BCreationNum = B_createList.Count;
+                    taskResult.BTimeList = B_createList.ToArray();
                 }
 
                 // 4) 각 포탈 생성 거리
@@ -439,8 +439,8 @@ public class Test01_Manager : TestManager
                 {
                     for (int i = 0; i < A_distance.Count; i++)
                         sumDistance += A_distance[i];
-                    taskResult.portalADistance = sumDistance / (float)A_distance.Count;
-                    taskResult.portalADistanceList = A_distance.ToArray();
+                    taskResult.ADistance = sumDistance / (float)A_distance.Count;
+                    taskResult.ADistanceList = A_distance.ToArray();
                 }
 
                 if (portalBDistance.TryGetValue(tryNum, out List<float> B_distance))
@@ -448,8 +448,8 @@ public class Test01_Manager : TestManager
                     sumDistance = 0.0f;
                     for (int i = 0; i < B_distance.Count; i++)
                         sumDistance += B_distance[i];
-                    taskResult.portalBDistance = sumDistance / (float)B_distance.Count;
-                    taskResult.portalBDistanceList = B_distance.ToArray();
+                    taskResult.BDistance = sumDistance / (float)B_distance.Count;
+                    taskResult.BDistanceList = B_distance.ToArray();
                 }
                 
                 // 5) Target 이동 시간

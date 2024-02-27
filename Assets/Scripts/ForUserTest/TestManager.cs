@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using Unity.XR.CoreUtils;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -305,6 +306,8 @@ public class TestManager : MonoBehaviour
     [ContextMenu("SetTarget")]
     public virtual void InitalizeThisTry()
     {
+        player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0, 0));
+        
         GameObject[] tempObj = GameObject.FindGameObjectsWithTag("Target");
         if (tempObj.Length > 0)
             foreach (var obj in tempObj)

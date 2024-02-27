@@ -24,23 +24,23 @@ public struct TaskTry
     public uint tryNum;
     public float totalTime;
 
-    public float portalACreationTime;
-    public float portalBCreationTime;
+    public float ACreationTime;
+    public float BCreationTime;
 
-    public int portalACreationNum;
-    public int portalBCreationNum;
+    public int ACreationNum;
+    public int BCreationNum;
     
-    public float portalADistance;
-    public float portalBDistance;
+    public float ADistance;
+    public float BDistance;
     
     [SerializeField]
-    public float[] portalATimeList;
+    public float[] ATimeList;
     [SerializeField]
-    public float[] portalADistanceList;
+    public float[] ADistanceList;
     [SerializeField]
-    public float[] portalBTimeList;
+    public float[] BTimeList;
     [SerializeField]
-    public float[] portalBDistanceList;
+    public float[] BDistanceList;
 
     public float moveTime;
 }

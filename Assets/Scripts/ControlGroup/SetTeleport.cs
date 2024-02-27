@@ -82,6 +82,12 @@ public class SetTeleport : MonoBehaviour
     private void TeleportToTarget(Vector3 target)
     {
         _player.transform.position = target;
+        
+        // [TASK02] 실험 결과 데이터 저장하기
+        Test02_Manager manager_2 = TestManager.Instance.GetTestManager().GetComponent<Test02_Manager>();
+
+        manager_2.SaveTargetSetNum();
+        manager_2.SaveTargetSetDistance(target);
     }
 
     private void UpdateCursorVisible()

@@ -102,8 +102,8 @@ public class MakeRoi : MonoBehaviour
                         index2++;
 
                         // TODO: [TASK02] 실험 결과 데이터 저장하기
-                        //manager_2.SavePortalNum();
-                        //manager_2.SavePortalDistance(position);
+                        manager_2.SaveTargetSetNum();
+                        manager_2.SaveTargetSetDistance(position);
                         break;
                 }
             }

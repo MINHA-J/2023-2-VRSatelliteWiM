@@ -233,7 +233,9 @@ public class MiniatureManipulation : MonoBehaviour
             float distance = miniatureWorld.ROI.gameObject.transform.localScale.x;
             if (pointInWorldRoi.sqrMagnitude > Mathf.Pow(distance, 2))
                 return;
-            TempEyes.transform.position = eyeRayFilter.Filter(pointInWorldRoi, Time.time);
+            
+            Vector3 eyePos = eyeRayFilter.Filter(pointInWorldRoi, Time.time/2);
+            TempEyes.transform.position = new Vector3(eyePos.x, 0.0f, eyePos.z);
             //TempEyes.transform.DOMove(pointInWorldRoi, duration, false);
             miniatureWorld.UpdateCandidatePosition(pointInWorld, pointInWorldRoi);
         }
@@ -264,7 +266,7 @@ public class MiniatureManipulation : MonoBehaviour
                 //SetOnHand();
             }
 
-            SetRoiRatio();
+            //SetRoiRatio();
             
         }
         else
