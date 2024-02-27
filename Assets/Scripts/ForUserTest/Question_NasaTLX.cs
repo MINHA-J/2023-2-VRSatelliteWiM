@@ -101,13 +101,17 @@ public class Question_NasaTLX : MonoBehaviour
 
     public void Save()
     {
-        string name = "Test01_Subject" + information.subjectNum + "_" + information.currentGroupType + "_Try_" + information.currentTryNum+"_NASATLX";
-
+        string name = "Test01_Subject" + information.subjectNum + "_" 
+                      + information.currentGroupType + "_Try_" 
+                      + (information.currentTryNum - 1) 
+                      + "_NASATLX";
+        
         _tryQuestion.answerValue = answerValue.ToArray();
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(_tryQuestion, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum+ "/0"+information.experimentNum + information.currentGroupType;
+        string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum + "/0" +
+                      information.experimentNum + "/" + information.currentGroupType;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

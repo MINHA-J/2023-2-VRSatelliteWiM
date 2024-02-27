@@ -55,9 +55,10 @@ public class MakeWiMTeleport : MonoBehaviour
                 // 3초가 지났으므로 원하는 작업을 수행합니다.
                 SettingTeleport(transform.position - transform.up * 0.05f, transform.right);
 
-                MiniatureWorld.Instance.gameObject.transform.position =
+                miniatureWorld.gameObject.transform.position =
                     _player.transform.position +
                     new Vector3(0.00200000009f, 0.888000011f, 0.237000003f);
+                miniatureWorld.gameObject.transform.rotation = Quaternion.identity;
                 
                 // 작업이 끝났으므로 다시 초기화합니다.
                 canMake = false;

@@ -38,6 +38,8 @@ public class Test02_Manager : TestManager
     private float target_yValue = 0.0f;
     private float target_zValue = 0.0f;
 
+    private Vector3 miniatureVec = new Vector3(0.00200000009f, 1.23000002f, 0.349999994f);
+
     private void Start()
     {
         DontDestroyOnLoad(this);
@@ -108,7 +110,7 @@ public class Test02_Manager : TestManager
             case TaskGroupType.TestGroup: // 01,02: Satellite
                 Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
                 player.transform.position = new Vector3(0, 0, -0.224000007f);
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.5f, 1.747f);
+                MiniatureWorld.Instance.gameObject.transform.position = miniatureVec;
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
 
@@ -124,8 +126,7 @@ public class Test02_Manager : TestManager
                 Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
                 player.transform.position = new Vector3(0, 0, -0.224000007f);
                 player.transform.rotation = Quaternion.identity;
-                MiniatureWorld.Instance.gameObject.transform.position =
-                    new Vector3(0.00200000009f, 0.888000011f, 0.237000003f);
+                MiniatureWorld.Instance.gameObject.transform.position = miniatureVec;
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
         }

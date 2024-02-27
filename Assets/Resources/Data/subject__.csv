@@ -1,7 +1,7 @@
 ParticipantID,_T,R
-1,TestGroup,0
-1,ControlGroup1,2
+1,ControlGroup2,0
 1,ControlGroup2,2
+1,TestGroup,2
 1,TestGroup,1
 1,ControlGroup1,0
 1,ControlGroup1,1
