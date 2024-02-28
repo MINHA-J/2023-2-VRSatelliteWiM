@@ -192,11 +192,10 @@ public class Satellite : MonoBehaviour
                 
                 //[FIX] z를 y로 수정
                 //Debug.Log(Math.Abs(_curPos.z - _lastPos.z));
-                if (Math.Abs(_curPos.y - _lastPos.y) > 0.005f)
+                if (Math.Abs(_curPos.y - _lastPos.y) >= 0.001f)
                 {
                     //Debug.Log("Scale It!");
                     ScaleMarkedSpace((_curPos.y - _lastPos.y) * MiniWorld.RadiusRatio);
-                    _lastPos = _curPos;
                 }
 
                 //if ((Math.Abs(_curPos.x - _lastPos.x) > 0.005f) || (Math.Abs(_curPos.z - _lastPos.z) > 0.005f))
@@ -216,5 +215,8 @@ public class Satellite : MonoBehaviour
                 break;
 
         }
+
+        _lastPos = _curPos;
+        
     }
 }

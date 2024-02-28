@@ -126,10 +126,12 @@ public class MakeRayPortal : MonoBehaviour
                     // [TASK01] 실험군
                     //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
                     Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
-                    Vector3 place = manager.portalPlaces.transform.GetChild((int)index % 2).position;
-                    
+                    //Vector3 place = manager.portalPlaces.transform.GetChild((int)index % 2).position;
+                    int index1 = manager.portalIndex;
+                    Vector3 place1 = manager.portalPlaces.transform.GetChild(index1).position;
+
                     miniatureWorld.RemoveProxies();
-                    miniatureWorld.CreateProxies(index, pos, 200.0f, place);
+                    miniatureWorld.CreateProxies(index, pos, 200.0f, place1);
                     //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
                     index++;
 
