@@ -83,8 +83,8 @@ public class MakeRoi : MonoBehaviour
                         Test01_Manager manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
 
                         int index1 = manager_1.portalIndex;
-                        Vector3 place = manager_1.portalPlace.transform.GetChild(index1).position;
-                        miniatureWorld.CreateProxies((uint)index1, position, 200.0f, place);
+                        Vector3 place1 = manager_1.portalPlaces.transform.GetChild(index1).position;
+                        miniatureWorld.CreateProxies((uint)index1, position, 200.0f, place1);
                         miniatureWorld.CreateSatellite((uint)index1, miniatureWorld.CandidateBeforePos);
                         //index++;
 
@@ -96,10 +96,10 @@ public class MakeRoi : MonoBehaviour
                     case 2:
                         Test02_Manager manager_2 = TestManager.Instance.GetTestManager().GetComponent<Test02_Manager>();
                         int index2 = manager_2.portalIndex;
-                        miniatureWorld.CreateProxies((uint)index2, position, 200.0f,
-                            manager_2.portalPlaces.transform.position);
+                        Vector3 place2 = manager_2.portalPlaces.transform.GetChild(index2).position;
+                        miniatureWorld.CreateProxies((uint)index2, position, 200.0f, place2);
                         miniatureWorld.CreateSatellite((uint)index2, miniatureWorld.CandidateBeforePos);
-                        index2++;
+                        //index2++;
 
                         // TODO: [TASK02] 실험 결과 데이터 저장하기
                         manager_2.SaveTargetSetNum();

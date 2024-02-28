@@ -66,7 +66,7 @@ public class TestManager : MonoBehaviour
     [HideInInspector] public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
 
     // 각 기술 시도 횟수 저장을 위한 데이터
-    [HideInInspector] public uint[] totalTryNum = { 0, 0, 0 };
+    public uint[] totalTryNum = { 0, 0, 0 };
 
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;
@@ -209,7 +209,7 @@ public class TestManager : MonoBehaviour
         switch (state)
         {
             case TestState.NotStarted:
-                Debug.Log("실험자" + subjectNum + ", " + 
+                Debug.Log("실험자" + subjectNum + ", " +
                           experimentNum + " test/" + currentGroupType + "/" + currentTryNum + "번째 Try.");
                 TitleTextUI.text = "Start Task";
                 ContentsTextUI.text = "파란구역 내에 있는 물체를 \n빨간구역으로 옮기세요.\n총" + currentTryNum + "/" + repeatTryNum;
@@ -241,6 +241,12 @@ public class TestManager : MonoBehaviour
                 break;
 
             case TestState.MoveObject:
+                TitleTextUI.text = "Object 옮기기";
+                ContentsTextUI.text = "빨간구역에 물건을 옮겨놓으세요. \n완료 후 클릭";
+                ButtonTextUI.text = "CLICK";
+                break;
+
+            case TestState.EndThisTry:
                 TitleTextUI.text = "Finish " + (currentTryNum) + " try";
                 ContentsTextUI.text = "다음으로 진행합니다. \n클릭";
                 ButtonTextUI.text = "CLICK";

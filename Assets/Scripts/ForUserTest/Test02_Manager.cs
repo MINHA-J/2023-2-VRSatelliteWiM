@@ -437,19 +437,20 @@ public class Test02_Manager : TestManager
                 }
             }
             // TaskTry struct 세팅 완료, txt 변환
-            Save(totalTryNum[(int)currentGroupType], taskResult);
+            //Save(totalTryNum[(int)currentGroupType], taskResult);
+            Save(currentTryNum, taskResult);
             totalTryNum[(int)currentGroupType]++; // 현재 수행한 기술의 Try수 +1
         }
     }
 
     public void Save(uint tryNum, TaskTry saveData)
     {
-        string name = "Test02_Subject" + subjectNum + "_" + currentGroupType + "_Try_" + tryNum;
+        string name = "Test02_Subject" + subjectNum + "_Try_" + tryNum + "_" + currentGroupType;
         
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
 
-        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/02/" + currentGroupType;
+        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/02";
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

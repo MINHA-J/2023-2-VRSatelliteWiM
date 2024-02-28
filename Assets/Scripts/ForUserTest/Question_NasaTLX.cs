@@ -66,7 +66,11 @@ public class Question_NasaTLX : MonoBehaviour
         GetTestManager();
         
         questionNum = 0;
-        NextQuestion();
+        answer.value = 0.0f;
+        
+        firstQuestion();
+        
+        answerValue.Clear();
     }
 
     private void GetTestManager()
@@ -74,15 +78,27 @@ public class Question_NasaTLX : MonoBehaviour
         information.subjectNum = TestManager.Instance.subjectNum;
         information.experimentNum = TestManager.Instance.experimentNum;
         information.currentGroupType = TestManager.Instance.currentGroupType;
-        information.currentTryNum = TestManager.Instance.totalTryNum[(int)information.currentGroupType];
+        //information.currentTryNum = TestManager.Instance.totalTryNum[(int)information.currentGroupType];
+        information.currentTryNum = TestManager.Instance.currentTryNum;
     }
-    
+
+    private void firstQuestion()
+    {
+        questionNum++;
+        
+        textUI.qestionNumber.text = "Q" + questionNum;
+        textUI.question.text = questions[questionNum - 1];
+        textUI.low.text = values[questionNum - 1, 0];
+        textUI.high.text = values[questionNum - 1, 1];
+    }
+
     [ContextMenu("Set Next Question")]
     public void NextQuestion()
     {
-        questionNum++;
 
-        if (questionNum > 6)
+        answerValue.Add((int)answer.value);
+        answer.value = 0.0f;
+        if (answerValue.Count >= 6)
         {
             Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
             GetTestManager();
@@ -90,9 +106,7 @@ public class Question_NasaTLX : MonoBehaviour
             return;
         }
 
-        answerValue.Add((int)answer.value);
-        answer.value = 0.0f;
-        
+        questionNum++;
         textUI.qestionNumber.text = "Q" + questionNum;
         textUI.question.text = questions[questionNum - 1];
         textUI.low.text = values[questionNum - 1, 0];
@@ -101,17 +115,16 @@ public class Question_NasaTLX : MonoBehaviour
 
     public void Save()
     {
-        string name = "Test01_Subject" + information.subjectNum + "_" 
-                      + information.currentGroupType + "_Try_" 
-                      + (information.currentTryNum - 1) 
-                      + "_NASATLX";
+        string name = "Test01_Subject" + information.subjectNum + "_"
+                      + "_Try_" + information.currentTryNum
+                      + "_" + information.currentGroupType + "_NASATLX";
         
         _tryQuestion.answerValue = answerValue.ToArray();
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(_tryQuestion, true);
 
         string path = Application.dataPath + "/DataSave/Subject" + information.subjectNum + "/0" +
-                      information.experimentNum + "/" + information.currentGroupType;
+                      information.experimentNum;
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
