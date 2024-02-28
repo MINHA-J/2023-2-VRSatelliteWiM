@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -104,6 +105,9 @@ public class Test01_Manager : TestManager
     {
         base.InitalizeThisTry();
 
+        // 카메라 위치 재설정
+        //player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0.46f, 1.36f));
+        
         switch (currentGroupType)
         {
             case TaskGroupType.TestGroup: // 01,02: Satellite

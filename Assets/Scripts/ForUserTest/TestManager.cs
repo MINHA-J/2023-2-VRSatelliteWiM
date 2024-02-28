@@ -312,8 +312,6 @@ public class TestManager : MonoBehaviour
     [ContextMenu("SetTarget")]
     public virtual void InitalizeThisTry()
     {
-        player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0, 0));
-        
         GameObject[] tempObj = GameObject.FindGameObjectsWithTag("Target");
         if (tempObj.Length > 0)
             foreach (var obj in tempObj)

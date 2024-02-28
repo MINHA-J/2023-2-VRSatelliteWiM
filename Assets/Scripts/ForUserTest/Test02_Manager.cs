@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Unity.Mathematics;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -105,6 +106,9 @@ public class Test02_Manager : TestManager
     {
         base.InitalizeThisTry();
 
+        // 카메라 위치 재설정
+        //player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0.0f, -0.224f));
+        
         switch (currentGroupType)
         {
             case TaskGroupType.TestGroup: // 01,02: Satellite
