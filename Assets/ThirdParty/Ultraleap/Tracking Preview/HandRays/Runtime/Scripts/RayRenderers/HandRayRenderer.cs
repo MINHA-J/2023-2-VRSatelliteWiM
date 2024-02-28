@@ -154,6 +154,7 @@ namespace Leap.Unity.Preview.HandRays
             if (results.Length > 0)
             {
                 //Debug.Log(results[0].transform.name);
+                // Ray를 통해 움직일 수 있는지를 Tag 유무로 판단함
                 if (results[0].transform.CompareTag("OnGround") || results[0].transform.CompareTag("Target"))
                 {
                     currentContact = results[0].transform.gameObject;
