@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Develop_Scenes/XR_Toolkit_Test_240201.unity
     guid: 9d7ea9088161e2644bd9716005f17fc5
   - enabled: 1
-    path: Assets/Scenes/Test_Scenes/Test01_1_240201.unity
+    path: Assets/Scenes/Develop_Scenes/Test_SampleScenes/Test01_240304.unity
     guid: 2d170c5dffdb58e4ba07acf3a2d0801a
   - enabled: 1
     path: Assets/Scenes/Develop_Scenes/After_NASA_TLX.unity
