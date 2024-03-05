@@ -67,7 +67,7 @@ public class TestManager : MonoBehaviour
     [HideInInspector] public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
 
     // 각 기술 시도 횟수 저장을 위한 데이터
-    public uint[] totalTryNum = { 0, 0, 0 };
+    public uint[] totalTryNum = { 0, 0, 0, 0 };
 
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;

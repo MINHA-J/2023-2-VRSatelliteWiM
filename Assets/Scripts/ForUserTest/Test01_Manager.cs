@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Unity.Mathematics;
@@ -211,48 +212,48 @@ public class Test01_Manager : TestManager
         Random.InitState((int)timeSeed);
         
         List<float> xCandidate = new List<float>() { -4.8f, 0.0f, 4.8f };
-
-        float minValue = 0.0f, maxValue = 0.0f;
-        switch (currentTestData.targetPosition[(int)currentTryNum])
-        {
-            case 0: //Middle
-                minValue = 11.5f;
-                maxValue = 12.0f;
-                break;
-
-            case 1: //Back
-                minValue = 14.20f;
-                maxValue = 15.25f;
-                break;
-
-            case 2: //Both
-                minValue = 11.5f;
-                maxValue = 15.25f;
-                break;
-        }
+        List<int> pairCandidate = new List<int>() { 0, 1, 1, 2, 2, 0 };
+        
+        float minValue = 12.0f, maxValue =15.25f;
 
         // A와 Target Set
-        int tempA = Random.Range(0, 3);
-        target_xValue = xCandidate[tempA];
-        target_yValue = 0.022f;
-        target_zValue = Random.Range(minValue, maxValue);
-        indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
-        Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
-
-
-        // B Set
-        timeSeed = Time.time * 100f;
-        Random.InitState((int)timeSeed);
-        int tempB = -1;
-        do
+        //int tempA = Random.Range(0, 3);
+        int alpha = Random.Range(0, 2);
+        if (alpha == 0)
         {
-            tempB = Random.Range(0, 3);
-        } while (tempB == tempA);
+            int index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 0];
+            target_xValue = xCandidate[index];
+            target_yValue = 0.022f;
+            target_zValue = Random.Range(minValue, maxValue);
 
-        target_xValue = xCandidate[tempB];
-        target_yValue = 0.022f;
-        target_zValue = Random.Range(minValue, maxValue);
-        indicator_B.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
+            indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
+            Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+            
+            index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 1];
+            target_xValue = xCandidate[index];
+            target_yValue = 0.022f;
+            target_zValue = Random.Range(minValue, maxValue);
+            
+            indicator_B.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
+        }
+        else if (alpha == 1)
+        {
+            int index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 1];
+            target_xValue = xCandidate[index];
+            target_yValue = 0.022f;
+            target_zValue = Random.Range(minValue, maxValue);
+
+            indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
+            Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+            
+            index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 0];
+            target_xValue = xCandidate[index];
+            target_yValue = 0.022f;
+            target_zValue = Random.Range(minValue, maxValue);
+            
+            indicator_B.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
+        }
+        
     }
 
     public  override GameObject GetTestManager()
