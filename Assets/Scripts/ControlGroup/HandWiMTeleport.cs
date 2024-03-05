@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class MakeWiMTeleport : MonoBehaviour
+public class HandWiMTeleport : MonoBehaviour
 {
     [Header("Basic")]
     public Leap.Unity.PinchDetector pinchDetector;

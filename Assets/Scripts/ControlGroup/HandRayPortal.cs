@@ -5,7 +5,7 @@ using DG.Tweening;
 using Leap.Unity.Preview.HandRays;
 using Unity.VisualScripting;
 
-public class MakeRayPortal : MonoBehaviour
+public class HandRayPortal : MonoBehaviour
 {
     /// <summary>
     /// The pinchDetector associated with this cursor

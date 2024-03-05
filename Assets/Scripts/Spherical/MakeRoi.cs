@@ -30,7 +30,7 @@ public class MakeRoi : MonoBehaviour
     {
         miniatureWorld = MiniatureWorld.Instance;
     }
-
+    
     private void Update()
     {
         transform.position = Player.Instance.InteractionHandRight.position;
@@ -64,6 +64,18 @@ public class MakeRoi : MonoBehaviour
         }
 
     }
+
+    // private void OnDisable()
+    // {
+    //     miniatureWorld.gameObject.GetComponent<MiniatureManipulation>().TempEyes.SetActive(false);
+    //     miniatureWorld.gameObject.SetActive(false);
+    // }
+    //
+    // private void OnEnable()
+    // {
+    //     miniatureWorld.gameObject.GetComponent<MiniatureManipulation>().TempEyes.SetActive(true);
+    //     miniatureWorld.gameObject.SetActive(true);
+    // }
 
     private void SettingRoi(Vector3 pos, Vector3 rot)
     {

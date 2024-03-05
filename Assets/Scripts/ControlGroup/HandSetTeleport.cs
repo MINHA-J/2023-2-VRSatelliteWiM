@@ -4,7 +4,7 @@ using DG.Tweening;
 using Leap.Unity.Preview.HandRays;
 using UnityEngine;
 
-public class SetTeleport : MonoBehaviour
+public class HandSetTeleport : MonoBehaviour
 {
 /// <summary>
     /// The pinchDetector associated with this cursor

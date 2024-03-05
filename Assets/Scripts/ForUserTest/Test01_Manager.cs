@@ -18,7 +18,7 @@ public class Test01_Manager : TestManager
     
     [Header("[Test01] Techique")] 
     [SerializeField] private MakeRoi testInteraction;
-    [SerializeField] private MakeRayPortal controlInteraction_1;
+    [SerializeField] private HandRayPortal controlInteraction_1;
     [SerializeField] private GameObject controlInteraction_2;
     
     // 실험 결과를 저장할 데이터
@@ -77,7 +77,7 @@ public class Test01_Manager : TestManager
         base.SetGameObjects();
         
         testInteraction = techniques.transform.GetChild(0).GetComponent<MakeRoi>();
-        controlInteraction_1 = techniques.transform.GetChild(0).GetComponent<MakeRayPortal>();
+        controlInteraction_1 = techniques.transform.GetChild(0).GetComponent<HandRayPortal>();
         controlInteraction_2 = techniques.transform.GetChild(0).gameObject;
     }
     
@@ -116,14 +116,20 @@ public class Test01_Manager : TestManager
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
 
-            case TaskGroupType.ControlGroup1: //01: Parabolic Ray, 02: Teleport
+            case TaskGroupType.ControlGroup1: //01: Parabolic Ray
                 Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
 
-            case TaskGroupType.ControlGroup2: //01: Poros, 02: Teleport & WiM
+            case TaskGroupType.ControlGroup2: //01: Poros
                 Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
+                MiniatureWorld.Instance.RemoveProxies();
+                break;
+            
+            case TaskGroupType.ControlGroup3: //01: Controller Ray
+                Debug.Log("[SET] 대조군3 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
@@ -349,6 +355,7 @@ public class Test01_Manager : TestManager
                 // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
                 FinishTimeSetting(); //TODO: 이게 Object가 Trigger 되면 자동으로 넘어가줘야 할 듯
                 SetTimeThisTry(false);
+                HideInteraction();
                 Question_NasaTLX();
                 CheckResult();
                 break;

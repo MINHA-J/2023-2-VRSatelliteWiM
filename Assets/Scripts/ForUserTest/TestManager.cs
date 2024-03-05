@@ -18,9 +18,10 @@ using Random = UnityEngine.Random;
 
 public enum TaskGroupType
 {
-    TestGroup,      //실험군
-    ControlGroup1,  //대조군1
-    ControlGroup2   //대조군2
+    TestGroup,      //실험군   - Satellte(WiM & Portal)
+    ControlGroup1,  //대조군1  - Hand Ray & Portal
+    ControlGroup2,  //대조군2  - Hand Portal
+    ControlGroup3   //대조군3  - Controller Ray & Portal
 }
 
 public enum TestState
@@ -336,6 +337,16 @@ public class TestManager : MonoBehaviour
         }
         
         techniques.transform.GetChild((int)groupType).gameObject.SetActive(true);
+    }
+
+    public void HideInteraction()
+    {
+        for (int index = 0; index < techniques.transform.childCount; index++)
+        {
+            techniques.transform.GetChild(index).gameObject.SetActive(false);
+        }
+        
+        techniques.SetActive(false);
     }
 
     public virtual void SetTargetValue()
