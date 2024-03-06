@@ -41,6 +41,7 @@ public class TestManager : MonoBehaviour
     public int subjectNum; //실험자 번호
     public int experimentNum = 1; // 1(Near)번 or 2(Far)번 실험
     public TestData currentTestData = new TestData();
+    public string fileName = "subject";
     
     [FormerlySerializedAs("currentType")] [Header("----+ Test Setting +----")]
     public TaskGroupType currentGroupType = TaskGroupType.TestGroup;
@@ -117,7 +118,7 @@ public class TestManager : MonoBehaviour
     public void LoadSubjectTestData()
     {
         CSVImporter csvWave = new CSVImporter();
-        if (!csvWave.OpenFile("Data/subject"))
+        if (!csvWave.OpenFile("Data/"+fileName))
         {
             Debug.Log("Read File Error");
             return;

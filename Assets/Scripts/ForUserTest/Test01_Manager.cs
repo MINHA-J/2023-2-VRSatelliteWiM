@@ -62,13 +62,15 @@ public class Test01_Manager : TestManager
 
         // 0, 1, 2 try까지만 확인 (반복 횟수)
         // 다음 technique로 넘어갑니다
-        if (!IsTestRecordEnd && currentTryNum >= repeatTryNum)
+        if (currentTryNum >= repeatTryNum)
         {
-            // TODO: 한 technique 끝나고 물어볼 설문 진행
-            //CheckResult();
-            
             ChangeTaskType();
-            IsTestRecordEnd = true;
+            
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
         }
     }
     
@@ -105,7 +107,6 @@ public class Test01_Manager : TestManager
     public override void InitalizeThisTry()
     {
         base.InitalizeThisTry();
-
         // 카메라 위치 재설정
         //player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0.46f, 1.36f));
         
@@ -357,12 +358,23 @@ public class Test01_Manager : TestManager
                 FinishTimeSetting(); //TODO: 이게 Object가 Trigger 되면 자동으로 넘어가줘야 할 듯
                 SetTimeThisTry(false);
                 HideInteraction();
-                Question_NasaTLX();
+                if (IsTechRepeated())
+                    Question_NasaTLX();
                 CheckResult();
                 break;
         }
     }
 
+    private bool IsTechRepeated()
+    {
+        int tryNum = (int)totalTryNum[(int)currentGroupType];
+        
+        if (tryNum != 0 && tryNum % 2 == 0)
+            return true;
+        else
+            return false;
+    }
+    
     private void SetTimeThisTry(bool set)
     {
         if (set)
