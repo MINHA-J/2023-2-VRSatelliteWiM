@@ -12,7 +12,6 @@ public class ControllerRayPortal : MonoBehaviour
 
     [Header("Setting")]
     [SerializeField] private MiniatureWorld miniatureWorld;
-    [SerializeField] private uint index = 0;
     [SerializeField] private float timer  = 0.0f;
     private float duration  = 1.5f;
     private XRController _xrController;
@@ -111,14 +110,14 @@ public class ControllerRayPortal : MonoBehaviour
                     // [TASK01] 실험군
                     //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
                     Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
-                    //Vector3 place = manager.portalPlaces.transform.GetChild((int)index % 2).position;
+
                     int index1 = manager.portalIndex;
                     Vector3 place1 = manager.portalPlaces.transform.GetChild(index1).position;
 
-                    miniatureWorld.RemoveProxies();
-                    miniatureWorld.CreateProxies(index, pos, 200.0f, place1);
-                    //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
-                    index++;
+                    //miniatureWorld.RemoveProxies();
+                    miniatureWorld.CreateProxies((uint)index1, pos, 200.0f, place1);
+                    miniatureWorld.CreateSatellite((uint)index1, miniatureWorld.CandidateBeforePos);
+                    //index++;
 
                     // [TASK01] 실험군
                     manager.SaveTargetSetNum();

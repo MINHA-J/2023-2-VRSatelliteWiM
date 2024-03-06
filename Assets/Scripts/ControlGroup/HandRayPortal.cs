@@ -133,7 +133,7 @@ public class HandRayPortal : MonoBehaviour
                     miniatureWorld.RemoveProxies();
                     miniatureWorld.CreateProxies(index, pos, 200.0f, place1);
                     //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
-                    index++;
+                    //index++;
 
                     // [TASK01] 실험군
                     manager.SaveTargetSetNum();

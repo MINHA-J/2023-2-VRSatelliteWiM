@@ -114,7 +114,7 @@ public class Test01_Manager : TestManager
         {
             case TaskGroupType.TestGroup: // 01,02: Satellite
                 Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.5f, 1.747f);
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.47f, 1.747f);
                 MiniatureWorld.Instance.RemoveProxies();
                 break;
 

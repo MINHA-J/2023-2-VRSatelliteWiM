@@ -226,7 +226,16 @@ public class MiniatureWorld : MonoBehaviour
         if (ProxiesTable.Count < 1)
             return null;
 
-        return ProxiesTable.First().Value.Marks[0];
+        Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+        if (manager.portalIndex == 0)
+        {
+            return ProxiesTable.First().Value.Marks[0];
+        }
+        else
+        {
+            return ProxiesTable[1].Marks[0];
+
+        }
     }
     
     private void OnDestroy()

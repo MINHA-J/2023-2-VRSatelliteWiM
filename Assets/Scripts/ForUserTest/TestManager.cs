@@ -42,6 +42,7 @@ public class TestManager : MonoBehaviour
     public int experimentNum = 1; // 1(Near)번 or 2(Far)번 실험
     public TestData currentTestData = new TestData();
     public string fileName = "subject";
+    public bool doShowImages = true;
     
     [FormerlySerializedAs("currentType")] [Header("----+ Test Setting +----")]
     public TaskGroupType currentGroupType = TaskGroupType.TestGroup;
@@ -65,7 +66,7 @@ public class TestManager : MonoBehaviour
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
     public TaskTry currentTry;
-    [HideInInspector] public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
+    public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
 
     // 각 기술 시도 횟수 저장을 위한 데이터
     public uint[] totalTryNum = { 0, 0, 0, 0 };
@@ -325,7 +326,8 @@ public class TestManager : MonoBehaviour
         SetTargetValue();
         ShowInteraction(currentGroupType);
         
-        ShowImage(currentGroupType);
+        if (doShowImages)
+            ShowImage(currentGroupType);
 
         techniques.SetActive(false);
     }
