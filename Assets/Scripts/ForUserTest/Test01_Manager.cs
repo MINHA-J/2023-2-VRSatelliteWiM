@@ -116,31 +116,29 @@ public class Test01_Manager : TestManager
         base.InitalizeThisTry();
         // 카메라 위치 재설정
         //player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0.46f, 1.36f));
+        MiniatureWorld.Instance.RemoveProxies();
+        MiniatureWorld.Instance.RemoveSatellites();
         
         switch (currentGroupType)
         {
             case TaskGroupType.TestGroup: // 01,02: Satellite
                 Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.47f, 1.747f);
-                MiniatureWorld.Instance.RemoveProxies();
                 break;
 
             case TaskGroupType.ControlGroup1: //01: Parabolic Ray
                 Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
-                MiniatureWorld.Instance.RemoveProxies();
                 break;
 
             case TaskGroupType.ControlGroup2: //01: Poros
                 Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
-                MiniatureWorld.Instance.RemoveProxies();
                 break;
             
             case TaskGroupType.ControlGroup3: //01: Controller Ray
                 Debug.Log("[SET] 대조군3 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
-                MiniatureWorld.Instance.RemoveProxies();
                 break;
         }
     }

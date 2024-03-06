@@ -235,6 +235,17 @@ public class MiniatureWorld : MonoBehaviour
         ProxiesTable = new Dictionary<uint, ProxyNode>();
     }
 
+    public void RemoveSatellites()
+    {
+        foreach (var pair in SatelliteTable)
+        {
+            SatelliteTable.Remove(pair.Key);
+            Destroy(pair.Value);
+        }
+        SatelliteTable.Clear();
+        SatelliteTable = new Dictionary<uint, GameObject>();
+    }
+
     public MarkNode GetFirstMarkNode()
     {
         if (ProxiesTable.Count < 1)
