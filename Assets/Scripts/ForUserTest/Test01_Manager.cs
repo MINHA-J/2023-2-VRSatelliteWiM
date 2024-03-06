@@ -39,7 +39,8 @@ public class Test01_Manager : TestManager
 
     // 5) Task 수행 중 Target 상호작용 시간
     private Dictionary<uint, float> movementTime = new Dictionary<uint, float>();
-    
+
+    private bool IsUpdated = false;
     
     private void Start()
     {
@@ -60,6 +61,12 @@ public class Test01_Manager : TestManager
         if (state != TestState.NotStarted)
             TickTime();
 
+        if (!IsUpdated && currentTryNum >= repeatTryNum / 2)
+        {
+            Debug.Log("Section 01 FINISH");
+            IsUpdated = true;
+        }
+        
         // 0, 1, 2 try까지만 확인 (반복 횟수)
         // 다음 technique로 넘어갑니다
         if (currentTryNum >= repeatTryNum)

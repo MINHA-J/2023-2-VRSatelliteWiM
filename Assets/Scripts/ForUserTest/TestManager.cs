@@ -325,8 +325,8 @@ public class TestManager : MonoBehaviour
         currentGroupType = currentTestData.taskType[(int)currentTryNum]; //Data에 일치하는 순서로
         SetTargetValue();
         ShowInteraction(currentGroupType);
-        
-        if (doShowImages)
+
+        if (doShowImages && totalTryNum[(int)currentGroupType] % 3 == 0)
             ShowImage(currentGroupType);
 
         techniques.SetActive(false);
