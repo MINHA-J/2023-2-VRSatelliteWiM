@@ -206,6 +206,20 @@ public class MiniatureWorld : MonoBehaviour
         Destroy(markNode.gameObject);
     }
 
+    public void RemoveProxy(uint index)
+    {
+        if (ProxiesTable.TryGetValue(index, out ProxyNode node))
+        {
+            // Proxies를 Table에서 제거함
+            ProxyNode proxyNode = ProxiesTable[index];
+            MarkNode markNode = proxyNode.Marks[0];
+            ProxiesTable.Remove(index);
+            Destroy(proxyNode.gameObject);
+            Destroy(markNode.spotlight);
+            Destroy(markNode.gameObject);
+        }
+    }
+    
     public void RemoveProxies()
     {
         // Proxies를 Table에서 제거함

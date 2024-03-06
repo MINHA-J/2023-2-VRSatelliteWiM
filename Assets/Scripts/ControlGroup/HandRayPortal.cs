@@ -25,7 +25,6 @@ public class HandRayPortal : MonoBehaviour
     [SerializeField]private const float headAngleThreashold = 60f;
     [SerializeField]private MiniatureWorld miniatureWorld;
     [SerializeField]private HandRayRenderer handRayRenderer;
-    [SerializeField]private uint index = 0;
     private float timer  = 0.0f;
     private float duration  = 1.5f;
 
@@ -130,9 +129,9 @@ public class HandRayPortal : MonoBehaviour
                     int index1 = manager.portalIndex;
                     Vector3 place1 = manager.portalPlaces.transform.GetChild(index1).position;
 
-                    miniatureWorld.RemoveProxies();
-                    miniatureWorld.CreateProxies(index, pos, 200.0f, place1);
-                    //miniatureWorld.CreateSatellite(index, miniatureWorld.CandidateBeforePos);
+                    //miniatureWorld.RemoveProxies();
+                    miniatureWorld.CreateProxies((uint)index1, pos, 200.0f, place1);
+                    miniatureWorld.CreateSatellite((uint)index1, miniatureWorld.CandidateBeforePos);
                     //index++;
 
                     // [TASK01] 실험군

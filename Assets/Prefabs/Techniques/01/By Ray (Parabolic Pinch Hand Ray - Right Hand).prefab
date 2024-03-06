@@ -320,7 +320,6 @@ MonoBehaviour:
   isSetEnd: 0
   miniatureWorld: {fileID: 0}
   handRayRenderer: {fileID: 0}
-  index: 0
 --- !u!1001 &6419546381273287624
 PrefabInstance:
   m_ObjectHideFlags: 0

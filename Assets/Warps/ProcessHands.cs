@@ -59,7 +59,7 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
     OneEuroFilter markScaleFilter = new OneEuroFilter(30.0f);
     OneEuroFilter proxyScaleFilter = new OneEuroFilter(30.0f);
 
-    private uint _index = 0;
+    private MiniatureWorld miniatureWorld;
     
     public enum CreationMode{
         Ready,
@@ -85,6 +85,8 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         mode = CreationMode.Ready;
         EntryWarp = Resources.Load("Prefabs/ProxyNode", typeof(GameObject)) as GameObject;
         ExitWarp = Resources.Load("Prefabs/MarkNode", typeof(GameObject)) as GameObject;
+        
+        miniatureWorld = MiniatureWorld.Instance;
     }
 
 
@@ -108,8 +110,8 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
 
         Debug.Log("ProcessHands, CreateProxy()");
         //[TASK01] 
-        if (MiniatureWorld.Instance.ProxiesTable.Count > 0)
-            MiniatureWorld.Instance.RemoveProxies();
+        // if (miniatureWorld.ProxiesTable.Count > 0)
+        //     MiniatureWorld.Instance.RemoveProxies();
             
         markedSpace = Instantiate(ExitWarp);
         proxySpace = Instantiate(EntryWarp);
@@ -147,14 +149,15 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
         proxySpace.transform.position = midPoint;
         proxySpace.transform.localScale = new Vector3(proxyFilteredSize, proxyFilteredSize, proxyFilteredSize);
         
-        _index = (uint)TestManager.Instance.portalIndex;
-        MiniatureWorld.Instance.ProxiesTable.Add(_index, proxyNode);
-
         switch (TestManager.Instance.experimentNum)
         {
             case 1:
                 // [TASK01]
                 Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                uint index1 = (uint)manager.portalIndex;
+                miniatureWorld.RemoveProxy(index1);
+                miniatureWorld.ProxiesTable.Add(index1, proxyNode);       
+                
                 manager.SaveTargetSetNum();
                 manager.SaveTargetSetDistance(pos);
                 break;
