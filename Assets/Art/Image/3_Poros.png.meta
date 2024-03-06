@@ -1,0 +1,1390 @@
+fileFormatVersion: 2
+guid: e35411befc77bf641b32a1c8ce2820c5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3_Poros_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8895144ee79b5b249afe9e22cf3d9a0b
+      internalID: 966058423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_1
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1425aeecd51f943871d0a1020fbb22
+      internalID: 102992880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_2
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bbc83a3212c1542a2131b583d48830
+      internalID: 415727532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_3
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75fd055d51ee28d4794a36c964a09932
+      internalID: 1809569147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_4
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5c0e68dc90bbf42b978fc7c757e90f
+      internalID: -1714791630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_5
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b22867c54ca7d40aa18a5c32d70e56
+      internalID: -217565324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_6
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b062b2034021d54084925b7a4cc1bc4
+      internalID: 1262116414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396e00c48a605834aa3640948f0e4272
+      internalID: 241884125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_8
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212fbc6f407604d42914e5dc1635eb94
+      internalID: -781689387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_9
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5658fe0bbed498b48b70bcae60a56603
+      internalID: -1680317388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_10
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307cbdd1ee0eb344e850b23879abc81e
+      internalID: -1450625944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_11
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0378528a612af5944aaf3bcf6a65308e
+      internalID: 533048228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_12
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d507f13c6d7bc942994afe230d67656
+      internalID: -1062355683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_13
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890701a15e9e1b3498a573a912db7e2e
+      internalID: -523260463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ff46915a6a3b44c8fae91b0a6e8242
+      internalID: -1323675893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_15
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b4f893c331c5f4cafc1fd050e15ca0
+      internalID: 1894581886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_16
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab62078a0a38db41a58ea08240b0735
+      internalID: -138728899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_17
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1b7e72dafc053478e1a28af3815145
+      internalID: -7595033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_18
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3a45b1faa19f3438c65dacee418026
+      internalID: -739231210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_19
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6f7ce50807dbf4fa5135fb4a90fa68
+      internalID: 1158010149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_20
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccc6230eacbe5d489fc43a0f33bd778
+      internalID: 1852429409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72067bae62bcb5049a5375504c82dd75
+      internalID: -1690141292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_22
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0567811faa182ee4dad9b7192cb161da
+      internalID: 618932241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_23
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d44eef2e7831243942c010195b182c
+      internalID: 433496437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_24
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5a506d1bb0678438bb92ddc728ac19
+      internalID: 1909634169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_25
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d057cb866b5809459677ecc1e322262
+      internalID: 1535573927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_26
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f499704633fe574daedb0f9300a2f83
+      internalID: -1144967239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_27
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b0f7b1f5484f949b5909097c20e844
+      internalID: 344241402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86908956b701f3349881bb6af8b8a124
+      internalID: -35373687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_29
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed368d7b7305d541bb9fede35db8a16
+      internalID: 283729930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_30
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95153507fd6cb140ad0e387abb3c781
+      internalID: -1533150050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_31
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02aef5a2b229dd419be65a385672177
+      internalID: 1218636846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_32
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b3c2a99565ce54cb0b339b6f1dbf12
+      internalID: 2100768229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_33
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed05888a1da8f4a4da6bfd65e5a05423
+      internalID: 2051634064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_34
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f077759dbda81094fa620ab22e96a07e
+      internalID: 1548229961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44db08db8732e54ba62e49476d3a68f
+      internalID: -431010438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_36
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a56d0e44d442a240a40ce8e7dde6062
+      internalID: -2090258640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_37
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c750741aff298b545b949a76dfbe8100
+      internalID: 1726832199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_38
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8485f0db5b913c945ab7644b5e758784
+      internalID: 767505481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_39
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdadcec054038c64cb24da067b2a5652
+      internalID: 795203681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_40
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5be893f8c415ed4b9f67b74f0cf5e59
+      internalID: 684818426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_41
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a19bdd4f6280c54eb5e85312224e34d
+      internalID: 1697887541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404e4f0099ed36142812a8173c998621
+      internalID: 139230732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_43
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119453477b3fe36438ef9381f8a02036
+      internalID: 1571026146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_44
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2cf1d562f297e4192de828f56d51fd
+      internalID: 579641228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_45
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e240dfb629b1cd44acafbfecca4a85b
+      internalID: 103310399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_46
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c2fc9d2287e61478fa5001b28512ec
+      internalID: 1208414358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_47
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14579d22a11ad4542963f6cc9a405cc2
+      internalID: -483763828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_48
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa950cdb80566149b01ff80c93801c5
+      internalID: -1809739615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840c88764245e0c4a88f8805ad6b5569
+      internalID: -234258876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_50
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e4e003ac194c24b87c874f9c8a821e
+      internalID: -688272337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_51
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f027abc4f009821439213cc39e5f3fb0
+      internalID: -1817088150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_52
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a0117a206236649b52976291cb9148
+      internalID: 948349834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_53
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e6d41ee0062414897d2e5bf05e9362
+      internalID: 1781161216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_54
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be229f6e7544702468f52a6d25bacb62
+      internalID: 24739732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Poros_55
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb950112ff569104c959e37cc2965e7c
+      internalID: 21960553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9192c9e71c9a45b46af1d85db3871491
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      3_Poros_11: 533048228
+      3_Poros_36: -2090258640
+      3_Poros_49: -234258876
+      3_Poros_5: -217565324
+      3_Poros_47: -483763828
+      3_Poros_0: 966058423
+      3_Poros_52: 948349834
+      3_Poros_45: 103310399
+      3_Poros_14: -1323675893
+      3_Poros_25: 1535573927
+      3_Poros_27: 344241402
+      3_Poros_9: -1680317388
+      3_Poros_18: -739231210
+      3_Poros_37: 1726832199
+      3_Poros_26: -1144967239
+      3_Poros_28: -35373687
+      3_Poros_29: 283729930
+      3_Poros_7: 241884125
+      3_Poros_23: 433496437
+      3_Poros_16: -138728899
+      3_Poros_39: 795203681
+      3_Poros_30: -1533150050
+      3_Poros_6: 1262116414
+      3_Poros_38: 767505481
+      3_Poros_31: 1218636846
+      3_Poros_42: 139230732
+      3_Poros_10: -1450625944
+      3_Poros_35: -431010438
+      3_Poros_54: 24739732
+      3_Poros_24: 1909634169
+      3_Poros_33: 2051634064
+      3_Poros_8: -781689387
+      3_Poros_1: 102992880
+      3_Poros_41: 1697887541
+      3_Poros_3: 1809569147
+      3_Poros_2: 415727532
+      3_Poros_46: 1208414358
+      3_Poros_32: 2100768229
+      3_Poros_40: 684818426
+      3_Poros_12: -1062355683
+      3_Poros_55: 21960553
+      3_Poros_53: 1781161216
+      3_Poros_43: 1571026146
+      3_Poros_44: 579641228
+      3_Poros_4: -1714791630
+      3_Poros_34: 1548229961
+      3_Poros_13: -523260463
+      3_Poros_21: -1690141292
+      3_Poros_48: -1809739615
+      3_Poros_50: -688272337
+      3_Poros_22: 618932241
+      3_Poros_51: -1817088150
+      3_Poros_19: 1158010149
+      3_Poros_15: 1894581886
+      3_Poros_20: 1852429409
+      3_Poros_17: -7595033
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,3084 @@
+fileFormatVersion: 2
+guid: 6b1b8647d29ef67478d6b87342787491
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2_HandsRay_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3abc0f47f350d469bfbcfc17f8fadb
+      internalID: -570518831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_1
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1350821aa3d89904b9a2d4ae8f89af96
+      internalID: -1593411592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_2
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7392b53bb83604396b865899f224f1
+      internalID: 2869355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_3
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e59b95c6c0bd769478485d51a2f2bbb7
+      internalID: -108244821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_4
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00bb414b147f7394d8fa73361a68cad6
+      internalID: -884314911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_5
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d081b5ff87d812142853a5bab972b3b2
+      internalID: 470975624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_6
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22207f08901aed74194f863121688fca
+      internalID: -979606692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9055970118c8f04280ed2fb7cf3df15
+      internalID: -164771841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_8
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8abe977f382c5234ebcc3d590f596a50
+      internalID: -1992558195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_9
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a73af62452fc7745bfe71e84ae4efc8
+      internalID: -514793284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_10
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e364674ebd672fb49aa399d5c10a2f89
+      internalID: 1110967852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_11
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb23324794a1b3349b7da34ca549da15
+      internalID: -1629349112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_12
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765ffb00ef86c7d41b77cddeebfb0d1d
+      internalID: -921154738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_13
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a28ec37dbe97546a91af31ae139ee2
+      internalID: -951081114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386789a9384527c44875f381dbeb6712
+      internalID: 1235901485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_15
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65a612ab16e3c146bd9bcdb6d639642
+      internalID: 1263937146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_16
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07612b258bc6a9a47b27355bf2449da2
+      internalID: -193360132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_17
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf3bc9cf8eec9449a82e0b5031957ec
+      internalID: 1841641201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_18
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eed01c56e101db4aa1ca373a2ca8d25
+      internalID: -1247032090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_19
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f64cc8d4a9cc44589d68020850d269
+      internalID: -1058807341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_20
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 470df38efde9c1045bceab57a3c99fd4
+      internalID: -2041492104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e546bf42b96b82241afdc164b01d08b9
+      internalID: 515060403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_22
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b856354a48d2e8b4cbc73b471a605c97
+      internalID: 237051190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_23
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a4e0be89b7c6543abf4d299559ae4b
+      internalID: 1746988319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_24
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74248d1e641747b488c495abc1934c59
+      internalID: 626347617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_25
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418e08e45352e2941886ac9fc693d617
+      internalID: -1360195552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_26
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c16fb173c40eb47afa4dd8e35a138e
+      internalID: 1069827503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_27
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739ba3e7ec280a447a4b6e44eb36ec26
+      internalID: -260920048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b115df87362ca04c9e3ae70570add3e
+      internalID: 831293088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_29
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e0a32e9c39d1f4996c8a8ac5b1dfa5
+      internalID: -188436864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_30
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc3613b16271e64c90d0f1ce53fd98b
+      internalID: -1090177527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_31
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90c003812090cb4288072c0b4ad60d5
+      internalID: 368035065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_32
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4701ecfd3fdedd54db7221075085c6d3
+      internalID: -1150324709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_33
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc86e467a6cb6e4a8949f0363d4fd57
+      internalID: -1612602294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_34
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad26eb96f7fd2ca4aa3d67c9431a838b
+      internalID: 742060787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5023a1841115c24aa23fa66ef2d3bca
+      internalID: -2003191298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_36
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82e7377bf0b5ea64596355501b1c23a1
+      internalID: 1863583303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_37
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79dbc87f2068fd44cbc53f4499d1c9d3
+      internalID: 82146828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_38
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e6ba56f23616e46b90281a5199c7d2
+      internalID: -1321104398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_39
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2b5a20b1ff98645b7ac64ed5de69d1
+      internalID: 1547762293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_40
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f3c5ce95c88b145ad080f9956a87c2
+      internalID: -624852113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_41
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a89e32c97d3e634c92d6a7b931e7db1
+      internalID: -1283578279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9707e257e89ae744293af97509ef6d9a
+      internalID: -1019318519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_43
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658b37a188c1a2a41bac63538c3e324d
+      internalID: 72365547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_44
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff94852b53b52f844a47b36c5823e350
+      internalID: 27346599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_45
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8957e6127fca6e54cb3f6e7604193296
+      internalID: -57018381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_46
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87e746894311ab44b10e7f608b780e3
+      internalID: 1700320702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_47
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410851518535470419186df247f7c6a6
+      internalID: 807088877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_48
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1953ac68234904f9efa678e556ea51
+      internalID: 1924407920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b1077d9f9fe2649ae5bd55436016e9
+      internalID: -501154564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_50
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e95ccbbd9316624d9e96cdf60f12895
+      internalID: 1057672401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_51
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad830a0f4f75d04cb4846b38425c58a
+      internalID: 1637622314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_52
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354b2e49b2130664385accbc9087f457
+      internalID: -90710230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_53
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 542f71423cec91f4e946c34fefc5436c
+      internalID: 1607233674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_54
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e133216c56b6ec4bacd72e493a16bf0
+      internalID: 617844211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_55
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69c03bb4908e20419200bda074158e5
+      internalID: -1879994369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed04113e76fb3d1439c6beb1e238e515
+      internalID: 726238088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_57
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f13cf3ad32f0ef4b85f97452f172ac0
+      internalID: 578482115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_58
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9870771c25c39454495cb84db6662446
+      internalID: 818452168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_59
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e89be6c05ed1e3488631c985e9b3518
+      internalID: -530587820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_60
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928814485c5c59746af1913f16c28fdf
+      internalID: 837829471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_61
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a14e3bcc6d829a49841dfe1cfb4acea
+      internalID: -1308164969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_62
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3307a7332da66894b9aabcfc2da2bf0d
+      internalID: 1219418752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26fef982a320bb147bf496512921816b
+      internalID: -693519335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_64
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de20e305d0bbbb42991da9759597572
+      internalID: 766249098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_65
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81db9d828f37d04492d001b80977acd
+      internalID: -301582836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_66
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9dea86ea1586d44ae5fa2adb878902
+      internalID: 266163135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_67
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934ad8f9dccb34840afe8f8bc5684f1b
+      internalID: 1054358356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_68
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ec43bedb72db840b9cfdce65d9b92c
+      internalID: -1198161743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_69
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 099785e999fd9864089beb1055565602
+      internalID: -414019484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fea6d8c3a3b93244846c37331211581
+      internalID: -538700079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_71
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63e06a5801eefb4698b74ead9a1fa1e
+      internalID: 2061503810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_72
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebc906989d1e5743bf8240ffeda3e3b
+      internalID: 340205836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_73
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e1710db006dae49a29b08b01235ff1
+      internalID: -390872143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_74
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ddf55ed33586b4f91e8369d2f9dc52
+      internalID: 1602813498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_75
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25a6cab307ae784b817330e073e2868
+      internalID: 2146186722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_76
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7540b2ee98e44da46a92fd8b715a9131
+      internalID: -1375232581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbb64a6a072a0d428954afa205353f9
+      internalID: -339075106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_78
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a701f04203b4454aa71f7035a709553
+      internalID: -1859929995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_79
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf728a45198f874895517ac42f28366
+      internalID: 967616615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_80
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e751b4f74541d04ca3336a0b0937b92
+      internalID: 872845864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_81
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c1a72f5f60b4649b1b5860fc5941e5
+      internalID: -1160247322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_82
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8048d3c0605be6a43ba412eb2fe4efe6
+      internalID: -1125148525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_83
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e89aec40d3f9864bbca9a59bbc7ecaf
+      internalID: 1522073784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1395c9536041f429ecfa403d1a3052
+      internalID: 1161289877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_85
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7eae0c714931a488db4bca9783512c
+      internalID: 1797644697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_86
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d842ff6f9a480cb45aa75f9451f579c1
+      internalID: 2073897204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_87
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a18855a1b187d4eb33e72fce52469d
+      internalID: 665183271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_88
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2c1edaf0e5d214aaa17cfa2c041841
+      internalID: 765695835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_89
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14034b2056d9c8147b83220099fc7ddd
+      internalID: 681582890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_90
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526e5e429e3719c43af63dae56a97bce
+      internalID: 1091191594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce2f6ae0ae80914bbe620c354cec2cc
+      internalID: 16886874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_92
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72bf9e40c87bfd4db938e553ded91ac
+      internalID: 994235774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_93
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75be0df4d724ba84ca9e5192d709e048
+      internalID: -1015328777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_94
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd59b163970755f47b36bbc4e5a55fd5
+      internalID: 1840830933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_95
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8512f83b36c8240844582e49a88764
+      internalID: -1934522390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_96
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f153ee057f837c14a8c95770b51dbd8e
+      internalID: -247909923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_97
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f1dcadfb8a6e047bf92d3083cf8075
+      internalID: -261204107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154c4b30e002b244f9be566e7257cd9b
+      internalID: 544662895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_99
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae809e7d8db0699459e45fc7a173270b
+      internalID: -35727199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_100
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46d8d6151dcd9d468e654dd04be022a
+      internalID: -47113015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_101
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d303af90b434a1a4ea5c87a64de5f10d
+      internalID: 1726016480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_102
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5bcda867503f84685f7d67e71e596b
+      internalID: 794002065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_103
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cccb0f822cc3b714d8f0d854979fb6f0
+      internalID: -1311322890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_104
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea0196c15833c44ab6328f126247950
+      internalID: 915033334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1705ce8b5ea42e54ab2a7acdc4249741
+      internalID: 599956758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_106
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9cdc1bc1328cc4a9a1d5f53f35f3ce
+      internalID: -184661789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_107
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5844b375efa154941a96765ad25684cb
+      internalID: 414904903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_108
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865fb4d84dc867048a93873677c82ca5
+      internalID: 1747702531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_109
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fe99404ff6c0340994adb3ab540431
+      internalID: 1272809522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_110
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06ede5b2f4df0740bcbf9274942f6da
+      internalID: 1537560701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_111
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b331b6e0fd742f4287bc217a178653b
+      internalID: 721279555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9baa82d9f63dac14f84c8f984437e1d9
+      internalID: -2115814163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_113
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9ed52a8fa5ce744bb97cf84cc5bd81
+      internalID: 1505027938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_114
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cb5f33ec8f8be43aad2a221d1bdc07
+      internalID: -1254704438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_115
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2cf9e925087df4c99a16de890dd8d6
+      internalID: -2136781457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_116
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4ffd8f77cbeb94e89f4f73aada2dcf
+      internalID: 2029572247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_117
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfececbe7bd5449439458137c2d4c7aa
+      internalID: -406583443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_118
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d40a20ff17b51488e4ef73736fef5f
+      internalID: -1163830732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_119
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d108e31b5f9880469d27eccc0c3e279
+      internalID: -1040610671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_120
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14cf0237ad078594286c14c828260c99
+      internalID: -580173289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_121
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe21abddd3c1a74483f9cfafa6591fe
+      internalID: 1319463302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_122
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef32ab64abe95434fb310c42cb886f2c
+      internalID: -1838300981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_123
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec2637daacf09f14e86df66cb090d36b
+      internalID: 2138982161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_124
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff8a8a20c03cb347b11cc309d4edb2a
+      internalID: -83471398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_125
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1735f62797010df49a5f945b9d17c582
+      internalID: 718385504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a182d5593c51e45b7fbdbf690fb224
+      internalID: -2086544761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_127
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a57cc4fd142724b9e766b5dcb411a1
+      internalID: -2020551499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_128
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac80350b7ca03a04292b9389c63900a7
+      internalID: 181688667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_129
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40c1e5ac7fc11e4bb797d2e4b445c1e
+      internalID: -338732975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_130
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e8bcbe0f9525f45bc4b321a19db95e
+      internalID: 1039419031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_131
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4a8bb0a1d89b64bbaf11f9612904f9
+      internalID: 445465915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_HandsRay_132
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e520ea060f4c544582af2cf0a996009
+      internalID: -573573099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f8caa3d47b7b6b241a032fb7718e5995
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      2_HandsRay_13: -951081114
+      2_HandsRay_30: -1090177527
+      2_HandsRay_16: -193360132
+      2_HandsRay_8: -1992558195
+      2_HandsRay_42: -1019318519
+      2_HandsRay_95: -1934522390
+      2_HandsRay_12: -921154738
+      2_HandsRay_48: 1924407920
+      2_HandsRay_66: 266163135
+      2_HandsRay_31: 368035065
+      2_HandsRay_87: 665183271
+      2_HandsRay_22: 237051190
+      2_HandsRay_79: 967616615
+      2_HandsRay_103: -1311322890
+      2_HandsRay_2: 2869355
+      2_HandsRay_63: -693519335
+      2_HandsRay_127: -2020551499
+      2_HandsRay_115: -2136781457
+      2_HandsRay_49: -501154564
+      2_HandsRay_35: -2003191298
+      2_HandsRay_122: -1838300981
+      2_HandsRay_73: -390872143
+      2_HandsRay_10: 1110967852
+      2_HandsRay_93: -1015328777
+      2_HandsRay_74: 1602813498
+      2_HandsRay_15: 1263937146
+      2_HandsRay_14: 1235901485
+      2_HandsRay_26: 1069827503
+      2_HandsRay_61: -1308164969
+      2_HandsRay_65: -301582836
+      2_HandsRay_47: 807088877
+      2_HandsRay_118: -1163830732
+      2_HandsRay_37: 82146828
+      2_HandsRay_33: -1612602294
+      2_HandsRay_117: -406583443
+      2_HandsRay_77: -339075106
+      2_HandsRay_101: 1726016480
+      2_HandsRay_109: 1272809522
+      2_HandsRay_11: -1629349112
+      2_HandsRay_91: 16886874
+      2_HandsRay_105: 599956758
+      2_HandsRay_9: -514793284
+      2_HandsRay_60: 837829471
+      2_HandsRay_55: -1879994369
+      2_HandsRay_84: 1161289877
+      2_HandsRay_98: 544662895
+      2_HandsRay_99: -35727199
+      2_HandsRay_132: -573573099
+      2_HandsRay_32: -1150324709
+      2_HandsRay_94: 1840830933
+      2_HandsRay_107: 414904903
+      2_HandsRay_110: 1537560701
+      2_HandsRay_128: 181688667
+      2_HandsRay_83: 1522073784
+      2_HandsRay_100: -47113015
+      2_HandsRay_68: -1198161743
+      2_HandsRay_106: -184661789
+      2_HandsRay_1: -1593411592
+      2_HandsRay_51: 1637622314
+      2_HandsRay_120: -580173289
+      2_HandsRay_96: -247909923
+      2_HandsRay_85: 1797644697
+      2_HandsRay_36: 1863583303
+      2_HandsRay_119: -1040610671
+      2_HandsRay_24: 626347617
+      2_HandsRay_53: 1607233674
+      2_HandsRay_92: 994235774
+      2_HandsRay_45: -57018381
+      2_HandsRay_104: 915033334
+      2_HandsRay_78: -1859929995
+      2_HandsRay_39: 1547762293
+      2_HandsRay_64: 766249098
+      2_HandsRay_21: 515060403
+      2_HandsRay_131: 445465915
+      2_HandsRay_69: -414019484
+      2_HandsRay_58: 818452168
+      2_HandsRay_17: 1841641201
+      2_HandsRay_124: -83471398
+      2_HandsRay_121: 1319463302
+      2_HandsRay_28: 831293088
+      2_HandsRay_54: 617844211
+      2_HandsRay_111: 721279555
+      2_HandsRay_5: 470975624
+      2_HandsRay_75: 2146186722
+      2_HandsRay_18: -1247032090
+      2_HandsRay_97: -261204107
+      2_HandsRay_71: 2061503810
+      2_HandsRay_112: -2115814163
+      2_HandsRay_23: 1746988319
+      2_HandsRay_125: 718385504
+      2_HandsRay_126: -2086544761
+      2_HandsRay_89: 681582890
+      2_HandsRay_116: 2029572247
+      2_HandsRay_4: -884314911
+      2_HandsRay_62: 1219418752
+      2_HandsRay_108: 1747702531
+      2_HandsRay_82: -1125148525
+      2_HandsRay_72: 340205836
+      2_HandsRay_102: 794002065
+      2_HandsRay_0: -570518831
+      2_HandsRay_41: -1283578279
+      2_HandsRay_27: -260920048
+      2_HandsRay_38: -1321104398
+      2_HandsRay_56: 726238088
+      2_HandsRay_76: -1375232581
+      2_HandsRay_123: 2138982161
+      2_HandsRay_86: 2073897204
+      2_HandsRay_20: -2041492104
+      2_HandsRay_43: 72365547
+      2_HandsRay_70: -538700079
+      2_HandsRay_129: -338732975
+      2_HandsRay_46: 1700320702
+      2_HandsRay_80: 872845864
+      2_HandsRay_34: 742060787
+      2_HandsRay_25: -1360195552
+      2_HandsRay_6: -979606692
+      2_HandsRay_59: -530587820
+      2_HandsRay_40: -624852113
+      2_HandsRay_52: -90710230
+      2_HandsRay_114: -1254704438
+      2_HandsRay_44: 27346599
+      2_HandsRay_67: 1054358356
+      2_HandsRay_50: 1057672401
+      2_HandsRay_113: 1505027938
+      2_HandsRay_81: -1160247322
+      2_HandsRay_88: 765695835
+      2_HandsRay_57: 578482115
+      2_HandsRay_7: -164771841
+      2_HandsRay_19: -1058807341
+      2_HandsRay_29: -188436864
+      2_HandsRay_90: 1091191594
+      2_HandsRay_130: 1039419031
+      2_HandsRay_3: -108244821
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,3546 @@
+fileFormatVersion: 2
+guid: 7285e5baf99b6dc479ee3bde9d3935a8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 4_Controller_Ray_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05eb21758ffa38847ab2ef56a95cecb5
+      internalID: -260378951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_1
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17dea8635d1ebb645ab00b976f455f6c
+      internalID: -699289345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_2
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7531a9eb72934144a8c8e5c0c189e6b1
+      internalID: -2129375294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_3
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49cd08348738c1b4c86f9ba460beeda5
+      internalID: 338385478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_4
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0231aa4301fd4774d877256211ad685b
+      internalID: 84305864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_5
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b82a1a233cf13a42b8f1febcbb82693
+      internalID: -849850350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_6
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 8190
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d92013fd3e98044389e7a550db51f38
+      internalID: 2086303081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93c13c66aaabc943b836e57a684e2dc
+      internalID: 541010775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_8
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456a2fdfe0c629e48a481ceed5bc0b8d
+      internalID: 1159757119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_9
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a104c237e0d5a4097a755049ff915d
+      internalID: -1910224571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_10
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d099734a3da604ba641fbe0c25ccdb
+      internalID: -826218894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_11
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352f053d8e5a4b74d84bb4c68218414d
+      internalID: 1090057070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_12
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6d59736945b6b49b7d0ea40ac99e81
+      internalID: 1488191056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_13
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 7800
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6b3ac772f48ff4eb0d95a67a44fdf1
+      internalID: -1487386859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50055e220d17dee4f943283364dd8f43
+      internalID: -1343904356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_15
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ccedbf3438aeb41a3ecdbfe4ed6746
+      internalID: 403758852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_16
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278390ddfff671744890a20845bb4cdc
+      internalID: -1946912795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_17
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c1eb636570b6a44abcd10a6c4f5444
+      internalID: -1076272776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_18
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a1c6fd749abb540be5813d8e9fc5eb
+      internalID: 1832435208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_19
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623e18ab15ce2b34f9d6677b2c29fa6c
+      internalID: -1352276866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_20
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 7410
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2743400b516f5419cceca3f98d0aca
+      internalID: 1436165205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3cfb994616d3143902ddbc67d1c06b
+      internalID: 711992947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_22
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e2580c0251d5243b3bd9b07a57eb50
+      internalID: -695956637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_23
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda541fc3995fb34d81715c77c6cf0ed
+      internalID: -1651151058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_24
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cffc89d77e2f984a8b03c5912d20493
+      internalID: -923650381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_25
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1755ce5b1362339438b78ec2b27096ee
+      internalID: -916690888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_26
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12110da10ac31b408c17faafc17c25c
+      internalID: 1299519620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_27
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 7020
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badfb8bdc831b774491e176ed9327151
+      internalID: -1983227094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1097e402fa2c8cc44ad674ed75f129b9
+      internalID: 1501991121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_29
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db87b25fc8b9264e87a8277c06034d4
+      internalID: 951199960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_30
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b57060b7a67a145a919f7a74dc5f73
+      internalID: 193701878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_31
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6cadaacdfa0034989101fb9d849600
+      internalID: 2013768304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_32
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac48475ed9f62340b9d9b418099cc4a
+      internalID: -648491836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_33
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1463e13992a77f43a30024875ffb826
+      internalID: 83602426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_34
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 6630
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa73a197c5ec2f4db68a42b85197fe0
+      internalID: -685268521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59c03b3e60e63b49a72d6c95579d102
+      internalID: 516088066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_36
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f77b1425775d2d41884f934aacacf1f
+      internalID: 787796768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_37
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f1a56e8b1998e498ea358d3f2f3322
+      internalID: 1365105480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_38
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e424ef0b5ff47d4b855c09228fb082b
+      internalID: 1690458733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_39
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc6dd2ee939f604ea4e32c23d7f8a89
+      internalID: 193548781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_40
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c8d0195f55cca42a1bd9d6d68c140a
+      internalID: 593215955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_41
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 6240
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87cc6292e04dd7f4b9c9a288cf6bda6d
+      internalID: -99084099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8feb1c25a38d843abc84432339a169
+      internalID: -776266395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_43
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7ef921ddee1204694c1edaae416dbd
+      internalID: -46336491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_44
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b618335e6d1ec41a0027f30a4e9e85
+      internalID: 951218203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_45
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0da9cebc2ded541bb8740a06c47f34
+      internalID: 358214807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_46
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb313f2397df5d7438e7991e54b75949
+      internalID: 1023366700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_47
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfebdec79928129478fba660081f6c72
+      internalID: -1873808997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_48
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 5850
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafbf58665594b4438bafbc4d53b6332
+      internalID: 659104762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b1a8a18f379f74c8d3d1200ec4a01a
+      internalID: 722722209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_50
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aeee5362c64f004c935defe806d359c
+      internalID: 795992998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_51
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d317e0f9326bf48aab173bde0dc8b5
+      internalID: -65716413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_52
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc5c520361ceaf428d6ceb197adf3f0
+      internalID: 1889472450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_53
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d0a6909db25df479d6440e9874c8e1
+      internalID: 366519274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_54
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2eadd1dfbb197343a3ff046579302f4
+      internalID: -635125055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_55
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 5460
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e775452bbdeb4c644a12c2b6018f4dc7
+      internalID: 1143804169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0613632fe0f06e4bb3123702c0569c2
+      internalID: 384495716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_57
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c23b8adc5b3b374991353582f5e5ab4
+      internalID: 1572115176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_58
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0f5180c76386949ab3e7fda98619e2
+      internalID: 1989949527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_59
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f2c574c2645ea41a6f7010d9dbba84
+      internalID: 507459268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_60
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2389a7d9fa37f754e8af629e1e01d8fd
+      internalID: 869550914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_61
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7702694eb0133e94f88e789e3d9f0a5c
+      internalID: -236218480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_62
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 5070
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf80baad65ca49a4ea4c3d215f7b94a8
+      internalID: 2125228985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc134b3be3513a5428bedf3508bf103d
+      internalID: -1171739085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_64
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cea881a0787a84392c461f8a528b39
+      internalID: 371255529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_65
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1c262e37c7b8a4a97d6a8d25807e9a
+      internalID: -751113546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_66
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c881d1167a4dad4408a957882e8281cc
+      internalID: -1350716399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_67
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eff1e574a862584790606de5ce47e6d
+      internalID: -1541893036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_68
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6bf9a30411c39419be2940eea95967
+      internalID: -946109945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_69
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 4680
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f9721dd079182d4daaa48413c1bffbb
+      internalID: 950726327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c6ff13456788a944a97e4b29c6c5ab5
+      internalID: -229567262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_71
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1b635fd61c3814293cdf2f76006fe1
+      internalID: 1871395492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_72
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65bc30bbb10d5c498d9024c6c7da8ad
+      internalID: 1091629702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_73
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cd1f268ea8787468ee43c98f0c12e6
+      internalID: -1629820274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_74
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4ab2b68f87d2346bb8c70493d01b0f
+      internalID: -204620770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_75
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e04d9bea1306e342938dcaf679b5e42
+      internalID: -198029752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_76
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 4290
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b5e6c6a0c4df34893b19a1e24ee93c
+      internalID: 648918926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8d57269e60edc4192f8af6d3ac6dca
+      internalID: -1840537294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_78
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f4b2c68794d574db42488ea9b67bbb
+      internalID: 336602642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_79
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18119fc6b0d375841bf4d55587f6444a
+      internalID: -628871669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_80
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84806e63051a3a14197a59ccf1e7bedb
+      internalID: -554439446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_81
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b1d9017e34ee84f8fbd49e88071d78
+      internalID: -122575396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_82
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dec28bf8310f6f44bef2b3b228edf8f
+      internalID: 2119752299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_83
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 3900
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc16ca19f3c27d244b9fa1f4952fee19
+      internalID: 440503533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f92a660b267f04e8260d299193ed4c
+      internalID: 1595426624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_85
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3faf35214b4bae148a74551b6349e4a6
+      internalID: 1330894037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_86
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94782fc56987824b996ddeb3ad03840
+      internalID: 1782485378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_87
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e01a1278411bc4fa6a2cd217b9ea5b
+      internalID: 361863545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_88
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1c811552a5c6046878fa415e00113c
+      internalID: 183593875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_89
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0672626993ef624c87680a2b65dbcb0
+      internalID: 1961342759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_90
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 3510
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2963367fee8a7f4bab18b6177fdf443
+      internalID: 2117772077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88b4cc5cad58e343b2d314b3c3e31dc
+      internalID: 1408871177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_92
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb575df8339f5e49bcefde592ce9538
+      internalID: 894567693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_93
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c45734837daaf74a85801f8123f6ee4
+      internalID: -1009439338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_94
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff8be91b023550d488e11cc6b995bcf9
+      internalID: -707351000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_95
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a9a4a8e6eeacf4b9ea5712949b7440
+      internalID: 2021803519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_96
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a38c4f44a7b5fc439048f2b89890d33
+      internalID: -1215746378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_97
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 3120
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1de1eaaa16d88e4fb318365c34c6b46
+      internalID: 961247770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b886e43b4b8fd42a095b4b322b66c8
+      internalID: -789172623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_99
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2223b9a7218c1ae4388e91ff41a30a09
+      internalID: 899860763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_100
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9468c024b439ba04cb69214e9430de35
+      internalID: 962831451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_101
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8f73235606e0d41b0e1a114339a5f4
+      internalID: -422078021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_102
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1383552d53aadf48b191519e26a8951
+      internalID: 95950383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_103
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922721a389f66a44ba2f2fbab014c00b
+      internalID: -2069956463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_104
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 2730
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadc3a410bb004a4ca72c1eac482bbf8
+      internalID: -563052743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa11564feac9ad469fe673782555856
+      internalID: -614886408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_106
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de5c172fe633534180cf1332b49d190
+      internalID: -1483308875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_107
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073f5203b05574b44a2a098c0c5311c6
+      internalID: -1319547681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_108
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf81c9e03723384e9e8cc99728ad088
+      internalID: 1726360155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_109
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01713b37f20363549bd629c4089528f9
+      internalID: -758241854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_110
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96aed285ba2e6f84f9b65c6c5e4defa4
+      internalID: 1190625472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_111
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 2340
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5dbef0bb8756f40a180d23c16729d1
+      internalID: 672776967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d09e9815188324fb0d95860c62c054
+      internalID: 1382178342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_113
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285616da462366b4cb9884a385bb5297
+      internalID: 2079115466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_114
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6762d17dbbe089e4198e10a62cb9d2f9
+      internalID: -959931502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_115
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95137d619313a4e42b9098e7700c5bdd
+      internalID: -719302495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_116
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00962873c44b51c4da6e9c5eb9365325
+      internalID: 750092454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_117
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da22c53586b9f6440967a6d0191d101f
+      internalID: -270227832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_118
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1950
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 226607a78de8a134ca76c70635c427bb
+      internalID: -645749491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_119
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e62ac5266f365045b5977f31d4f4447
+      internalID: 963192873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_120
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf771238ab6e0346b17612f71bd8b1f
+      internalID: 1851275867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_121
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc482149594acf4c9a84e087aafd888
+      internalID: 1326966017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_122
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a9951988e1a2644b51cc87d9f7f0af
+      internalID: 1809383363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_123
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450aca3930dd4164f96153e9b38a27e3
+      internalID: -1287913585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_124
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2198874f3a8f565468e9decc29e9637d
+      internalID: -1974858235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_125
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1560
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d4e158bb9b48c4d8e5d17bc2cbb4b7
+      internalID: 1768072125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5464102b7c5d1a04ba02c0f5bb965017
+      internalID: -1946293414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_127
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd4f298fca80d7478e62c9cd4c72ff1
+      internalID: 1038255427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_128
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8befbda34d0a74246b8087740faf803b
+      internalID: -1285327534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_129
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c509f205ba32914a8855b0ad3389647
+      internalID: -1312427201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_130
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0e3da3b6930f04dbe3aee13faea1bf
+      internalID: 319235397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_131
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf853e9251506e489c8bbf423595f87
+      internalID: -1065849852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_132
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 1170
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd4b41e9f455f340b39b08fb7289db9
+      internalID: 2004152156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_133
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07eacf10c4064e14f897aa7af7e13cb5
+      internalID: 58774936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_134
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22ea567fdc7cf54fb7e58f93c3daf70
+      internalID: -646027135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_135
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b205f39cb615d24bb50969e0fece0ad
+      internalID: 169387418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_136
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28eaaf94065230646944428bf339ef3c
+      internalID: -1641011221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_137
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0557a6c5aac28e24f9a1a40350729862
+      internalID: 1149492620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_138
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e766477b9bbf654f95804f6d93031f1
+      internalID: -1250352041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_139
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 780
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0378323e422c04283ac33598a8e183
+      internalID: -91359385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8b7893d123fd6479d7cc23ff9ba511
+      internalID: 1974334856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_141
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 233f00a6f0493de458e3d90918615b90
+      internalID: 480819573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_142
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7828ff2f359721c41aa653219f9867fc
+      internalID: 1823779404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_143
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a041fcea1540d43809839d0fe5a511
+      internalID: -1335579941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_144
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be294952ac5c34b49bd38e16b8be2ab4
+      internalID: 2036612339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_145
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6294ba82a9db8a04588350afa092a94a
+      internalID: -1118429593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_146
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 390
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88cd84d721066f43afe8d51a675b725
+      internalID: -2117323653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_147
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fe1d634a06062439b8962a75ca5c08
+      internalID: -1322732642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_148
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c8f90be630d2d40a2f06400fbe7ad3
+      internalID: -2111885519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_149
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16fd012ac2a7283469784542df86e1f2
+      internalID: 710037986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_150
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a887d868ab2729c4da9848a298dab659
+      internalID: -16755080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_151
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f25111032ae68b45bf0cdf1b4ad4d94
+      internalID: 1108742488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_152
+      rect:
+        serializedVersion: 2
+        x: 3675
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773f682e58551e14e8b0db0667125f30
+      internalID: 1441313710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4_Controller_Ray_153
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 0
+        width: 735
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6dc11fa587eeb4d9611978dc9e82cc
+      internalID: 524397312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c8ffd1fec8761b348aa2688f673f9595
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      4_Controller_Ray_65: -751113546
+      4_Controller_Ray_117: -270227832
+      4_Controller_Ray_0: -260378951
+      4_Controller_Ray_87: 361863545
+      4_Controller_Ray_21: 711992947
+      4_Controller_Ray_7: 541010775
+      4_Controller_Ray_38: 1690458733
+      4_Controller_Ray_27: -1983227094
+      4_Controller_Ray_85: 1330894037
+      4_Controller_Ray_5: -849850350
+      4_Controller_Ray_153: 524397312
+      4_Controller_Ray_94: -707351000
+      4_Controller_Ray_45: 358214807
+      4_Controller_Ray_63: -1171739085
+      4_Controller_Ray_136: -1641011221
+      4_Controller_Ray_41: -99084099
+      4_Controller_Ray_46: 1023366700
+      4_Controller_Ray_39: 193548781
+      4_Controller_Ray_43: -46336491
+      4_Controller_Ray_56: 384495716
+      4_Controller_Ray_68: -946109945
+      4_Controller_Ray_114: -959931502
+      4_Controller_Ray_42: -776266395
+      4_Controller_Ray_106: -1483308875
+      4_Controller_Ray_124: -1974858235
+      4_Controller_Ray_90: 2117772077
+      4_Controller_Ray_20: 1436165205
+      4_Controller_Ray_152: 1441313710
+      4_Controller_Ray_88: 183593875
+      4_Controller_Ray_135: 169387418
+      4_Controller_Ray_9: -1910224571
+      4_Controller_Ray_100: 962831451
+      4_Controller_Ray_109: -758241854
+      4_Controller_Ray_26: 1299519620
+      4_Controller_Ray_89: 1961342759
+      4_Controller_Ray_102: 95950383
+      4_Controller_Ray_32: -648491836
+      4_Controller_Ray_107: -1319547681
+      4_Controller_Ray_60: 869550914
+      4_Controller_Ray_34: -685268521
+      4_Controller_Ray_110: 1190625472
+      4_Controller_Ray_131: -1065849852
+      4_Controller_Ray_30: 193701878
+      4_Controller_Ray_10: -826218894
+      4_Controller_Ray_111: 672776967
+      4_Controller_Ray_64: 371255529
+      4_Controller_Ray_118: -645749491
+      4_Controller_Ray_53: 366519274
+      4_Controller_Ray_58: 1989949527
+      4_Controller_Ray_71: 1871395492
+      4_Controller_Ray_6: 2086303081
+      4_Controller_Ray_47: -1873808997
+      4_Controller_Ray_126: -1946293414
+      4_Controller_Ray_23: -1651151058
+      4_Controller_Ray_130: 319235397
+      4_Controller_Ray_146: -2117323653
+      4_Controller_Ray_127: 1038255427
+      4_Controller_Ray_72: 1091629702
+      4_Controller_Ray_105: -614886408
+      4_Controller_Ray_22: -695956637
+      4_Controller_Ray_25: -916690888
+      4_Controller_Ray_24: -923650381
+      4_Controller_Ray_11: 1090057070
+      4_Controller_Ray_35: 516088066
+      4_Controller_Ray_50: 795992998
+      4_Controller_Ray_82: 2119752299
+      4_Controller_Ray_36: 787796768
+      4_Controller_Ray_40: 593215955
+      4_Controller_Ray_80: -554439446
+      4_Controller_Ray_137: 1149492620
+      4_Controller_Ray_122: 1809383363
+      4_Controller_Ray_78: 336602642
+      4_Controller_Ray_95: 2021803519
+      4_Controller_Ray_57: 1572115176
+      4_Controller_Ray_12: 1488191056
+      4_Controller_Ray_120: 1851275867
+      4_Controller_Ray_3: 338385478
+      4_Controller_Ray_62: 2125228985
+      4_Controller_Ray_142: 1823779404
+      4_Controller_Ray_15: 403758852
+      4_Controller_Ray_55: 1143804169
+      4_Controller_Ray_49: 722722209
+      4_Controller_Ray_103: -2069956463
+      4_Controller_Ray_77: -1840537294
+      4_Controller_Ray_73: -1629820274
+      4_Controller_Ray_92: 894567693
+      4_Controller_Ray_104: -563052743
+      4_Controller_Ray_116: 750092454
+      4_Controller_Ray_66: -1350716399
+      4_Controller_Ray_134: -646027135
+      4_Controller_Ray_52: 1889472450
+      4_Controller_Ray_101: -422078021
+      4_Controller_Ray_81: -122575396
+      4_Controller_Ray_119: 963192873
+      4_Controller_Ray_2: -2129375294
+      4_Controller_Ray_125: 1768072125
+      4_Controller_Ray_86: 1782485378
+      4_Controller_Ray_13: -1487386859
+      4_Controller_Ray_112: 1382178342
+      4_Controller_Ray_61: -236218480
+      4_Controller_Ray_129: -1312427201
+      4_Controller_Ray_75: -198029752
+      4_Controller_Ray_108: 1726360155
+      4_Controller_Ray_17: -1076272776
+      4_Controller_Ray_148: -2111885519
+      4_Controller_Ray_83: 440503533
+      4_Controller_Ray_147: -1322732642
+      4_Controller_Ray_70: -229567262
+      4_Controller_Ray_76: 648918926
+      4_Controller_Ray_16: -1946912795
+      4_Controller_Ray_79: -628871669
+      4_Controller_Ray_33: 83602426
+      4_Controller_Ray_121: 1326966017
+      4_Controller_Ray_139: -91359385
+      4_Controller_Ray_31: 2013768304
+      4_Controller_Ray_4: 84305864
+      4_Controller_Ray_128: -1285327534
+      4_Controller_Ray_97: 961247770
+      4_Controller_Ray_44: 951218203
+      4_Controller_Ray_96: -1215746378
+      4_Controller_Ray_37: 1365105480
+      4_Controller_Ray_74: -204620770
+      4_Controller_Ray_113: 2079115466
+      4_Controller_Ray_67: -1541893036
+      4_Controller_Ray_28: 1501991121
+      4_Controller_Ray_59: 507459268
+      4_Controller_Ray_99: 899860763
+      4_Controller_Ray_19: -1352276866
+      4_Controller_Ray_91: 1408871177
+      4_Controller_Ray_123: -1287913585
+      4_Controller_Ray_138: -1250352041
+      4_Controller_Ray_98: -789172623
+      4_Controller_Ray_151: 1108742488
+      4_Controller_Ray_1: -699289345
+      4_Controller_Ray_51: -65716413
+      4_Controller_Ray_145: -1118429593
+      4_Controller_Ray_48: 659104762
+      4_Controller_Ray_54: -635125055
+      4_Controller_Ray_69: 950726327
+      4_Controller_Ray_132: 2004152156
+      4_Controller_Ray_93: -1009439338
+      4_Controller_Ray_140: 1974334856
+      4_Controller_Ray_149: 710037986
+      4_Controller_Ray_115: -719302495
+      4_Controller_Ray_133: 58774936
+      4_Controller_Ray_18: 1832435208
+      4_Controller_Ray_14: -1343904356
+      4_Controller_Ray_8: 1159757119
+      4_Controller_Ray_29: 951199960
+      4_Controller_Ray_84: 1595426624
+      4_Controller_Ray_150: -16755080
+      4_Controller_Ray_143: -1335579941
+      4_Controller_Ray_144: 2036612339
+      4_Controller_Ray_141: 480819573
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
