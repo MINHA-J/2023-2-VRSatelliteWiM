@@ -109,6 +109,13 @@ public class MiniatureWorld : MonoBehaviour
     /// <param name="pin">Detect Collider</param>
     public void CreateSatellite(uint index, Vector3 pos)
     { 
+        if (SatelliteTable.TryGetValue(index, out GameObject node))
+        {
+            // Satellite를 Table에서 제거함
+            Destroy(node);
+            SatelliteTable.Remove(index);
+        }
+        
         GameObject instance = Instantiate(prefabSatellite);
         instance.transform.SetParent(satellites.transform);
         // Minimap위에서 Ray를 찍은 점

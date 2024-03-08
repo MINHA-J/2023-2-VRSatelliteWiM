@@ -42,10 +42,10 @@ public class ControllerRayPortal : MonoBehaviour
 
     private void UpdatePressAButton()
     {
-        if (_xrController.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool button))
+        if (_xrController.inputDevice.TryGetFeatureValue(CommonUsages.trigger, out float button))
         {
-            isPressed = button;
-            if (button)
+            isPressed = (button >= 0.9f);
+            if (isPressed)
             {
                 timer += Time.deltaTime;
             }
