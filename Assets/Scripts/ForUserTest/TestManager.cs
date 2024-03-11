@@ -43,6 +43,7 @@ public class TestManager : MonoBehaviour
     public TestData currentTestData = new TestData();
     public string fileName = "subject";
     public bool doShowImages = true;
+    public bool isPractice = false;
     
     [FormerlySerializedAs("currentType")] [Header("----+ Test Setting +----")]
     public TaskGroupType currentGroupType = TaskGroupType.TestGroup;

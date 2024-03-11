@@ -21,7 +21,7 @@ public class Question_Choice : MonoBehaviour
     [Space(10f)]  
     public List<int> answerValue = new List<int>();
     private TryQuestion _tryQuestion = new TryQuestion();
-    
+    private int _QuestionNum = 4;
     private string[] questions = new string[4]
     {
         "공간인식이 편리함.",
@@ -91,11 +91,12 @@ public class Question_Choice : MonoBehaviour
 
         answerValue.Add((int)answer.value);
         answer.value = 0.0f;
-        if (answerValue.Count >= 4)
+        if (answerValue.Count >= _QuestionNum)
         {
-            Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
+            //Debug.Log("NASA TLX 설문 끝. 다음 작업 수행합니다. ");
             GetTestManager();
-            Save();
+            Save();        
+            TestManager.Instance.BackToTask();
             return;
         }
 
@@ -107,6 +108,8 @@ public class Question_Choice : MonoBehaviour
     
     public void Save()
     {
+        if (TestManager.Instance.isPractice) return;
+
         string name = "Test01_Subject" + information.subjectNum + "_"
                       + "_Try_" + information.currentTryNum
                       + "_" + information.currentGroupType + "_Choice";
@@ -122,8 +125,6 @@ public class Question_Choice : MonoBehaviour
             Directory.CreateDirectory(path);
         }
         File.WriteAllText(path + "/" + name + ".txt", jsonData);
-        
-        TestManager.Instance.BackToTask();
     }
 
     private void GetKeyboardCommand()

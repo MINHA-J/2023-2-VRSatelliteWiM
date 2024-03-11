@@ -383,13 +383,20 @@ public class Test01_Manager : TestManager
     private bool IsTechRepeated()
     {
         int tryNum = (int)totalTryNum[(int)currentGroupType];
-        
-        if (tryNum != 0 && tryNum % 2 == 0)
-            return true;
+        if (isPractice)
+        {
+            if (currentTryNum == 2)
+                return true;
+        }
         else
-            return false;
+        {
+            if (tryNum != 0 && tryNum % 2 == 0)
+                return true;
+        }
+
+        return false;
     }
-    
+
     private void SetTimeThisTry(bool set)
     {
         if (set)
@@ -506,8 +513,12 @@ public class Test01_Manager : TestManager
 
     public void Save(uint tryNum, TaskTry saveData)
     {
-        string name = "Test01_Subject" + subjectNum + "_Try_" + tryNum + "_" + currentGroupType;
-        
+        string name = " ";
+        if (isPractice)
+            name = "Practice_Subject" + subjectNum + "_Try_" + tryNum + "_" + currentGroupType;
+        else
+            name = "Test01_Subject" + subjectNum + "_Try_" + tryNum + "_" + currentGroupType;
+
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
 
@@ -516,7 +527,8 @@ public class Test01_Manager : TestManager
         {
             Directory.CreateDirectory(path);
         }
+
         File.WriteAllText(path + "/" + name + ".txt", jsonData);
     }
-    
+
 }

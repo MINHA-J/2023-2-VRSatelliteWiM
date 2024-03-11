@@ -50,6 +50,7 @@ MonoBehaviour:
   paintCursor: {fileID: 1580197891925934522}
   isShown: 1
   canMake: 0
+  isSetEnd: 0
   miniatureWorld: {fileID: 0}
   index: 0
 --- !u!114 &8757007703215066633

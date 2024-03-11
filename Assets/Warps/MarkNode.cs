@@ -25,8 +25,10 @@ public class MarkNode : WarpNode {
     private Light light;
     private SphereCollider collider;
     
-    public GameObject HighlightPrefab; 
+    public GameObject HighlightPrefab;
 
+    public Satellite Satellite;
+    
     void Start() {
         State = MarkState.Normal;
         ring = GetComponentInChildren<RingLOD>();

@@ -17,6 +17,7 @@ public class MakeRoi : MonoBehaviour
     
     [SerializeField] private bool isShown;
     [SerializeField] private bool canMake = false;
+    [SerializeField] private bool isSetEnd = false;
     
     [Header("Setting")]
     [SerializeField]private const float upAngleThreashold = 60f;
@@ -25,6 +26,11 @@ public class MakeRoi : MonoBehaviour
     [SerializeField] private uint index = 0;
     private float timer  = 0.0f;
     private float duration  = 2.0f;
+    
+    private Vector3 _targetPos;
+    private Vector3 _beforePinchPos;
+    private MarkNode _markNode;
+
 
     private void Start()
     {
@@ -49,20 +55,81 @@ public class MakeRoi : MonoBehaviour
             canMake = true;
 
         // 3초간 지속될 경우, ROI를 지정할 수 있다
+        UpdateSettingROI();
+        
+
+    }
+
+    private void UpdateSettingROI()
+    {
         if (canMake)
         {
             timer += Time.deltaTime;
             if (timer >= duration)
             {
-                // 3초가 지났으므로 원하는 작업을 수행합니다.
-                SettingRoi(transform.position - transform.up * 0.05f, transform.right);
+                if (!isSetEnd)
+                {
+                    // 3초가 지났으므로 원하는 작업을 수행합니다.
+                    _targetPos = transform.position - transform.up * 0.05f;
+                    SettingRoi(_targetPos, transform.right);
+                    
+                    _markNode = miniatureWorld.GetFirstMarkNode();
+                    _beforePinchPos = paintCursor.transform.position;
+                    isSetEnd = true;
+                }
 
-                // 작업이 끝났으므로 다시 초기화합니다.
-                canMake = false;
-                timer = 0f;
+                Vector3 dirVector = (paintCursor.transform.position - _beforePinchPos).normalized;
+                float dirMagnitude = dirVector.sqrMagnitude;
+                if (paintCursor.IsPinching &&  dirMagnitude > 0.9f)
+                {
+                    // handRayRenderer.SetContactVector(_targetPos); 
+                    // TODO: Set하고 있는 portal의 위치로 Ray의 끝이 고정되도록 하고 싶었는데, 의도한 대로 동작이 되지 않는군
+                    if (dirVector.y < -0.1f)
+                    {
+                        //Debug.Log("[DEBUG] Is Pinching & Moving * DOWN * ..." + dirVector);
+                        ScaleMarkedSpace(-dirMagnitude);
+                    }
+                    else if (dirVector.y > 0.1f)
+                    {
+                        //Debug.Log("[DEBUG] Is Pinching & Moving * UP * ..." + dirVector);
+                        ScaleMarkedSpace(dirMagnitude);
+                    }
+                    // else if (dirVector.x < -0.1f || dirVector.z < -0.1f)
+                    // {
+                    //     TranslateMarkedSpace(-dirMagnitude);
+                    //     
+                    // }
+                    // else if (dirVector.x > 0.1f || dirVector.z > 0.1f)
+                    // {
+                    //     TranslateMarkedSpace(dirMagnitude);
+                    // }
+                    //_beforePinchPos = paintCursor.transform.position;
+                }
+                
+                if (paintCursor.DidEndPinch)
+                {
+                    // 작업이 끝났으므로 다시 초기화합니다.
+                    canMake = false;
+                    timer = 0f;
+                    isSetEnd = false;
+                }
             }
         }
+    }
 
+    private void ScaleMarkedSpace(float delta)
+    {
+        delta = Time.deltaTime * delta;
+        _markNode.transform.localScale += new Vector3(delta, delta, delta);
+        _markNode.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
+    }
+
+    private void TranslateMarkedSpace(float delta)
+    {
+        delta = Time.deltaTime * delta;
+        Satellite satellite = _markNode.GetComponent<MarkNode>().Satellite;
+        satellite.transform.position += new Vector3(delta, delta, delta);
+        satellite.TranslateMarkedSpace();
     }
 
     // private void OnDisable()

@@ -63,6 +63,8 @@ public class Satellite : MonoBehaviour
         proxy = p;
         color = p.Color;
         GetComponent<MeshRenderer>().materials[0].SetColor("_Color", p.Color);
+
+        m.Satellite = this;
         
         // Satellite의 Color
         transform.GetChild(0).GetComponent<RingLOD>().Color = p.Color;
@@ -80,7 +82,7 @@ public class Satellite : MonoBehaviour
         mark.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
     }
     
-    private void TranslateMarkedSpace() 
+    public void TranslateMarkedSpace() 
     {
         // pointInWorld를 miniature에서의 로컬 좌표로 변환합니다.
         Vector3 pointInWorldMiniature = MiniWorld.transform.InverseTransformPoint(_downRayVector);
