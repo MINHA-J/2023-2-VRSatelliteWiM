@@ -40,6 +40,8 @@ public class MiniatureWorld : MonoBehaviour
     private static List<MiniatureWorld> instances = new List<MiniatureWorld>();
     private ProxySphere sphere;
     
+    private List<GameObject> _gameObjects = new List<GameObject>();
+    
     
     private static MiniatureWorld instance;
 
@@ -229,15 +231,20 @@ public class MiniatureWorld : MonoBehaviour
     
     public void RemoveProxies()
     {
-        // Proxies를 Table에서 제거함
         foreach (var pair in ProxiesTable)
         {
             ProxyNode proxyNode = pair.Value;
             MarkNode markNode = proxyNode.Marks[0];
-            Destroy(proxyNode.gameObject);
-            Destroy(markNode.spotlight);
-            Destroy(markNode.gameObject);
+            
+            _gameObjects.Add(markNode.gameObject);
+            _gameObjects.Add(markNode.spotlight);
+            _gameObjects.Add(proxyNode.gameObject);
         }
+
+        for (int i = _gameObjects.Count - 1; i >= 0; i--)
+            Destroy(_gameObjects[i]);
+        
+        _gameObjects.Clear();
         ProxiesTable.Clear();
         ProxiesTable = new Dictionary<uint, ProxyNode>();
     }
@@ -245,10 +252,12 @@ public class MiniatureWorld : MonoBehaviour
     public void RemoveSatellites()
     {
         foreach (var pair in SatelliteTable)
-        {
-            SatelliteTable.Remove(pair.Key);
-            Destroy(pair.Value);
-        }
+            _gameObjects.Add(pair.Value);
+
+        for (int i = _gameObjects.Count - 1; i >= 0; i--)
+            Destroy(_gameObjects[i]);
+        
+        _gameObjects.Clear();
         SatelliteTable.Clear();
         SatelliteTable = new Dictionary<uint, GameObject>();
     }

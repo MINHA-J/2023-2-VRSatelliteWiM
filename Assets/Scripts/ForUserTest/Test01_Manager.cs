@@ -363,9 +363,19 @@ public class Test01_Manager : TestManager
                 FinishTimeSetting(); //TODO: 이게 Object가 Trigger 되면 자동으로 넘어가줘야 할 듯
                 SetTimeThisTry(false);
                 HideInteraction();
-                if (IsTechRepeated())
-                    Question_NasaTLX();
-                CheckResult();
+                
+                CheckResult(); // 실험 결과 저장
+
+                if (IsTechRepeated()) // 3번씩 반복했다면
+                {
+                    // 이전 실험 데이터 초기화 - 시야 가려져서..
+                    MiniatureWorld.Instance.RemoveProxies();
+                    MiniatureWorld.Instance.RemoveSatellites();
+                    
+                    Question_NasaTLX(); // Nasa TLX와 Choice Question
+                }
+
+                totalTryNum[(int)currentGroupType]++; // 현재 수행한 기술의 Try수 +1
                 break;
         }
     }
@@ -488,9 +498,9 @@ public class Test01_Manager : TestManager
                 }
             }
             // TaskTry struct 세팅 완료, txt 변환
-            //Save(totalTryNum[(int)currentGroupType], taskResult);
+            //Save(totalTryNum[(int)currentGroupType], taskResult); 실행 위치 변경
             Save(currentTryNum, taskResult);
-            totalTryNum[(int)currentGroupType]++; // 현재 수행한 기술의 Try수 +1
+            
         }
     }
 
@@ -507,27 +517,6 @@ public class Test01_Manager : TestManager
             Directory.CreateDirectory(path);
         }
         File.WriteAllText(path + "/" + name + ".txt", jsonData);
-
-        //FromJson 부분
-        //string fromJsonData = File.ReadAllText(path + "/" + name + ".txt");
-
-        //TaskTryList TaskTryFromJson = new TaskTryList();
-        //TaskTryFromJson = JsonUtility.FromJson<TaskTryList>(fromJsonData);
-        
-
-        //Binary 형태로 저장함
-        // if(!System.IO.Directory.Exists(Application.persistentDataPath + "/Save"))
-        // {
-        //     System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/Save");
-        // }
-        //
-        // string path = Application.persistentDataPath + "/Save/s_" + subjectNum;
-        // System.IO.File.Create(path).Close();
-        // System.IO.FileStream fStream = System.IO.File.Open(path, System.IO.FileMode.OpenOrCreate);
-        //
-        // BinaryFormatter formatter = new BinaryFormatter();
-        // formatter.Serialize(fStream, saveData);
-        // fStream.Close();
     }
     
 }

@@ -81,6 +81,7 @@ public class TestManager : MonoBehaviour
     [HideInInspector] public bool IsTestRecordEnd = false;
 
     private GameObject _nasaTlxUI;
+    private GameObject _choice;
 
     [Serializable]
     public struct TestData
@@ -269,17 +270,31 @@ public class TestManager : MonoBehaviour
 
         GameObject _UIprefab = Resources.Load<GameObject>("Prefabs/NASA XTL Question UI");
         _nasaTlxUI = Instantiate(_UIprefab, 
-            player.transform.position + Vector3.forward * 0.3f + Vector3.up * 1.5f,
+            player.transform.position + Vector3.forward * 0.4f + Vector3.up * 1.2f,
             Quaternion.identity);
         // player.SetActive(false);
         // SceneManager.LoadScene("After_NASA_TLX", LoadSceneMode.Additive);
     }
+
+    public void Question_Choice()
+    {
+        Destroy(_nasaTlxUI); // 이전에 수행한 NasaTLX 삭제하기
+        Debug.Log("[RESULT] 객관식 설문 조사를 시작합니다");
+        TestPanel.SetActive(false);
+        
+        GameObject _UIprefab = Resources.Load<GameObject>("Prefabs/Choice Question UI");
+        _choice = Instantiate(_UIprefab, 
+            player.transform.position + Vector3.forward * 0.4f + Vector3.up * 1.2f,
+        Quaternion.identity);
+
+    }
     
     public void BackToTask()
     {
-        Debug.Log("[RESULT] 다시 설문으로");
+        Debug.Log("[RESULT] 다시 Main Test으로");
         TestPanel.SetActive(true);
-        Destroy(_nasaTlxUI);
+        //Destroy(_nasaTlxUI);
+        Destroy(_choice);
     }
     
 
