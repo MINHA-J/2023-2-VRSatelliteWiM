@@ -223,7 +223,7 @@ MonoBehaviour:
   information:
     subjectNum: 0
     experimentNum: 0
-    currentType: 0
+    currentGroupType: 0
     currentTryNum: 0
   answerValue: 
 --- !u!1 &569667392037625693
@@ -1241,9 +1241,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 569667393738972941}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
