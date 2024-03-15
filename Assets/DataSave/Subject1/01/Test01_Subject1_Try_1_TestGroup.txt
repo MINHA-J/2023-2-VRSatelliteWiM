@@ -1,0 +1,23 @@
+{
+    "tryNum": 2,
+    "totalTime": 41.262550354003909,
+    "ACreationTime": 23.25174903869629,
+    "BCreationTime": 9.158829689025879,
+    "ACreationNum": 1,
+    "BCreationNum": 1,
+    "ADistance": 0.3119131624698639,
+    "BDistance": 0.38752037286758425,
+    "ATimeList": [
+        5.449293613433838
+    ],
+    "ADistanceList": [
+        0.3119131624698639
+    ],
+    "BTimeList": [
+        6.395391464233398
+    ],
+    "BDistanceList": [
+        0.38752037286758425
+    ],
+    "moveTime": 8.851995468139649
+}

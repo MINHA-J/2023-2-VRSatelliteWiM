@@ -66,6 +66,8 @@ public class TestManager : MonoBehaviour
     public TestState state = TestState.NotStarted;
     public float _totalTime = 0.0f;
     public float _thisTime = 0.0f;
+    public float _sessionTime = 0.0f;
+    public float _correctionTime = 0.0f;
     public TaskTry currentTry;
     public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
 
@@ -78,6 +80,7 @@ public class TestManager : MonoBehaviour
 
     // 시간을 재거나, 기록을 위한 Boolean
     [HideInInspector] public bool IsTickTotalTime = false;
+    [HideInInspector] public bool IsTickSessionTime = false;
     [HideInInspector] public bool IsTickThisTime = false;
     [HideInInspector] public bool IsTestRecordEnd = false;
 
