@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -39,21 +40,25 @@ public class Test01_Manager : TestManager
     private Dictionary<uint, List<float>> ACreationTime = new Dictionary<uint, List<float>>();
     private Dictionary<uint, List<float>> BCreationTime = new Dictionary<uint, List<float>>();
 
-    // Portal 제어 당시의 시간을 저장하기 위함
+    // TODO: Portal 제어 당시의 시간을 저장하기 위함
     private uint ACorrectionNum = 0;
     private uint BCorrectionNum = 0;
     private Dictionary<uint, List<float>> ACorrectionTime = new Dictionary<uint, List<float>>();
     private Dictionary<uint, List<float>> BCorrectionTime = new Dictionary<uint, List<float>>();
     
+    // TODO: Portal을 통해 옮기는 과정에서의 Error를 저장하기 위함
+    private uint errorNum = 0;
+    private Dictionary<uint, List<float>> errorTimes = new Dictionary<uint, List<float>>();
+    
     // Target과 생성된 Portal Distance
     private Dictionary<uint, List<float>> ACreationDistance = new Dictionary<uint, List<float>>();
     private Dictionary<uint, List<float>> BCreationDistance = new Dictionary<uint, List<float>>();
-
-    // 옮겨진 Target과 B구역의 Distance
-    private Dictionary<uint, List<float>> BMoveDistance = new Dictionary<uint, List<float>>();
     
     // Task 수행 중 Target 상호작용 시간
     private Dictionary<uint, float> movementTime = new Dictionary<uint, float>();
+    
+    // 옮겨진 Target과 B구역의 Distance
+    private Dictionary<uint, float> BMoveDistance = new Dictionary<uint, float>();
     //+-----------------------------------------------------+//
     
     private bool IsUpdated = false;
@@ -112,12 +117,11 @@ public class Test01_Manager : TestManager
         base.ChangeTaskType();
         initalizeDictionary();
     }
-    
+
 
     private void initalizeDictionary()
     {
         currentTryNum = 0;
-        
         totalTime.Clear();
         sectionsTime.Clear();
         techniqueTime.Clear();
@@ -129,11 +133,12 @@ public class Test01_Manager : TestManager
         BCorrectionNum = 0;
         ACorrectionTime.Clear();
         BCorrectionTime.Clear();
+        errorNum = 0;
+        errorTimes.Clear();
         ACreationDistance.Clear();
         BCreationDistance.Clear();
-        BMoveDistance.Clear();
         movementTime.Clear();
-        
+        BMoveDistance.Clear();
         IsTestRecordEnd = false;
     }
 
@@ -143,6 +148,7 @@ public class Test01_Manager : TestManager
         // 카메라 위치 재설정
         //player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0.46f, 1.36f));
         MiniatureWorld.Instance.RemoveProxies();
+        MiniatureWorld.Instance.RemoveSatellites();
         MiniatureWorld.Instance.RemoveSatellites();
         
         switch (currentGroupType)
@@ -169,7 +175,7 @@ public class Test01_Manager : TestManager
         }
     }
 
-    public void SaveTargetSetNum()
+    public void SaveCreationValue()
     {
         if (state == TestState.SettingTarget_A)
         {
@@ -197,6 +203,39 @@ public class Test01_Manager : TestManager
                 List<float> timeList = new List<float>();
                 timeList.Add(_thisTime);
                 BCreationTime.Add(currentTryNum, timeList);
+            }
+        }
+        else return;
+    }
+    
+    public void SaveCorrectionValue(float t)
+    {
+        if (state == TestState.SettingTarget_A)
+        {
+            ACorrectionNum++;
+            if (ACorrectionTime.TryGetValue(currentTryNum, out List<float> temp))
+            {
+                temp.Add(t);
+            }
+            else
+            {
+                List<float> timeList = new List<float>();
+                timeList.Add(t);
+                ACorrectionTime.Add(currentTryNum, timeList);
+            }
+        }
+        else if (state == TestState.SettingTarget_B)
+        {
+            BCorrectionNum++;
+            if (BCorrectionTime.TryGetValue(currentTryNum, out List<float> temp))
+            {
+                temp.Add(t);
+            }
+            else
+            {
+                List<float> timeList = new List<float>();
+                timeList.Add(t);
+                BCorrectionTime.Add(currentTryNum, timeList);
             }
         }
         else return;
@@ -261,7 +300,7 @@ public class Test01_Manager : TestManager
             target_zValue = Random.Range(minValue, maxValue);
 
             indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
-            Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+            Instantiate(targetPrefab, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
             
             index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 1];
             target_xValue = xCandidate[index];
@@ -278,7 +317,7 @@ public class Test01_Manager : TestManager
             target_zValue = Random.Range(minValue, maxValue);
 
             indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
-            Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+            Instantiate(targetPrefab, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
             
             index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 0];
             target_xValue = xCandidate[index];
@@ -383,21 +422,21 @@ public class Test01_Manager : TestManager
                 FinishTimeSetting(); // Portal을 세팅하는데 결리는 Time 측정 종료, 기록
                 FinishSessionTime();
                 GoNextTestState(); // 자동으로 다음으로
-                
                 break;
 
             case TestState.MoveObject:
                 StartTimeSetting();
                 StartSessionTime(); // 해당 세션의 시간 측정 시작
-
                 break;
 
             case TestState.EndThisTry:
                 // Trigger시에 자동으로 현재 Try의 Total Time 측정 종료, 기록
                 FinishTimeSetting();
                 FinishSessionTime();
-                SetTimeThisTry(false);
+
+                MovementDistance();
                 
+                SetTimeThisTry(false);
                 HideInteraction();
                 
                 CheckResult(); // 실험 결과 저장
@@ -499,7 +538,33 @@ public class Test01_Manager : TestManager
         }
 
     }
+    
+    public void AddError()
+    {
+        // Object 떨어뜨리거나, 포탈 중심에 설정하지 못한 경우 재설정 해줍니다
+        errorNum++;
+        if (errorTimes.TryGetValue(currentTryNum, out List<float> time))
+        {
+            time.Add(_totalTime);
+        }
+        else
+        {
+            List<float> errorTime = new List<float>();
+            errorTime.Add(_totalTime);
+            errorTimes.Add(currentTryNum, errorTime);
+        }
+    }
 
+    private void MovementDistance()
+    {
+        Transform indicatorB = indicator_B.transform;
+        MiniatureWorld.Instance.ProxiesTable.TryGetValue((uint)portalIndex, out ProxyNode node);
+
+        float distance = (node.Marks[0].transform.position - indicatorB.position).magnitude;
+        
+        BMoveDistance.Add(currentTryNum, distance);
+    }
+    
     private void CheckResult()
     {
         Debug.Log("[RESULT] Save Data Start");
@@ -516,6 +581,12 @@ public class Test01_Manager : TestManager
                 taskResult.tryNum = (tryNum + 1);
                 taskResult.totalTime = time;
 
+                // section 각각에 걸린 시간
+                if (sectionsTime.TryGetValue(tryNum, out List<float> sectionTime))
+                {
+                    taskResult.sectionTimesList = sectionTime.ToArray();
+                }
+                
                 // 2) 포탈 생성에 걸린 시간
                 if (techniqueTime.TryGetValue(tryNum, out List<float> creationTime))
                 {
@@ -526,14 +597,33 @@ public class Test01_Manager : TestManager
                 // 3) 각 포탈 생성 횟수와 시간
                 if (ACreationTime.TryGetValue(tryNum, out List<float> A_createList))
                 {
-                    taskResult.ACreationNum = A_createList.Count;
-                    taskResult.ATimeList = A_createList.ToArray();
+                    taskResult.ACreationNum = (int)ACreationNum;
+                    taskResult.ACreateTimeList = A_createList.ToArray();
                 }
 
                 if (BCreationTime.TryGetValue(tryNum, out List<float> B_createList))
                 {
-                    taskResult.BCreationNum = B_createList.Count;
-                    taskResult.BTimeList = B_createList.ToArray();
+                    taskResult.BCreationNum = (int)BCreationNum;
+                    taskResult.BCreateTimeList = B_createList.ToArray();
+                }
+
+                // 포탈 제어 시간
+                if (ACorrectionTime.TryGetValue(tryNum, out List<float> A_correction))
+                {
+                    taskResult.ACorrectionNum = (int)ACorrectionNum;
+                    taskResult.ACorrectTimeList = A_correction.ToArray();
+                }
+                if (BCorrectionTime.TryGetValue(tryNum, out List<float> B_correction))
+                {
+                    taskResult.BCorrectionNum = (int)BCorrectionNum;
+                    taskResult.BCorrectTimeList = B_correction.ToArray();
+                }
+                
+                // 포탈 옮기는 과정에서의 Error
+                if (errorTimes.TryGetValue(tryNum, out List<float> errorTime))
+                {
+                    taskResult.errorNum = (int)errorNum;
+                    taskResult.errorTimeList = errorTime.ToArray();
                 }
 
                 // 4) 각 포탈 생성 거리
@@ -545,7 +635,6 @@ public class Test01_Manager : TestManager
                     taskResult.ADistance = sumDistance / (float)A_distance.Count;
                     taskResult.ADistanceList = A_distance.ToArray();
                 }
-
                 if (BCreationDistance.TryGetValue(tryNum, out List<float> B_distance))
                 {
                     sumDistance = 0.0f;

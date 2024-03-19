@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using Leap.Unity.Interaction;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TargetTrigger : MonoBehaviour
 {
-    [SerializeField] private string currentTarget;
+    [FormerlySerializedAs("currentTarget")] [SerializeField] private string triggerObject;
 
     private InteractionBehaviour _interaction;
     private Rigidbody _rigidbody;
 
     private Vector3 _beforePos;
 
+    [SerializeField] private bool _wasGrasped = false; // User에 의해 잡힌 적이 있음 -> B에 가야함
+    private bool _IsChecked = false;
+    
     private void Start()
     {
         _interaction = this.GetComponent<InteractionBehaviour>();
@@ -22,9 +26,9 @@ public class TargetTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        currentTarget = other.name;
+        triggerObject = other.name;
 
-        if (other.name == "Indecator B")
+        if (triggerObject == "Indecator B")
         {
             switch (TestManager.Instance.experimentNum)
             {
@@ -37,10 +41,29 @@ public class TargetTrigger : MonoBehaviour
                     manager_2.GoNextTestState();
                     break;
             }
-            Debug.Log("Object가 Target에 TriggerEnter!");
+            
+            Debug.Log("[TARGET] Object가 Indicator B에 TriggerEnter!");
+        }
+        else if (_wasGrasped 
+                 && (triggerObject == "Indecator A" || triggerObject == "ground" || triggerObject == "ground (1)"))
+        {
+            Debug.Log("[TARGET] !! Reset !!");
+            ResetThisPosition();
         }
     }
+    
+    public void ResetThisPosition()
+    {
+        Test01_Manager manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+        manager_1.AddError();
+        
+        _IsChecked = false;
+        _wasGrasped = false;
+        MiniatureWorld.Instance.ProxiesTable.TryGetValue(0, out ProxyNode node);
+        this.transform.position = node.Marks[0].transform.position;
+    }
 
+    /*
     private void UpdateGrasped()
     {
         Transform _transform = this.transform;
@@ -70,9 +93,14 @@ public class TargetTrigger : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
     }
+    */
 
     private void Update()
     {
-        UpdateGrasped();
+        if (!_IsChecked && _interaction.isGrasped)
+        {
+            _wasGrasped = true;
+            _IsChecked = true;
+        }
     }
 }

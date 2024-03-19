@@ -31,6 +31,9 @@ public class MakeRoi : MonoBehaviour
     private Vector3 _beforePinchPos;
     private MarkNode _markNode;
 
+    private Test01_Manager manager_1;
+    private float _correctionTimer = 0.0f;
+
 
     private void Start()
     {
@@ -56,8 +59,6 @@ public class MakeRoi : MonoBehaviour
 
         // 3초간 지속될 경우, ROI를 지정할 수 있다
         UpdateSettingROI();
-        
-
     }
 
     private void UpdateSettingROI()
@@ -88,11 +89,13 @@ public class MakeRoi : MonoBehaviour
                     {
                         //Debug.Log("[DEBUG] Is Pinching & Moving * DOWN * ..." + dirVector);
                         ScaleMarkedSpace(-dirMagnitude);
+                        _correctionTimer += Time.deltaTime;
                     }
                     else if (dirVector.y > 0.1f)
                     {
                         //Debug.Log("[DEBUG] Is Pinching & Moving * UP * ..." + dirVector);
                         ScaleMarkedSpace(dirMagnitude);
+                        _correctionTimer += Time.deltaTime;
                     }
                     // else if (dirVector.x < -0.1f || dirVector.z < -0.1f)
                     // {
@@ -108,9 +111,12 @@ public class MakeRoi : MonoBehaviour
                 
                 if (paintCursor.DidEndPinch)
                 {
+                    manager_1.SaveCorrectionValue(_correctionTimer);
+                        
                     // 작업이 끝났으므로 다시 초기화합니다.
                     canMake = false;
                     timer = 0f;
+                    _correctionTimer = 0.0f;
                     isSetEnd = false;
                 }
             }
@@ -168,7 +174,7 @@ public class MakeRoi : MonoBehaviour
                         //index++;
 
                         // [TASK01] 실험군
-                        manager_1.SaveTargetSetNum();
+                        manager_1.SaveCreationValue();
                         manager_1.SaveTargetSetDistance(position);
                         break;
                     

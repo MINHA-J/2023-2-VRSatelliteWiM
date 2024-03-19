@@ -51,7 +51,7 @@ public class TestManager : MonoBehaviour
     public uint repeatTryNum = 3; //실험 최대 시도 횟수
     public GameObject TestPanel;
     public GameObject TestImagePanel;
-    public GameObject targetObject;
+    [FormerlySerializedAs("targetObject")] public GameObject targetPrefab;
     [HideInInspector] public GameObject player;
     [HideInInspector] public uint maxPortalNum = 2;
 
@@ -74,6 +74,7 @@ public class TestManager : MonoBehaviour
     // 각 기술 시도 횟수 저장을 위한 데이터
     public uint[] totalTryNum = { 0, 0, 0, 0 };
 
+    [HideInInspector] public GameObject targetObject;
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
     [HideInInspector] public TextMeshProUGUI ContentsTextUI;
     [HideInInspector] public Text ButtonTextUI;
@@ -390,7 +391,7 @@ public class TestManager : MonoBehaviour
         target_zValue = Random.Range(8.6f, 14.8f);
         indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
         //targetObject.transform.position = new Vector3(target_xValue, 0.15f, target_zValue);
-        Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+        targetObject = Instantiate(targetPrefab, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
 
 
         // B Set

@@ -26,6 +26,9 @@ public class ControllerRayPortal : MonoBehaviour
 
     private Vector3[] contactPoints;
     
+    private Test01_Manager manager_1;
+    private float _correctionTimer = 0.0f;
+    
     private void Start()
     {
         miniatureWorld = MiniatureWorld.Instance;
@@ -84,12 +87,19 @@ public class ControllerRayPortal : MonoBehaviour
                 {
                     //Debug.Log("[DEBUG] Is Pinching & Moving * DOWN * ..." + dirVector);
                     ScaleMarkedSpace(-dirMagnitude);
+                    _correctionTimer += Time.deltaTime;
                 }
                 else if (dirVector.y > 0.1f)
                 {
                     //Debug.Log("[DEBUG] Is Pinching & Moving * UP * ..." + dirVector);
                     ScaleMarkedSpace(dirMagnitude);
+                    _correctionTimer += Time.deltaTime;
                 }
+            }
+            else if (!isPressed)
+            {
+                manager_1.SaveCorrectionValue(_correctionTimer);
+                _correctionTimer = 0.0f;
             }
         }
     }
@@ -109,10 +119,10 @@ public class ControllerRayPortal : MonoBehaviour
                     //Debug.Log("[MakeRoi.cs] Can Set ROI!");
                     // [TASK01] 실험군
                     //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
-                    Test01_Manager manager = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                    manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
 
-                    int index1 = manager.portalIndex;
-                    Vector3 place1 = manager.portalPlaces.transform.GetChild(index1).position;
+                    int index1 = manager_1.portalIndex;
+                    Vector3 place1 = manager_1.portalPlaces.transform.GetChild(index1).position;
 
                     //miniatureWorld.RemoveProxies();
                     miniatureWorld.CreateProxies((uint)index1, pos, 200.0f, place1);
@@ -120,8 +130,8 @@ public class ControllerRayPortal : MonoBehaviour
                     //index++;
 
                     // [TASK01] 실험군
-                    manager.SaveTargetSetNum();
-                    manager.SaveTargetSetDistance(pos);
+                    manager_1.SaveCreationValue();
+                    manager_1.SaveTargetSetDistance(pos);
                     break;
 
                 case 2:

@@ -158,7 +158,7 @@ public class ProcessHands : SingletonMonoBehaviour<ProcessHands>
                 miniatureWorld.RemoveProxy(index1);
                 miniatureWorld.ProxiesTable.Add(index1, proxyNode);       
                 
-                manager.SaveTargetSetNum();
+                manager.SaveCreationValue();
                 manager.SaveTargetSetDistance(pos);
                 break;
             

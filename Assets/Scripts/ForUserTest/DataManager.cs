@@ -22,27 +22,35 @@ public class TestData
 public struct TaskTry
 {
     public uint tryNum;
+    
     public float totalTime;
 
-    public float ACreationTime;
+    [SerializeField] public float[] sectionTimesList;
+    
+    public float ACreationTime; // techniqueTime
     public float BCreationTime;
 
     public int ACreationNum;
     public int BCreationNum;
+    [SerializeField] public float[] ACreateTimeList;
+    [SerializeField] public float[] BCreateTimeList;
+
+    public int ACorrectionNum; 
+    public int BCorrectionNum; 
+    [SerializeField] public float[] ACorrectTimeList;
+    [SerializeField] public float[] BCorrectTimeList;
+    
+    public int errorNum;
+    [SerializeField] public float[] errorTimeList;
     
     public float ADistance;
     public float BDistance;
     
-    [SerializeField]
-    public float[] ATimeList;
-    [SerializeField]
-    public float[] ADistanceList;
-    [SerializeField]
-    public float[] BTimeList;
-    [SerializeField]
-    public float[] BDistanceList;
-
+    [SerializeField] public float[] ADistanceList;
+    [SerializeField] public float[] BDistanceList;
+    
     public float moveTime;
+    public float moveDistance;
 }
 
 [Serializable]

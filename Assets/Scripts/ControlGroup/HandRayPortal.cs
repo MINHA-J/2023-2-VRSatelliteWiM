@@ -135,7 +135,7 @@ public class HandRayPortal : MonoBehaviour
                     //index++;
 
                     // [TASK01] 실험군
-                    manager.SaveTargetSetNum();
+                    manager.SaveCreationValue();
                     manager.SaveTargetSetDistance(pos);
                     break;
 

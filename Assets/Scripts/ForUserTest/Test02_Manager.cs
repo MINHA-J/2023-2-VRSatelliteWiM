@@ -163,7 +163,7 @@ public class Test02_Manager : TestManager
         target_yValue = 0.022f;
         target_zValue = Random.Range(yMinValue, yMaxValue);
         indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
-        Instantiate(targetObject, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+        Instantiate(targetPrefab, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
         
         timeSeed = Time.time * 100f;
         Random.InitState((int)timeSeed);
@@ -406,13 +406,13 @@ public class Test02_Manager : TestManager
                 if (targetASave.TryGetValue(tryNum, out List<float> A_createList))
                 {
                     taskResult.ACreationNum = A_createList.Count;
-                    taskResult.ATimeList = A_createList.ToArray();
+                    taskResult.ACreateTimeList = A_createList.ToArray();
                 }
 
                 if (targetBSave.TryGetValue(tryNum, out List<float> B_createList))
                 {
                     taskResult.BCreationNum = B_createList.Count;
-                    taskResult.BTimeList = B_createList.ToArray();
+                    taskResult.BCreateTimeList = B_createList.ToArray();
                 }
 
                 // 4) 각 포탈 생성 거리
