@@ -30,6 +30,7 @@ public class MakeRoi : MonoBehaviour
     private Vector3 _targetPos;
     private Vector3 _beforePinchPos;
     private MarkNode _markNode;
+    private Satellite _satellite;
 
     private Test01_Manager manager_1;
     private float _correctionTimer = 0.0f;
@@ -49,9 +50,9 @@ public class MakeRoi : MonoBehaviour
         float upAngle = Vector3.Angle(transform.forward, Vector3.up);
         float headAngle = Vector3.Angle(transform.up, Player.Instance.MainCamera.transform.forward);
         if (upAngle < upAngleThreashold && headAngle < headAngleThreashold)
-            Show();
-        else
             Hide();
+        else
+            Show();
 
         // 활성화된 상태에서, Pinch가 감지될 경우 활성화됨
         if (isShown && paintCursor.DidStartPinch && MiniatureWorld.Instance.Manipulation.canSetROI)
@@ -75,6 +76,7 @@ public class MakeRoi : MonoBehaviour
                     SettingRoi(_targetPos, transform.right);
                     
                     _markNode = miniatureWorld.GetFirstMarkNode();
+                    _satellite = _markNode.GetComponent<MarkNode>().Satellite;
                     _beforePinchPos = paintCursor.transform.position;
                     isSetEnd = true;
                 }
@@ -128,6 +130,17 @@ public class MakeRoi : MonoBehaviour
         delta = Time.deltaTime * delta;
         _markNode.transform.localScale += new Vector3(delta, delta, delta);
         _markNode.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
+
+
+        SyncToSatellite(delta);
+    }
+
+    private void SyncToSatellite(float delta)
+    {
+        Vector3 now = this.transform.localPosition;
+        Vector3 move = new Vector3(now.x, now.y + delta, now.z);
+        move.Clamp(0.5f, 1.0f);
+        _satellite.transform.localPosition = move;
     }
 
     private void TranslateMarkedSpace(float delta)
@@ -165,7 +178,7 @@ public class MakeRoi : MonoBehaviour
                         //Debug.Log("[MakeRoi.cs] Can Set ROI!");
                         // [TASK01] 실험군
                         //miniatureWorld.CreateProxies(index, position, 200.0f, miniatureWorld.transform.position);
-                        Test01_Manager manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                        manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
 
                         int index1 = manager_1.portalIndex;
                         Vector3 place1 = manager_1.portalPlaces.transform.GetChild(index1).position;

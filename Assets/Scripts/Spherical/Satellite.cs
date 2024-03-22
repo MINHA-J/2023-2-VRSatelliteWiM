@@ -5,6 +5,7 @@ using System.Linq;
 using DG.Tweening;
 using Leap.Unity;
 using Leap.Unity.Interaction;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -197,7 +198,8 @@ public class Satellite : MonoBehaviour
                 if (Math.Abs(_curPos.y - _lastPos.y) >= 0.001f)
                 {
                     //Debug.Log("Scale It!");
-                    ScaleMarkedSpace((_curPos.y - _lastPos.y) * MiniWorld.RadiusRatio);
+                    float delta = (_curPos.y - _lastPos.y) * MiniWorld.RadiusRatio;
+                    ScaleMarkedSpace(delta);
                 }
 
                 //if ((Math.Abs(_curPos.x - _lastPos.x) > 0.005f) || (Math.Abs(_curPos.z - _lastPos.z) > 0.005f))

@@ -15,6 +15,7 @@ public class MiniatureManipulation : MonoBehaviour
     public HandModelBase HandModel;
     public GameObject HeadModel;
 
+    public GameObject testModel;
     [Header("Bool")] 
     public bool IsHolding = true;
     private bool ShowGizmos = true;
@@ -27,7 +28,7 @@ public class MiniatureManipulation : MonoBehaviour
     private MiniatureWorld miniatureWorld;
 
     // hand coordinate
-    private Leap.Hand hand;
+    [SerializeField] private Leap.Hand hand;
     private Finger thumb, index, middle;
     private Vector3 directionX, directionY, directionZ;
     private float radius;
@@ -57,6 +58,7 @@ public class MiniatureManipulation : MonoBehaviour
     /// </summary>
     private float oneEuroMinCutoff = 2;
     private readonly float oneEurofreq = 50;
+
     
     private void Awake()
     {
@@ -177,16 +179,19 @@ public class MiniatureManipulation : MonoBehaviour
     private Vector3 CameraRay()
     {
         RaycastHit raycastHit1, raycastHit2;
-        Ray ray1 = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //Ray ray1 = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Vector3 palmNormal = hand.PalmNormal;
+
+        Ray ray1 = new Ray(hand.PalmPosition, palmNormal);
 
         Vector3 rayPoint = Vector3.zero;
-        
+
         // Camera로부터 나오는 Ray와 miniature world 간의 교차점을 구함
         if (Physics.Raycast(ray1, out raycastHit1, 3.0f))
         {
             Debug.DrawLine(ray1.origin, raycastHit1.point, Color.green);
             if (raycastHit1.transform.CompareTag("Miniature"))
-            { 
+            {
                 // // miniature의 바닥으로 내린 점
                 // Vector3 pointInWorldMiniature = this.transform.InverseTransformPoint(raycastHit1.point);
                 // pointInWorldMiniature.y = 0;
@@ -199,7 +204,7 @@ public class MiniatureManipulation : MonoBehaviour
                 // if (Physics.Raycast(ray2, out raycastHit2))
                 //     Debug.DrawLine(ray2.origin, raycastHit2.point, Color.blue);
                 canSetROI = true;
-                
+
                 Vector3 origin = raycastHit1.point + ray1.direction * 0.01f;
                 Ray ray2 = new Ray(origin, ray1.direction);
                 if (Physics.Raycast(ray2, out raycastHit2))
@@ -213,8 +218,8 @@ public class MiniatureManipulation : MonoBehaviour
         }
         else
             canSetROI = false;
-        
-        
+
+
         return rayPoint;
     }
 
@@ -247,11 +252,13 @@ public class MiniatureManipulation : MonoBehaviour
 
     public void UpdateEyePosition()
     {
+
         Vector3 cameraPoint = CameraRay();
         if (cameraPoint != Vector3.zero)
             CoordinateTransformation(cameraPoint);
+
     }
-    
+
     // Update is called once per frame
     void Update()
     {
