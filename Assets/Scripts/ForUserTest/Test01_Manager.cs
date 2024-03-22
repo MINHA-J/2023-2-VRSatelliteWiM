@@ -168,10 +168,10 @@ public class Test01_Manager : TestManager
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 break;
             
-            case TaskGroupType.ControlGroup3: //01: Controller Ray
-                Debug.Log("[SET] 대조군3 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
-                break;
+            // case TaskGroupType.ControlGroup3: //01: Controller Ray
+            //     Debug.Log("[SET] 대조군3 InitalizeThisTry()-Try Setting 완료");
+            //     MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
+            //     break;
         }
     }
 
@@ -285,7 +285,8 @@ public class Test01_Manager : TestManager
         Random.InitState((int)timeSeed);
         
         List<float> xCandidate = new List<float>() { -4.8f, 0.0f, 4.8f };
-        List<int> pairCandidate = new List<int>() { 0, 1, 1, 2, 2, 0 };
+        List<int> pairCandidate = new List<int>() { 0, 1, 1, 0, 1, 2, 2, 1, 2, 0, 0, 2 };
+        // 6개 구역으로 수정 240322
         
         float minValue = 12.0f, maxValue =15.25f;
 

@@ -21,7 +21,7 @@ public enum TaskGroupType
     TestGroup,      //실험군   - Satellte(WiM & Portal)
     ControlGroup1,  //대조군1  - Hand Ray & Portal
     ControlGroup2,  //대조군2  - Hand Portal
-    ControlGroup3   //대조군3  - Controller Ray & Portal
+    //ControlGroup3   //대조군3  - Controller Ray & Portal
 }
 
 public enum TestState
