@@ -24,6 +24,7 @@ public class Test01_Manager : TestManager
     
     [FormerlySerializedAs("portalPlace")] [Header("[Test01] GameObject")]
     public Transform portalPlaces;
+    [SerializeField] private GameObject _target;
     
     [Space(10.0f)]
     
@@ -138,6 +139,14 @@ public class Test01_Manager : TestManager
         }
 
         UpdateHandMovement();
+    }
+
+    public override void TickTime()
+    {
+        base.TickTime();
+
+        if (IsTickSessionTime)
+            _sessionTime += Time.deltaTime;
     }
 
     private void UpdateHandMovement()
@@ -432,7 +441,7 @@ public class Test01_Manager : TestManager
             target_zValue = Random.Range(minValue, maxValue);
 
             indicator_A.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
-            Instantiate(targetPrefab, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
+            _target = Instantiate(targetPrefab, new Vector3(target_xValue, 0.15f, target_zValue), quaternion.identity);
             
             index = pairCandidate[(int)currentTestData.targetPosition[(int)currentTryNum] * 2 + 1];
             target_xValue = xCandidate[index];
@@ -690,17 +699,9 @@ public class Test01_Manager : TestManager
     private void MovementDistance()
     {
         Transform indicatorB = indicator_B.transform;
-        if (MiniatureWorld.Instance.ProxiesTable.TryGetValue((uint)portalIndex, out ProxyNode node))
-        {
-            if (node.Marks.Count > 0)
-            {
-                float distance = (node.Marks[0].transform.position - indicatorB.position).magnitude;
-                BMoveDistance.Add(currentTryNum, distance);
-                return;
-            }
-        }
-        
-        BMoveDistance.Add(currentTryNum, -1.0f);
+
+        float distance = (_target.transform.position - indicatorB.position).magnitude;
+        BMoveDistance.Add(currentTryNum, distance);
     }
 
     private void CheckResult()

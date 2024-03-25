@@ -410,7 +410,7 @@ public class TestManager : MonoBehaviour
         indicator_B.transform.position = new Vector3(target_xValue, target_yValue, target_zValue);
     }
 
-    public void TickTime()
+    public virtual void TickTime()
     {
         if (IsTickTotalTime)
             _totalTime += Time.deltaTime;
