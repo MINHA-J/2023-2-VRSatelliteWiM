@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Leap.Unity;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using Unity.XR.CoreUtils;
@@ -13,6 +14,14 @@ using Random = UnityEngine.Random;
 
 public class Test01_Manager : TestManager
 {
+    [Space(10.0f)] 
+    [Header("Hand Gameobject")] 
+    public GameObject RightHand;
+    public GameObject LeftHand;
+
+    public GameObject R_palm;
+    public GameObject L_palm;
+    
     [FormerlySerializedAs("portalPlace")] [Header("[Test01] GameObject")]
     public Transform portalPlaces;
     
@@ -59,9 +68,28 @@ public class Test01_Manager : TestManager
     
     // 옮겨진 Target과 B구역의 Distance
     private Dictionary<uint, float> BMoveDistance = new Dictionary<uint, float>();
+            
+    // Hand의 이동과 회전한 정도
+    private List<float> handRTime = new List<float>();
+    private List<float> handLTime = new List<float>();
+    private List<Vector3> handRMovement = new List<Vector3>();
+    private List<Vector3> handLMovement = new List<Vector3>();
+    private List<float> handRMovementValue = new List<float>();
+    private  List<float>handLMovementValue = new List<float>();
+    private List<Quaternion> handRRotation = new List<Quaternion>();
+    private List<Quaternion> handLRotation = new List<Quaternion>();
+    private List< float> handRRotationValue = new List<float>();
+    private List<float> handLRotationValue = new List<float>();
+    
+    
     //+-----------------------------------------------------+//
     
     private bool IsUpdated = false;
+    private Vector3 _beforeRHandPos;
+    private Vector3 _beforeLHandPos;
+    private quaternion _beforeRHandRot;
+    private quaternion _beforeLHandRot;
+    
     
     private void Start()
     {
@@ -78,10 +106,17 @@ public class Test01_Manager : TestManager
     private void Update()
     {
         GetKeyboardCommand(); // 오류 생길 경우 처리
-        
-        if (state != TestState.NotStarted)
-            TickTime();
 
+        if (state != TestState.NotStarted)
+        {
+            TickTime();
+        }
+
+        if (IsTickThisTime)
+        {
+            SaveHandMovement();
+        }
+        
         if (!IsUpdated && currentTryNum >= repeatTryNum / 2)
         {
             Debug.Log("Section 01 FINISH");
@@ -99,9 +134,61 @@ public class Test01_Manager : TestManager
 #else
         Application.Quit(); // 어플리케이션 종료
 #endif
+            
         }
+
+        UpdateHandMovement();
     }
-    
+
+    private void UpdateHandMovement()
+    {
+        if (RightHand.activeSelf)
+        {
+            _beforeRHandPos = R_palm.transform.position;
+            _beforeRHandRot = R_palm.transform.rotation;
+
+        }
+        if (LeftHand.activeSelf)
+        {
+            _beforeLHandPos = L_palm.transform.position;
+            _beforeLHandRot = L_palm.transform.rotation;
+        }
+
+    }
+
+    private void SaveHandMovement()
+    {
+        if (RightHand.activeSelf)
+        {
+            Vector3 palmPosition = R_palm.transform.position;
+            float _distance = (_beforeRHandPos - palmPosition).sqrMagnitude;
+            handRTime.Add(_totalTime);
+            handRMovement.Add(palmPosition);
+            handRMovementValue.Add(_distance);
+
+            // 두 벡터를 기준으로 회전을 계산하여 Quaternion으로 변환
+            Quaternion rot = R_palm.transform.rotation;
+            float _angle = Quaternion.Angle(rot, _beforeRHandRot);
+            handRRotation.Add( rot);
+            handRRotationValue.Add(_angle);
+        }
+
+        if (LeftHand.activeSelf)
+        {
+            Vector3 palmPosition = L_palm.transform.position;
+            float _distance = (_beforeLHandPos - palmPosition).sqrMagnitude;
+            handLTime.Add(_totalTime);
+            handLMovement.Add(palmPosition);
+            handLMovementValue.Add(_distance);
+
+            // 두 벡터를 기준으로 회전을 계산하여 Quaternion으로 변환
+            Quaternion rot = L_palm.transform.rotation;
+            float _angle = Quaternion.Angle(rot, _beforeLHandRot);
+            handLRotation.Add(rot);
+            handLRotationValue.Add(_angle);
+        }
+
+    }
 
     public override void SetGameObjects()
     {
@@ -121,25 +208,67 @@ public class Test01_Manager : TestManager
 
     private void initalizeDictionary()
     {
+        Debug.Log("[TEST] initalize Dictionary");
         currentTryNum = 0;
+        
         totalTime.Clear();
         sectionsTime.Clear();
         techniqueTime.Clear();
+        
         ACreationNum = 0;
         BCreationNum = 0;
         ACreationTime.Clear();
         BCreationTime.Clear();
+        
         ACorrectionNum = 0;
         BCorrectionNum = 0;
         ACorrectionTime.Clear();
         BCorrectionTime.Clear();
+        
         errorNum = 0;
         errorTimes.Clear();
+        
         ACreationDistance.Clear();
         BCreationDistance.Clear();
+        
         movementTime.Clear();
+        
         BMoveDistance.Clear();
+
+        handRTime.Clear();
+        handLTime.Clear();
+        handRMovement.Clear();
+        handLMovement.Clear();
+        handRMovementValue.Clear();
+        handLMovementValue.Clear();
+        handRRotation.Clear();
+        handLRotation.Clear();
+        handRRotationValue.Clear();
+        handLRotationValue.Clear();
+        
         IsTestRecordEnd = false;
+    }
+
+    private void InitalizeTryData()
+    {
+                
+        ACreationNum = 0;
+        BCreationNum = 0;
+        ACorrectionNum = 0;
+        BCorrectionNum = 0;
+        errorNum = 0;
+        
+        handRTime.Clear();
+        handLTime.Clear();
+        handRMovement.Clear();
+        handLMovement.Clear();
+        handRMovementValue.Clear();
+        handLMovementValue.Clear();
+        handRRotation.Clear();
+        handLRotation.Clear();
+        handRRotationValue.Clear();
+        handLRotationValue.Clear();
+
     }
 
     public override void InitalizeThisTry()
@@ -147,6 +276,8 @@ public class Test01_Manager : TestManager
         base.InitalizeThisTry();
         // 카메라 위치 재설정
         //player.GetComponent<XROrigin>().MoveCameraToWorldLocation(new Vector3(0, 0.46f, 1.36f));
+        
+        InitalizeTryData();
         MiniatureWorld.Instance.RemoveProxies();
         MiniatureWorld.Instance.RemoveSatellites();
         MiniatureWorld.Instance.RemoveSatellites();
@@ -559,13 +690,19 @@ public class Test01_Manager : TestManager
     private void MovementDistance()
     {
         Transform indicatorB = indicator_B.transform;
-        MiniatureWorld.Instance.ProxiesTable.TryGetValue((uint)portalIndex, out ProxyNode node);
-
-        float distance = (node.Marks[0].transform.position - indicatorB.position).magnitude;
+        if (MiniatureWorld.Instance.ProxiesTable.TryGetValue((uint)portalIndex, out ProxyNode node))
+        {
+            if (node.Marks.Count > 0)
+            {
+                float distance = (node.Marks[0].transform.position - indicatorB.position).magnitude;
+                BMoveDistance.Add(currentTryNum, distance);
+                return;
+            }
+        }
         
-        BMoveDistance.Add(currentTryNum, distance);
+        BMoveDistance.Add(currentTryNum, -1.0f);
     }
-    
+
     private void CheckResult()
     {
         Debug.Log("[RESULT] Save Data Start");
@@ -574,6 +711,8 @@ public class Test01_Manager : TestManager
         //for (uint tryNum = 0; tryNum < repeatTryNum; tryNum++)
         {
             TaskTry taskResult = new TaskTry();
+            HandData R = new HandData();
+            HandData L = new HandData();
             currentTry = taskResult;
 
             if (totalTime.TryGetValue(tryNum, out float time))
@@ -650,15 +789,30 @@ public class Test01_Manager : TestManager
                 {
                     taskResult.moveTime = move;
                 }
+                
+                // Player Hand 움직임
+                R.handRecordTime = handRTime.ToArray();
+                R.handMovement = handRMovement.ToArray();
+                R.handMovementValue = handRMovementValue.ToArray();
+                R.handRotation = handRRotation.ToArray();
+                R.handRotationValue = handRRotationValue.ToArray(); 
+                
+                L.handRecordTime = handLTime.ToArray();
+                L.handMovement = handLMovement.ToArray();
+                L.handMovementValue = handLMovementValue.ToArray();
+                L.handRotation = handLRotation.ToArray();
+                L.handRotationValue = handLRotationValue.ToArray(); 
+                
             }
             // TaskTry struct 세팅 완료, txt 변환
             //Save(totalTryNum[(int)currentGroupType], taskResult); 실행 위치 변경
-            Save(currentTryNum, taskResult);
-            
+            SaveTry(currentTryNum, taskResult);
+            SaveHandTry(currentTryNum, R, true);
+            SaveHandTry(currentTryNum, L, false);
         }
     }
 
-    public void Save(uint tryNum, TaskTry saveData)
+    public void SaveTry(uint tryNum, TaskTry saveData)
     {
         string name = " ";
         if (isPractice)
@@ -668,6 +822,31 @@ public class Test01_Manager : TestManager
 
         //ToJson 부분
         string jsonData = JsonUtility.ToJson(saveData, true);
+
+        string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/01";
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+
+        File.WriteAllText(path + "/" + name + ".txt", jsonData);
+    }
+    
+    public void SaveHandTry(uint tryNum, HandData rData, bool IsRight)
+    {
+        string name = " ";
+        if (isPractice)
+            name = "Practice_Subject" + subjectNum + "_Try_" + tryNum + "_" + currentGroupType;
+        else
+            name = "Test01_Subject" + subjectNum + "_Try_" + tryNum + "_" + currentGroupType;
+
+        if (IsRight)
+            name += "_RightHand";
+        else
+            name += "_LeftHand";
+        
+        //ToJson 부분
+        string jsonData = JsonUtility.ToJson(rData, true);
 
         string path = Application.dataPath + "/DataSave/Subject" + subjectNum + "/01";
         if (!Directory.Exists(path))

@@ -22,11 +22,11 @@ public class TestData
 public struct TaskTry
 {
     public uint tryNum;
-    
+
     public float totalTime;
 
     [SerializeField] public float[] sectionTimesList;
-    
+
     public float ACreationTime; // techniqueTime
     public float BCreationTime;
 
@@ -35,22 +35,34 @@ public struct TaskTry
     [SerializeField] public float[] ACreateTimeList;
     [SerializeField] public float[] BCreateTimeList;
 
-    public int ACorrectionNum; 
-    public int BCorrectionNum; 
+    public int ACorrectionNum;
+    public int BCorrectionNum;
     [SerializeField] public float[] ACorrectTimeList;
     [SerializeField] public float[] BCorrectTimeList;
-    
+
     public int errorNum;
     [SerializeField] public float[] errorTimeList;
-    
+
     public float ADistance;
     public float BDistance;
-    
+
     [SerializeField] public float[] ADistanceList;
     [SerializeField] public float[] BDistanceList;
-    
+
     public float moveTime;
     public float moveDistance;
+}
+
+[System.Serializable]
+public struct HandData
+{
+    [SerializeField] public float[] handRecordTime;
+    
+    [SerializeField] public Vector3[] handMovement;
+    [SerializeField] public float[] handMovementValue;
+    
+    [SerializeField] public Quaternion[] handRotation;
+    [SerializeField] public float[]  handRotationValue;
 }
 
 [Serializable]
