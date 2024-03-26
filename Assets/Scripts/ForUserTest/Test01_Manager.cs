@@ -32,7 +32,10 @@ public class Test01_Manager : TestManager
     [SerializeField] private MakeRoi testInteraction;
     [SerializeField] private HandRayPortal controlInteraction_1;
     [SerializeField] private GameObject controlInteraction_2;
-    
+
+    [Space(10.0f)] 
+    [Header("[Test01] values")] 
+    [SerializeField] private int _repeatNum = 6;
     
     //+---------------- 실험 결과를 저장할 데이터 ----------------+//
     // 실험에 총 걸린 시간을 Check하기 위함 ( TryNum, Time )
@@ -294,17 +297,17 @@ public class Test01_Manager : TestManager
         switch (currentGroupType)
         {
             case TaskGroupType.TestGroup: // 01,02: Satellite
-                Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.002f, 1.47f, 1.747f);
+                //Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, 1.46f, 1.9f);
                 break;
 
             case TaskGroupType.ControlGroup1: //01: Parabolic Ray
-                Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
+                //Debug.Log("[SET] 대조군1 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 break;
 
             case TaskGroupType.ControlGroup2: //01: Poros
-                Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
+                //Debug.Log("[SET] 대조군2 InitalizeThisTry()-Try Setting 완료");
                 MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, -10.0f, 0.0f);
                 break;
             
@@ -414,9 +417,8 @@ public class Test01_Manager : TestManager
         else return;
     }
 
-    public override void SetTargetValue()
+    public override void SetTargetObjects()
     {
-
         float target_xValue = 0.0f;
         float target_yValue = 0.0f;
         float target_zValue = 0.0f;        
@@ -575,7 +577,7 @@ public class Test01_Manager : TestManager
                 FinishTimeSetting();
                 FinishSessionTime();
 
-                MovementDistance();
+                //MovementDistance(); TargetTrigger.cs 로 moved
                 
                 SetTimeThisTry(false);
                 HideInteraction();
@@ -606,7 +608,7 @@ public class Test01_Manager : TestManager
         }
         else
         {
-            if (tryNum != 0 && tryNum % 2 == 0)
+            if (tryNum != 0 && tryNum % (_repeatNum-1) == 0)
                 return true;
         }
 
@@ -696,11 +698,11 @@ public class Test01_Manager : TestManager
         }
     }
 
-    private void MovementDistance()
+    public void MovementDistance(Vector3 pos)
     {
         Transform indicatorB = indicator_B.transform;
 
-        float distance = (_target.transform.position - indicatorB.position).magnitude;
+        float distance = (pos - indicatorB.position).magnitude;
         BMoveDistance.Add(currentTryNum, distance);
     }
 

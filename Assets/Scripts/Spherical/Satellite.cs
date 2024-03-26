@@ -32,7 +32,7 @@ public class Satellite : MonoBehaviour
     private float _notGraspedTime = 0.0f;
 
     private Vector3 _downRayVector;
-    
+    private Vector3 _initPosition;
 
     public enum SatelliteState
     {
@@ -50,6 +50,7 @@ public class Satellite : MonoBehaviour
         _curPos = transform.localPosition;
         _lastPos = transform.localPosition;
 
+        _initPosition = transform.localPosition;
         state = SatelliteState.Idle;
     }
 
@@ -139,6 +140,15 @@ public class Satellite : MonoBehaviour
         //else canSetROI = false;
 
         //return rayPoint;
+    }
+
+    public void UpDownSatellite(float delta)
+    {
+        //Debug.Log(delta);
+        Vector3 newVector = new Vector3(transform.localPosition.x,
+            transform.localPosition.y + transform.localPosition.y * delta, transform.localPosition.z);
+        
+        transform.localPosition = newVector;
     }
     
     void SetViewToMark()

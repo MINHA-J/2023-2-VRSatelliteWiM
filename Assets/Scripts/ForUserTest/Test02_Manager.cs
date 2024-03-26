@@ -136,7 +136,7 @@ public class Test02_Manager : TestManager
         }
     }
 
-    public override void SetTargetValue()
+    public override void SetTargetObjects()
     {
         float timeSeed = Time.time * 100f;
         Random.InitState((int)timeSeed);

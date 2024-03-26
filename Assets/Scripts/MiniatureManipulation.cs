@@ -8,11 +8,13 @@ using Leap.Unity;
 using Leap.Unity.Attributes;
 using Leap.Unity.Interaction;
 using Unity.XR.CoreUtils;
+using UnityEngine.Serialization;
 
 public class MiniatureManipulation : MonoBehaviour
 {
     [Header("Basic Setting")] 
-    public HandModelBase HandModel;
+    public HandModelBase LeftHandModel;
+    public HandModelBase RightHandModel;
     public GameObject HeadModel;
 
     public GameObject testModel;
@@ -28,8 +30,8 @@ public class MiniatureManipulation : MonoBehaviour
     private MiniatureWorld miniatureWorld;
 
     // hand coordinate
-    [SerializeField] private Leap.Hand hand;
-    private Finger thumb, index, middle;
+    [SerializeField] private Leap.Hand L_hand, R_hand;
+    private Finger L_thumb, L_index, L_middle;
     private Vector3 directionX, directionY, directionZ;
     private float radius;
 
@@ -73,10 +75,12 @@ public class MiniatureManipulation : MonoBehaviour
     {
         //ShowGizmos = false;
         inWorldTransform = this.transform;
-        hand = HandModel.GetLeapHand();
-        thumb = hand.Fingers[0];
-        index = hand.Fingers[1];
-        middle = hand.Fingers[2];
+        L_hand = LeftHandModel.GetLeapHand();
+        L_thumb = L_hand.Fingers[0];
+        L_index = L_hand.Fingers[1];
+        L_middle = L_hand.Fingers[2];
+
+        R_hand = RightHandModel.GetLeapHand();
 
         //기존 설정된 ROI의 Size를 set
         worldROI = miniatureWorld.ROI.gameObject;
@@ -84,14 +88,13 @@ public class MiniatureManipulation : MonoBehaviour
         
         eyeRayFilter = new OneEuroFilter<Vector3>(oneEurofreq, oneEuroMinCutoff, oneEuroBeta);
     }
-
-
+    
 
     public bool checkHandCoordinate()
     {
-        directionX = (middle.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition).normalized;
-        directionY = (thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition).normalized;
-        directionZ = (index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition).normalized;
+        directionX = (L_middle.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - L_hand.PalmPosition).normalized;
+        directionY = (L_thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - L_hand.PalmPosition).normalized;
+        directionZ = (L_index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - L_hand.PalmPosition).normalized;
 
         // 계산된 방향 벡터의 내적을 계산
         float dotProductXY = Vector3.Dot(directionX, directionY);
@@ -100,7 +103,7 @@ public class MiniatureManipulation : MonoBehaviour
         //float dotProductYZ = Vector3.Dot(directionY, directionZ);
         //float dotProductZX = Vector3.Dot(directionZ, directionX);
 
-        float dotProductPalm = 1 - Vector3.Dot(hand.PalmNormal, Vector3.up);
+        float dotProductPalm = 1 - Vector3.Dot(L_hand.PalmNormal, Vector3.up);
         
         // 내적이 0에 가까운 작은 오차 범위 내에 있는 경우, 두 직선은 직교합니다.
         float epsilon = 0.8f;
@@ -137,7 +140,7 @@ public class MiniatureManipulation : MonoBehaviour
 
     public void SetOnHand()
     {
-        this.transform.position = hand.PalmPosition;
+        this.transform.position = L_hand.PalmPosition;
         this.transform.position += this.transform.up * 0.1f;
 
         /* 231101 잠시 test 중 >> 음 주석 처리한게 낫군...
@@ -176,13 +179,20 @@ public class MiniatureManipulation : MonoBehaviour
         
     }
 
-    private Vector3 CameraRay()
+    private Vector3 ShootRayForEye()
     {
         RaycastHit raycastHit1, raycastHit2;
-        //Ray ray1 = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        Vector3 palmNormal = hand.PalmNormal;
-
-        Ray ray1 = new Ray(hand.PalmPosition, palmNormal);
+        Ray ray1 = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        
+        // Finger Ray
+        /*R_hand = RightHandModel.GetLeapHand();
+        Finger direction0 = R_hand.Fingers[2];
+        Finger direction1 = R_hand.Fingers[3];
+        Finger direction2 = R_hand.Fingers[4];
+        Vector3 center = (direction0.TipPosition + direction1.TipPosition + direction2.TipPosition) / 3.0f;
+        Vector3 direction = (direction0.Direction + direction1.Direction + direction2.Direction) / 3.0f;
+        Debug.DrawLine(center, center + direction * 100000f, Color.magenta);
+        Ray ray1 = new Ray(center, direction);*/
 
         Vector3 rayPoint = Vector3.zero;
 
@@ -252,12 +262,38 @@ public class MiniatureManipulation : MonoBehaviour
 
     public void UpdateEyePosition()
     {
-
-        Vector3 cameraPoint = CameraRay();
-        if (cameraPoint != Vector3.zero)
-            CoordinateTransformation(cameraPoint);
-
+        if (RightHandModel != null && RightHandModel.IsTracked)
+        {
+            Vector3 rayForEye = ShootRayForEye();
+            if (rayForEye != Vector3.zero)
+                CoordinateTransformation(rayForEye);
+        }
     }
+
+    //240326
+    // private void ForDebugging()
+    // {
+    //     if (RightHandModel != null && RightHandModel.IsTracked)
+    //     {
+    //         R_hand = RightHandModel.GetLeapHand();
+    //         R_thumb = R_hand.Fingers[0];
+    //         R_index = R_hand.Fingers[1];
+    //         Finger direction0 = R_hand.Fingers[2];
+    //         Finger direction1 = R_hand.Fingers[3];
+    //         Finger direction2 = R_hand.Fingers[4];
+    //
+    //         Vector3 center = (direction0.TipPosition + direction1.TipPosition + direction2.TipPosition) / 3.0f;
+    //         Vector3 normal = (direction0.Direction + direction1.Direction + direction2.Direction) / 3.0f;
+    //         // Vector3 center = (R_thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint +
+    //         //                   R_index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint) / 2f; // 원의 중심 계산
+    //         //
+    //         // Vector3 normal = Vector3.Cross((R_index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - center).normalized,
+    //         //     (R_thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - center).normalized);
+    //
+    //         //Debug.DrawLine(R_hand.PalmPosition, R_hand.PalmPosition + R_hand.Direction * 100000f, Color.magenta);
+    //         Debug.DrawLine(center, center + normal * 100000f, Color.magenta);
+    //     }
+    // }
 
     // Update is called once per frame
     void Update()
@@ -267,7 +303,7 @@ public class MiniatureManipulation : MonoBehaviour
         {
             if (!SetfirstPos)
             {
-                firstGetPos = hand.PalmPosition;
+                firstGetPos = L_hand.PalmPosition;
                 SetfirstPos = true;
 
                 //SetOnHand();
@@ -293,21 +329,21 @@ public class MiniatureManipulation : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (ShowGizmos && HandModel != null && HandModel.IsTracked)
+        if (ShowGizmos && LeftHandModel != null && LeftHandModel.IsTracked)
         {
-            hand = HandModel.GetLeapHand();
-            thumb = hand.Fingers[0];
-            index = hand.Fingers[1];
-            middle = hand.Fingers[2];
+            L_hand = LeftHandModel.GetLeapHand();
+            L_thumb = L_hand.Fingers[0];
+            L_index = L_hand.Fingers[1];
+            L_middle = L_hand.Fingers[2];
 
             Gizmos.color = Color.green;
-            Gizmos.DrawRay(hand.PalmPosition, thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition);
+            Gizmos.DrawRay(L_hand.PalmPosition, L_thumb.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - L_hand.PalmPosition);
 
             Gizmos.color = Color.blue;
-            Gizmos.DrawRay(hand.PalmPosition, index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition);
+            Gizmos.DrawRay(L_hand.PalmPosition, L_index.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - L_hand.PalmPosition);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(hand.PalmPosition, middle.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - hand.PalmPosition);
+            Gizmos.DrawRay(L_hand.PalmPosition, L_middle.Bone(Bone.BoneType.TYPE_DISTAL).NextJoint - L_hand.PalmPosition);
 
             Color centerColor = Color.clear;
             Vector3 centerPosition = Vector3.zero;

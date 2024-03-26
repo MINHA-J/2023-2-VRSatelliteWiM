@@ -1,11 +1,11 @@
 ParticipantID,_T,T
-1,TestGroup,5
+1,ControlGroup1,5
 1,ControlGroup1,0
 1,ControlGroup1,2
 1,ControlGroup1,1
 1,ControlGroup1,3
 1,ControlGroup1,4
-1,ControlGroup1,5
+1,TestGroup,5
 1,TestGroup,0
 1,TestGroup,2
 1,TestGroup,1

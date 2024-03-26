@@ -72,7 +72,7 @@ public class TestManager : MonoBehaviour
     public int portalIndex = 0; // A, B 중 어디를 위한 Portal일까
 
     // 각 기술 시도 횟수 저장을 위한 데이터
-    public uint[] totalTryNum = { 0, 0, 0, 0 };
+    public uint[] totalTryNum = { 0, 0, 0};
 
     [HideInInspector] public GameObject targetObject;
     [HideInInspector] public TextMeshProUGUI TitleTextUI;
@@ -343,10 +343,10 @@ public class TestManager : MonoBehaviour
             }
 
         currentGroupType = currentTestData.taskType[(int)currentTryNum]; //Data에 일치하는 순서로
-        SetTargetValue();
+        SetTargetObjects();
         ShowInteraction(currentGroupType);
 
-        if (doShowImages && totalTryNum[(int)currentGroupType] % 3 == 0)
+        if (doShowImages && totalTryNum[(int)currentGroupType] % 6 == 0)
             ShowImage(currentGroupType);
 
         techniques.SetActive(false);
@@ -372,7 +372,7 @@ public class TestManager : MonoBehaviour
         techniques.SetActive(false);
     }
 
-    public virtual void SetTargetValue()
+    public virtual void SetTargetObjects()
     {
         float target_xValue = 0.0f;
         float target_yValue = 0.0f;

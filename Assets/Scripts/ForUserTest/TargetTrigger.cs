@@ -34,6 +34,7 @@ public class TargetTrigger : MonoBehaviour
             {
                 case 1:
                     Test01_Manager manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
+                    manager_1.MovementDistance(this.transform.position);
                     manager_1.GoNextTestState();
                     break;
                 case 2:

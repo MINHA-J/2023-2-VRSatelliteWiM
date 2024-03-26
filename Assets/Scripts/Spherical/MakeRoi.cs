@@ -130,17 +130,8 @@ public class MakeRoi : MonoBehaviour
         delta = Time.deltaTime * delta;
         _markNode.transform.localScale += new Vector3(delta, delta, delta);
         _markNode.transform.localScale.Clamp(MiniatureWorld.MinMarkSize, MiniatureWorld.MaxMarkSize);
-
-
-        SyncToSatellite(delta);
-    }
-
-    private void SyncToSatellite(float delta)
-    {
-        Vector3 now = this.transform.localPosition;
-        Vector3 move = new Vector3(now.x, now.y + delta, now.z);
-        move.Clamp(0.5f, 1.0f);
-        _satellite.transform.localPosition = move;
+        
+        _satellite.UpDownSatellite(delta);
     }
 
     private void TranslateMarkedSpace(float delta)

@@ -385,7 +385,7 @@ MonoBehaviour:
     experimentNum: 0
     currentGroupType: 0
     currentTryNum: 0
-  answerValue: 
+  answerValue: 05000000010000000100000001000000
 --- !u!1 &6657051089676309433
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,9 +452,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBAA9\uD45C\uBB3C\uC744 \uD655\uC778\uD558\uACE0, \uD3EC\uD0C8\uC744
-    \uC0DD\uC131\uD558\uB294 \uACFC\uC815\uC5D0\uC11C\n\uACF5\uAC04\uC744 \uC778\uC2DD\uD558\uB294
-    \uACFC\uC815\uC774 \uD3B8\uB9AC\uD588\uB2E4."
+  m_text: "\uAC1D\uCCB4\uB97C \uD5A5\uD574 \uD3EC\uD0C8\uC744 \uC0DD\uC131\uD558\uACE0,
+    \uC81C\uC5B4\uD558\uB294 \uBC29\uBC95\uC774 \uC5B4\uB835\uC9C0 \uC54A\uC558\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772427de52a1b0e40898ac4265d971d9, type: 2}
   m_sharedMaterial: {fileID: 2204639313721611805, guid: 772427de52a1b0e40898ac4265d971d9,
@@ -1540,7 +1539,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 7
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2641,7 +2640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Q1
+  m_text: Q3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3431,7 +3430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACF5\uAC04 \uC778\uC2DD\uC774 \uD3B8\uB9AC\uD568"
+  m_text: "\uC0AC\uC6A9 \uB09C\uC774\uB3C4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 772427de52a1b0e40898ac4265d971d9, type: 2}
   m_sharedMaterial: {fileID: 2204639313721611805, guid: 772427de52a1b0e40898ac4265d971d9,
