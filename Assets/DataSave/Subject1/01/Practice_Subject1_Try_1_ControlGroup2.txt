@@ -1,0 +1,46 @@
+{
+    "tryNum": 2,
+    "totalTime": 96.71759796142578,
+    "sectionTimesList": [
+        26.1739559173584,
+        41.23991394042969,
+        29.303905487060548
+    ],
+    "ACreationTime": 26.1739559173584,
+    "BCreationTime": 41.23991394042969,
+    "ACreationNum": 2,
+    "BCreationNum": 5,
+    "ACreateTimeList": [
+        3.021059989929199,
+        16.617738723754884
+    ],
+    "BCreateTimeList": [
+        2.116025686264038,
+        12.953343391418457,
+        19.83057403564453,
+        29.8949031829834,
+        35.0660285949707
+    ],
+    "ACorrectionNum": 0,
+    "BCorrectionNum": 0,
+    "ACorrectTimeList": [],
+    "BCorrectTimeList": [],
+    "errorNum": 0,
+    "errorTimeList": [],
+    "errorLogList": [],
+    "ADistance": 7.522218704223633,
+    "BDistance": 11.178607940673829,
+    "ADistanceList": [
+        7.316620826721191,
+        7.727817058563232
+    ],
+    "BDistanceList": [
+        10.312498092651368,
+        10.747249603271485,
+        10.75180721282959,
+        12.5887451171875,
+        11.492740631103516
+    ],
+    "moveTime": 29.303905487060548,
+    "moveDistance": 0.0
+}

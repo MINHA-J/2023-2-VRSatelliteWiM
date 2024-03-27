@@ -42,6 +42,7 @@ public struct TaskTry
 
     public int errorNum;
     [SerializeField] public float[] errorTimeList;
+    [SerializeField] public string[] errorLogList;
 
     public float ADistance;
     public float BDistance;

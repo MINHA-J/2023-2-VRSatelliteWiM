@@ -1,0 +1,7 @@
+{
+    "handRecordTime": [],
+    "handMovement": [],
+    "handMovementValue": [],
+    "handRotation": [],
+    "handRotationValue": []
+}

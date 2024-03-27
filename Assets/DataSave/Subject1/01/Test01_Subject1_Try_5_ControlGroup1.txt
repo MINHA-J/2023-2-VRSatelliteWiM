@@ -1,0 +1,28 @@
+{
+    "tryNum": 6,
+    "totalTime": 0.6540484428405762,
+    "sectionTimesList": [
+        0.31974607706069949,
+        0.16747990250587464,
+        0.16682249307632447
+    ],
+    "ACreationTime": 0.31974607706069949,
+    "BCreationTime": 0.16747990250587464,
+    "ACreationNum": 0,
+    "BCreationNum": 0,
+    "ACreateTimeList": [],
+    "BCreateTimeList": [],
+    "ACorrectionNum": 0,
+    "BCorrectionNum": 0,
+    "ACorrectTimeList": [],
+    "BCorrectTimeList": [],
+    "errorNum": 0,
+    "errorTimeList": [],
+    "errorLogList": [],
+    "ADistance": 0.0,
+    "BDistance": 0.0,
+    "ADistanceList": [],
+    "BDistanceList": [],
+    "moveTime": 0.16682249307632447,
+    "moveDistance": 0.0
+}

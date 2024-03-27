@@ -1,0 +1,42 @@
+{
+    "tryNum": 1,
+    "totalTime": 66.87586975097656,
+    "sectionTimesList": [
+        7.716311931610107,
+        5.923299312591553,
+        53.23627853393555
+    ],
+    "ACreationTime": 7.716311931610107,
+    "BCreationTime": 5.923299312591553,
+    "ACreationNum": 1,
+    "BCreationNum": 1,
+    "ACreateTimeList": [
+        4.942545413970947
+    ],
+    "BCreateTimeList": [
+        2.3950037956237795
+    ],
+    "ACorrectionNum": 0,
+    "BCorrectionNum": 0,
+    "ACorrectTimeList": [],
+    "BCorrectTimeList": [],
+    "errorNum": 2,
+    "errorTimeList": [
+        38.2874755859375,
+        55.62892532348633
+    ],
+    "errorLogList": [
+        "ground",
+        "Indecator A"
+    ],
+    "ADistance": 0.703373372554779,
+    "BDistance": 0.5187997817993164,
+    "ADistanceList": [
+        0.703373372554779
+    ],
+    "BDistanceList": [
+        0.5187997817993164
+    ],
+    "moveTime": 53.23627853393555,
+    "moveDistance": 0.0
+}

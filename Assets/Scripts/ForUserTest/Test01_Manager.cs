@@ -62,6 +62,8 @@ public class Test01_Manager : TestManager
     // TODO: Portal을 통해 옮기는 과정에서의 Error를 저장하기 위함
     private uint errorNum = 0;
     private Dictionary<uint, List<float>> errorTimes = new Dictionary<uint, List<float>>();
+    private Dictionary<uint, List<string>> errorLogs = new Dictionary<uint, List<string>>();
+
     
     // Target과 생성된 Portal Distance
     private Dictionary<uint, List<float>> ACreationDistance = new Dictionary<uint, List<float>>();
@@ -239,6 +241,7 @@ public class Test01_Manager : TestManager
         
         errorNum = 0;
         errorTimes.Clear();
+        errorLogs.Clear();
         
         ACreationDistance.Clear();
         BCreationDistance.Clear();
@@ -298,7 +301,7 @@ public class Test01_Manager : TestManager
         {
             case TaskGroupType.TestGroup: // 01,02: Satellite
                 //Debug.Log("[SET] 실험군 InitalizeThisTry()-Try Setting 완료");
-                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, 1.46f, 1.9f);
+                MiniatureWorld.Instance.gameObject.transform.position = new Vector3(0.0f, 1.25f, 1.9f);
                 break;
 
             case TaskGroupType.ControlGroup1: //01: Parabolic Ray
@@ -682,7 +685,7 @@ public class Test01_Manager : TestManager
 
     }
     
-    public void AddError()
+    public void AddError(string logInfo)
     {
         // Object 떨어뜨리거나, 포탈 중심에 설정하지 못한 경우 재설정 해줍니다
         errorNum++;
@@ -696,6 +699,18 @@ public class Test01_Manager : TestManager
             errorTime.Add(_totalTime);
             errorTimes.Add(currentTryNum, errorTime);
         }
+        
+        if (errorLogs.TryGetValue(currentTryNum, out List<string> log))
+        {
+            log.Add(logInfo);
+        }
+        else
+        {
+            List<string> errorLog = new List<string>();
+            errorLog.Add(logInfo);
+            errorLogs.Add(currentTryNum, errorLog);
+        }
+        
     }
 
     public void MovementDistance(Vector3 pos)
@@ -768,6 +783,11 @@ public class Test01_Manager : TestManager
                     taskResult.errorNum = (int)errorNum;
                     taskResult.errorTimeList = errorTime.ToArray();
                 }
+                if (errorLogs.TryGetValue(tryNum, out List<string> logs))
+                {
+                    taskResult.errorLogList = logs.ToArray();
+                }
+                
 
                 // 4) 각 포탈 생성 거리
                 float sumDistance = 0.0f;

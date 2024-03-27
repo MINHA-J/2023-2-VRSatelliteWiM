@@ -8,20 +8,27 @@ using UnityEngine.Serialization;
 
 public class TargetTrigger : MonoBehaviour
 {
-    [FormerlySerializedAs("currentTarget")] [SerializeField] private string triggerObject;
-
+    public AudioClip ErrorSound;
+    public AudioClip CorrectSound;
+    
+    [SerializeField] private string triggerObject;
+    [SerializeField] private string collideObject;
+    
     private InteractionBehaviour _interaction;
     private Rigidbody _rigidbody;
-
+    private AudioSource _audioSource;
+    
     private Vector3 _beforePos;
 
     [SerializeField] private bool _wasGrasped = false; // User에 의해 잡힌 적이 있음 -> B에 가야함
     private bool _IsChecked = false;
+    private bool _IsFinished = false;
     
     private void Start()
     {
         _interaction = this.GetComponent<InteractionBehaviour>();
         _rigidbody = this.GetComponent<Rigidbody>();
+        _audioSource = this.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,26 +49,64 @@ public class TargetTrigger : MonoBehaviour
                     manager_2.GoNextTestState();
                     break;
             }
-            
+
+            _IsFinished = true;
+            _audioSource.clip = CorrectSound;
+            _audioSource.Play();
             Debug.Log("[TARGET] Object가 Indicator B에 TriggerEnter!");
         }
         else if (_wasGrasped 
-                 && (triggerObject == "Indecator A" || triggerObject == "ground" || triggerObject == "ground (1)"))
+                 && !IsRightTrigger(triggerObject))
         {
             Debug.Log("[TARGET] !! Reset !!");
-            ResetThisPosition();
+            ResetThisPosition(triggerObject);
         }
     }
-    
-    public void ResetThisPosition()
+
+    private void OnCollisionEnter(Collision other)
+    {
+        collideObject = other.collider.name;
+        
+        if (!_IsFinished && _wasGrasped && !IsRightCollider(collideObject))
+        {
+            Debug.Log("[TARGET] !! Reset !!");
+            ResetThisPosition(collideObject);
+        }
+    }
+
+    private bool IsRightTrigger(string ObjectName)
+    {
+        if (ObjectName == "Indecator A" || ObjectName == "XR Origin")
+            return false;
+
+        else
+            return true;
+    }
+
+    private bool IsRightCollider(string ObjectName)
+    {
+        if (ObjectName == "ground" || ObjectName == "ground (1)")
+            return false;
+        else
+            return true;
+    }
+
+    public void ResetThisPosition(string obj)
     {
         Test01_Manager manager_1 = TestManager.Instance.GetTestManager().GetComponent<Test01_Manager>();
-        manager_1.AddError();
+        manager_1.AddError(obj);
         
         _IsChecked = false;
         _wasGrasped = false;
+        
+        if (_interaction.isGrasped)
+            _interaction.graspingController.ReleaseGrasp();
+        
         MiniatureWorld.Instance.ProxiesTable.TryGetValue(0, out ProxyNode node);
-        this.transform.position = node.Marks[0].transform.position;
+        this.transform.position = new Vector3 (node.Marks[0].transform.position.x, 0.15f, node.Marks[0].transform.position.z);
+
+        _audioSource.clip = ErrorSound;
+        _audioSource.Play();
     }
 
     /*

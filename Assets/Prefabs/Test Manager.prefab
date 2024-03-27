@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2524766246598770150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2524766246598770072}
+  - component: {fileID: 2524766246598770073}
+  m_Layer: 0
+  m_Name: Test Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2524766246598770072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2524766246598770150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2524766246598770073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2524766246598770150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bf4c3c99be3004ea9dfd63d41c4e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subjectNum: 1
+  experimentNum: 1
+  currentTestData:
+    subjectNum: 1
+    taskType: 
+    targetPosition: 
+  fileName: subject
+  doShowImages: 1
+  isPractice: 0
+  currentGroupType: 0
+  repeatTryNum: 18
+  TestPanel: {fileID: 0}
+  TestImagePanel: {fileID: 0}
+  targetPrefab: {fileID: 927203689972367359, guid: 77137e3c38d82d44fa057c54da2f47be,
+    type: 3}
+  player: {fileID: 0}
+  maxPortalNum: 2
+  techniques: {fileID: 0}
+  indicator_A: {fileID: 0}
+  indicator_B: {fileID: 0}
+  currentTryNum: 0
+  state: 0
+  _totalTime: 0
+  _thisTime: 0
+  _sessionTime: 0
+  _correctionTime: 0
+  currentTry:
+    tryNum: 0
+    totalTime: 0
+    sectionTimesList: []
+    ACreationTime: 0
+    BCreationTime: 0
+    ACreationNum: 0
+    BCreationNum: 0
+    ACreateTimeList: []
+    BCreateTimeList: []
+    ACorrectionNum: 0
+    BCorrectionNum: 0
+    ACorrectTimeList: []
+    BCorrectTimeList: []
+    errorNum: 0
+    errorTimeList: []
+    errorLogList: []
+    ADistance: 0
+    BDistance: 0
+    ADistanceList: []
+    BDistanceList: []
+    moveTime: 0
+    moveDistance: 0
+  portalIndex: 0
+  totalTryNum: 000000000000000000000000
+  targetObject: {fileID: 927203689972367359, guid: 77137e3c38d82d44fa057c54da2f47be,
+    type: 3}
+  TitleTextUI: {fileID: 0}
+  ContentsTextUI: {fileID: 0}
+  ButtonTextUI: {fileID: 0}
+  IsTickTotalTime: 0
+  IsTickSessionTime: 0
+  IsTickThisTime: 0
+  IsTestRecordEnd: 0
+  RightHand: {fileID: 0}
+  LeftHand: {fileID: 0}
+  R_palm: {fileID: 0}
+  L_palm: {fileID: 0}
+  portalPlaces: {fileID: 0}
+  _target: {fileID: 0}
+  testInteraction: {fileID: 0}
+  controlInteraction_1: {fileID: 0}
+  controlInteraction_2: {fileID: 0}
+  _repeatNum: 6

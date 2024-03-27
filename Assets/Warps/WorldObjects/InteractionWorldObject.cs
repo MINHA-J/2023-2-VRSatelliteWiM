@@ -112,7 +112,7 @@ public class InteractionWorldObject : MonoBehaviour
         TransformDuplicateObject();
     }
 
-    private void GraspEnd(InteractionController interactionController) {
+    public void GraspEnd(InteractionController interactionController) {
         StartCoroutine(TurnOffKinematic());
         if (interactionController.tag != "BaseHand") return;
         if (objectDuplicate != null) return;
